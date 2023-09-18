@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckAdminLogin
 {
-    public function handle(Request $request, Closure $next, $admin = null)
+    public function handle(Request $request, Closure $next)
     {
-        if (Auth::guard('admin')->check()) {
+        $check = Auth::guard('admin')->check();
+        if ($check) {
             return $next($request);
         } else {
-            return redirect('/adminlte/brand/index');
+            return redirect('/adminlte/login');
         }
     }
 }

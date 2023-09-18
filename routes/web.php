@@ -16,8 +16,9 @@ Route::get('/test', [TestController::class, 'test']);
 Route::post('/adminlte/login', [AdminController::class, 'actionlogin']);
 Route::get('/adminlte/login', [AdminController::class, 'viewlogin']);
 
-// Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
-Route::group(['prefix' => '/adminlte'], function () {
+Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
+    // Route::group(['prefix' => '/adminlte'], function () {
+    Route::get('/logout', [AdminController::class, 'logout']);
     Route::group(['prefix' => '/product-type'], function () {
         Route::get('/index', [ProductTypeController::class, 'index']);
         Route::post('/create', [ProductTypeController::class, 'create']);
@@ -37,6 +38,7 @@ Route::group(['prefix' => '/adminlte'], function () {
     Route::group(['prefix' => '/origin'], function () {
         Route::get('/index', [OriginController::class, 'index']);
         Route::post('/create', [OriginController::class, 'store']);
+        Route::get('/data', [OriginController::class, 'getdata']);
     });
     Route::group(['prefix' => '/product'], function () {
         Route::get('/index', [ProductController::class, 'index']);
@@ -47,8 +49,6 @@ Route::group(['prefix' => '/adminlte'], function () {
         Route::post('/getupdate', [ProductController::class, 'getupdate']);
         Route::post('/checkslug', [ProductController::class, 'checkslug']);
         Route::post('/delete', [ProductController::class, 'destroy']);
-
-        Route::get('/detail/{id}', [ProductController::class, 'detail']);
     });
     Route::group(['prefix' => '/warehouse'], function () {
         Route::get('/index', [WarehouseController::class, 'index']);

@@ -10,6 +10,9 @@ return new class extends Migration
     {
         Schema::create('origins', function (Blueprint $table) {
             $table->id();
+            $table->string('origin_name');
+            $table->string('slug_origin');
+            $table->integer('id_brand_name');
             $table->timestamps();
         });
     }

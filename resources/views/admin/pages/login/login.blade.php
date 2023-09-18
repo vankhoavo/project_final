@@ -60,7 +60,7 @@
                     <a href="forgot-password.html">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="register.html" class="text-center">Register a new membership</a>
+                    <a href="/adminlte/register" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
@@ -89,10 +89,14 @@
                             .then((res) => {
                                 if (res.data.status == true) {
                                     toastr.success(res.data.mess);
-                                    // window.location.href = '/adminlte/product-type/index';
+                                    setTimeout(() => {
+                                        window.location.href = '/adminlte/product-type/index';
+                                    }, 900);
                                 } else if (res.data.status == 0) {
                                     toastr.error(res.data.mess);
-                                    // window.location.href = '/adminlte/login';
+                                    setTimeout(() => {
+                                        window.location.href = '/adminlte/login';
+                                    }, 1100);
                                 }
                             })
                             .catch((res) => {

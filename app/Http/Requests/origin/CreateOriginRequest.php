@@ -14,7 +14,9 @@ class CreateOriginRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'origin_name'       => 'required|min:3',
+            'slug_origin'       => 'required|min:3',
+            'id_brand_name'     => 'required',
         ];
     }
 }

@@ -71,6 +71,13 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/adminlte/logout" class="nav-link">
+                        <p>
+                            Log Out
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

@@ -18,12 +18,19 @@ class OriginController extends Controller
 
     public function store(CreateOriginRequest $request)
     {
-
+        Origin::create($request->all());
+        return response()->json([
+            'status'    => true,
+            'mess'      => "New origin successfully added!",
+        ]);
     }
 
-    public function show()
+    public function getdata()
     {
-
+        $origin = Origin::get();
+        return response()->json([
+            'data'  => $origin,
+        ]);
     }
 
     public function edit()
