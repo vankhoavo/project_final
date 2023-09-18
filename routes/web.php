@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\ProductTypeController;
@@ -70,3 +71,10 @@ Route::group(['prefix' => '/adminlte'], function () {
 Route::group(['prefix' => 'laravel-filemanager'], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
+// This is the Client's web route
+Route::get('/', [HomePageController::class, 'index']);
+
+Route::get('/login', [HomePageController::class, 'viewlogin']);
+
+Route::get('/register', [HomePageController::class, 'viewregister']);
