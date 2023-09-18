@@ -3,7 +3,9 @@
 
 <head>
     @include('client.shares.css')
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
 </head>
 
 <!-- page wrapper -->
@@ -74,6 +76,9 @@
     <!-- jequery plugins -->
     @include('client.shares.js')
     <!-- main-js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    @yield('js')
 </body><!-- End of .page_wrapper -->
 
 </html>

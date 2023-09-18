@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
@@ -86,12 +87,12 @@
                         axios
                             .post('/adminlte/login', this.login)
                             .then((res) => {
-                                if (res.data.status) {
+                                if (res.data.status == true) {
                                     toastr.success(res.data.mess);
-                                    window.location.href = '/adminlte/product-type/index';
+                                    // window.location.href = '/adminlte/product-type/index';
                                 } else if (res.data.status == 0) {
                                     toastr.error(res.data.mess);
-                                    window.location.href = '/adminlte/login';
+                                    // window.location.href = '/adminlte/login';
                                 }
                             })
                             .catch((res) => {

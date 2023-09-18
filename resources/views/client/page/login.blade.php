@@ -2,7 +2,7 @@
 @section('content')
     <!-- page-title -->
     <section class="page-title centred">
-        <div class="pattern-layer" style="background-image: url(assets/images/background/page-title.jpg);"></div>
+        <div class="pattern-layer" style="background-image: url(client/images/background/page-title.jpg);"></div>
         <div class="auto-container">
             <div class="content-box">
                 <h1>My Account</h1>
@@ -17,7 +17,7 @@
 
     <!-- myaccount-section -->
     <section class="myaccount-section">
-        <div class="auto-container">
+        <div class="auto-container" id="app">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 inner-column">
                     <div class="inner-box login-inner">
@@ -25,14 +25,15 @@
                             <h3>Log in</h3>
                             <p>Log in to access all your resources</p>
                         </div>
-                        <form action="my-account.html" method="post" class="default-form">
+                        <form action="/login" method="post" class="default-form">
+                            @csrf
                             <div class="form-group">
                                 <label>Email address</label>
-                                <input type="email" name="email" required="">
+                                <input name="email" type="email">
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" name="password" required="">
+                                <input name="password" type="password">
                             </div>
                             <div class="form-group">
                                 <div class="custom-controls-stacked">
@@ -54,11 +55,13 @@
                                 <li><a href="my-account.html"><i class="fab fa-facebook-f"></i>Facebook</a></li>
                                 <li><a href="my-account.html"><i class="fab fa-google-plus-g"></i>Google</a></li>
                             </ul>
-                            <p>Don't Have an Account? <a href="my-account.html">Sign up Now</a></p>
+                            <p>Don't Have an Account? <a href="/register">Sign up Now</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+@endsection
+@section('js')
 @endsection

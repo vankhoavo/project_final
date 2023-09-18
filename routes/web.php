@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WarehouseController;
@@ -76,5 +77,7 @@ Route::group(['prefix' => 'laravel-filemanager'], function () {
 Route::get('/', [HomePageController::class, 'index']);
 
 Route::get('/login', [HomePageController::class, 'viewlogin']);
+Route::post('/login', [CustomerController::class, 'actionlogin']);
 
 Route::get('/register', [HomePageController::class, 'viewregister']);
+Route::post('/register', [CustomerController::class, 'actionregister']);
