@@ -36,16 +36,11 @@
                                 <input name="password" type="password">
                             </div>
                             <div class="form-group">
-                                <div class="custom-controls-stacked">
-                                    <label class="custom-control material-checkbox">
-                                        <input type="checkbox" class="material-control-input">
-                                        <span class="material-control-indicator"></span>
-                                        <span class="description">Remember me</span>
-                                    </label>
-                                </div>
                                 <a href="my-account.html" class="recover-password">Lost your password?</a>
                             </div>
-                            <div class="form-group">
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                            <div class="form-group mt-2">
                                 <button type="submit" class="theme-btn-two">Log In<i class="flaticon-right-1"></i></button>
                             </div>
                         </form>
@@ -64,4 +59,11 @@
     </section>
 @endsection
 @section('js')
+    <script>
+        @if (count($errors) > 0)
+            @foreach ($errors->all() as $error)
+                toastr.error("{{ $error }}");
+            @endforeach
+        @endif
+    </script>
 @endsection
