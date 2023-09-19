@@ -11,7 +11,7 @@ class OriginController extends Controller
 {
     public function index()
     {
-        $brand = Brand::get();
+        $brand = Brand::select('id', 'brand_name')->get();
         toastr()->success("Welcome to the Origin Management page");
         return view('admin.pages.origin.origin', compact('brand'));
     }

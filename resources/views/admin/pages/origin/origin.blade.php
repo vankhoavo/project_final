@@ -28,7 +28,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Brand Name New</label>
-                                <select v-model="add.id_brand_name"  class="form-control">
+                                <select v-model="add.id_brand_name" class="form-control">
                                     <option hidden>Please choose new brand</option>
                                     @foreach ($brand as $key => $value)
                                         <option value="{{ $value->id }}">
@@ -48,7 +48,7 @@
                             List Of Origins
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered" id="table">
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th class="align-middle text-center">#</th>
@@ -89,30 +89,24 @@
             },
             methods: {
                 addorigin() {
-                    $.ajax({
-                        url: '/adminlte/origin/create',
-                        data: this.add,
-                        type: 'post',
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        success: function(res) {
-                            if (res.status) {
-                                toastr.success(res.mess);
+                    axios
+                        .post('/adminlte/origin/create', this.add)
+                        .then((res) => {
+                            if (res.data.status) {
+                                toastr.success(res.data.mess);
                                 this.getdata();
-                            } else if (res.status == 0) {
-                                toastr.error(res.mess);
-                            } else if (res.status == 2) {
-                                toastr.warning(res.mess);
+                            } else if (res.data.status == 0) {
+                                toastr.error(res.data.mess);
+                            } else if (res.data.status == 2) {
+                                toastr.warning(res.data.mess);
                             }
-                        },
-                        error: function(res) {
+                        })
+                        .catch((res) => {
                             var errors = res.responseJSON.errors;
                             $.each(errors, function(k, v) {
                                 toastr.error(v[0]);
                             });
-                        },
-                    });
+                        })
                 },
 
                 getdata() {

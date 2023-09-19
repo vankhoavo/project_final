@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/test', [TestController::class, 'test']);
 
+Route::get('/adminlte/admin/index', [AdminController::class, 'index']);
+Route::post('/adminlte/admin/create', [AdminController::class, 'create']);
+Route::post('/adminlte/admin/changestatus', [AdminController::class, 'changestatus']);
+Route::post('/adminlte/admin/update', [AdminController::class, 'update']);
+
 Route::post('/adminlte/login', [AdminController::class, 'actionlogin']);
 Route::get('/adminlte/login', [AdminController::class, 'viewlogin']);
 
@@ -61,12 +66,6 @@ Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
         Route::get('/create', [WarehouseController::class, 'storewarehouse']);
         Route::post('/detailwarehouse', [WarehouseController::class, 'detailwarehouse']);
     });
-    Route::group(['prefix' => '/admin'], function () {
-        Route::get('/index', [AdminController::class, 'index']);
-        Route::post('/create', [AdminController::class, 'create']);
-        Route::post('/changestatus', [AdminController::class, 'changestatus']);
-        Route::post('/update', [AdminController::class, 'update']);
-    });
 });
 
 Route::group(['prefix' => 'laravel-filemanager'], function () {
@@ -78,6 +77,7 @@ Route::get('/', [HomePageController::class, 'index']);
 
 Route::get('/login', [HomePageController::class, 'viewlogin']);
 Route::post('/login', [CustomerController::class, 'actionlogin']);
+Route::get('/active/{hash}', [CustomerController::class, 'active']);
 
 Route::get('/register', [HomePageController::class, 'viewregister']);
 Route::post('/register', [CustomerController::class, 'actionregister']);

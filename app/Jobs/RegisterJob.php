@@ -31,5 +31,6 @@ class RegisterJob implements ShouldQueue
     public function handle()
     {
         Mail::to($this->mail_to)->send(new RegisterMail($this->subject, $this->data, $this->view));
+        // Ai gọi JOB này, cần cấp $x['email'] và $x['tieu_de'], $x['full_name'], $x['link']
     }
 }

@@ -63,4 +63,23 @@ class CustomerController extends Controller
             return redirect()->back();
         }
     }
+
+    public function active($hash)
+    {
+        $active = Customer::where('hash_active', $hash)->first();
+        if ($active) {
+            if ($active->is_active) {
+                toastr()->warning('Your account has been previously activated!');
+                return redirect('/');
+            } else {
+                $active->is_active = 1;
+                $active->save();
+                toastr()->success('Your account has been successfully activated!');
+                return redirect('/');
+            }
+        } else {
+            toastr()->error("Link does not exist!");
+            return redirect('/login');
+        }
+    }
 }

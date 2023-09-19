@@ -60,7 +60,7 @@
                     <a href="forgot-password.html">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="/adminlte/register" class="text-center">Register a new membership</a>
+                    <a href="/adminlte/admin/index" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
