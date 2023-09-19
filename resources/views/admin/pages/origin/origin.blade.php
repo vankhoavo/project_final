@@ -60,7 +60,7 @@
                                 <tbody>
                                     <tr v-for="(value, key) in array">
                                         <th class="align-middle text-center">@{{ key + 1 }}</th>
-                                        <th class="align-middle text-center">@{{ value.id_brand_name }}</th>
+                                        <th class="align-middle text-center">@{{ value.brand_name }}</th>
                                         <th class="align-middle text-center">@{{ value.origin_name }}</th>
                                         <td class="align-middle text-center">
                                             <button type="button" class="btn btn-info mr-1">Cập Nhật</button>
@@ -114,6 +114,7 @@
                         .get('/adminlte/origin/data')
                         .then((res) => {
                             this.array = res.data.data;
+                            console.log(this.array);
                         })
                 },
             }

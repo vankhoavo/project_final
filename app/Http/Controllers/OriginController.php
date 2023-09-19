@@ -27,7 +27,9 @@ class OriginController extends Controller
 
     public function getdata()
     {
-        $origin = Origin::get();
+        $origin = Origin::join('brands', 'brands.id', 'origins.id_brand_name')
+            ->select('origins.*', 'brands.brand_name')
+            ->get();
         return response()->json([
             'data'  => $origin,
         ]);
