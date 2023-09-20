@@ -10,10 +10,15 @@ use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\OriginController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FacebookAuthController;
+use Laravel\Socialite\Facades\Socialite;
 
-Route::get('auth/facebook', [FacebookAuthController::class, 'redirectToFacebook']);
-Route::get('auth/facebook/callback', [FacebookAuthController::class, 'handleFacebookCallback']);
+Route::get('auth/github', function () {
+    return Socialite::driver('github')->redirect();
+});
+
+Route::get('auth/github/callback', function () {
+    return 'Callback login facebook';
+});
 
 Route::get('/test', [TestController::class, 'test']);
 

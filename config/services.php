@@ -29,9 +29,9 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-    'facebook' => [
-        'client_id' => '814787293659251',
-        'client_secret' => 'a903773326bf762f6a3c0f3a8277aa68',
-        'redirect' => '/auth/facebook/callback',
+    'github' => [
+        'client_id' => 'Iv1.9dd934394a6cb10e',
+        'client_secret' => '7fa7f3219abdf72e3fac7d115627c994c3bf4980',
+        'redirect' => '/auth/github/callback',
     ],
 ];
