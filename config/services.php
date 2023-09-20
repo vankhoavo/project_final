@@ -39,4 +39,9 @@ return [
         'client_secret' => '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',
         'redirect' => '/auth/google/callback',
     ],
+    'facebook' => [
+        'client_id' => '690697692931626',
+        'client_secret' => 'f9a22cdc53738744290639e5028e7410',
+        'redirect' => '/auth/facebook/callback',
+    ],
 ];

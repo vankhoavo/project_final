@@ -34,6 +34,17 @@ Route::get('/auth/google/callback', function () {
     echo $user->getAvatar();
 });
 
+Route::get('auth/facebook', function () {
+    return Socialite::driver('facebook')->redirect();
+});
+Route::get('/auth/facebook/callback', function () {
+    $user = Socialite::driver('facebook')->user();
+    dd($user);
+    echo $user->email . '<br/>';
+    echo $user->name . '<br/>';
+    echo $user->getAvatar();
+});
+
 Route::get('/test', [TestController::class, 'test']);
 
 Route::get('/adminlte/admin/index', [AdminController::class, 'index']);
