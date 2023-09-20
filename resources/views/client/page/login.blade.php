@@ -47,7 +47,10 @@
                         <div class="lower-inner centred">
                             <span>or</span>
                             <ul class="social-links clearfix">
-                                <li><a href="{{ url('/auth/facebook') }}"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                                <li><a href="{{ url('/auth/github') }}" style="background-color: black; color: white;">
+                                        <i class="fab fa-github"></i>
+                                        GitHub
+                                    </a></li>
                                 <li><a href="{{ url('/auth/google') }}"><i class="fab fa-google-plus-g"></i>Google</a></li>
                             </ul>
                             <p>Don't Have an Account? <a href="/register" class="text-danger">Sign up Now</a></p>

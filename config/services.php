@@ -35,13 +35,8 @@ return [
         'redirect' => '/auth/github/callback',
     ],
     'google' => [
-        'client_id' => '388781048902-nk1b4e9p13fquh99ojb5s07fbr6su955.apps.googleusercontent.com',
-        'client_secret' => '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',
+        'client_id' => '269146130209-l1r9041jrh6sc3ndgto3sfj0a45o3opr.apps.googleusercontent.com',
+        'client_secret' => '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',
         'redirect' => '/auth/google/callback',
-    ],
-    'facebook' => [
-        'client_id' => '690697692931626',
-        'client_secret' => 'f9a22cdc53738744290639e5028e7410',
-        'redirect' => '/auth/facebook/callback',
     ],
 ];
