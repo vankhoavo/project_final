@@ -29,11 +29,6 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-    'github' => [
-        'client_id' => 'Iv1.9dd934394a6cb10e',
-        'client_secret' => '7fa7f3219abdf72e3fac7d115627c994c3bf4980',
-        'redirect' => '/auth/github/callback',
-    ],
     'google' => [
         'client_id' => '269146130209-l1r9041jrh6sc3ndgto3sfj0a45o3opr.apps.googleusercontent.com',
         'client_secret' => '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',
