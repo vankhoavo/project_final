@@ -10,23 +10,10 @@ use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\OriginController;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\FacebookAuthController;
 
 Route::get('auth/facebook', [FacebookAuthController::class, 'redirectToFacebook']);
 Route::get('auth/facebook/callback', [FacebookAuthController::class, 'handleFacebookCallback']);
-
-Route::get('chinh-sach-rieng-tu', function () {
-    return '<h1>Privacy Policy</h1>';
-});
-
-Route::get('auth/facebook', function () {
-    return Socialite::driver('facebook')->redirect();
-});
-
-Route::get('auth/facebook/callback', function () {
-    return 'Callback login facebook';
-});
 
 Route::get('/test', [TestController::class, 'test']);
 
