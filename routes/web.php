@@ -15,9 +15,12 @@ use Laravel\Socialite\Facades\Socialite;
 Route::get('auth/github', function () {
     return Socialite::driver('github')->redirect();
 });
-
 Route::get('auth/github/callback', function () {
-    return 'Callback login facebook';
+    $user = Socialite::driver('github')->user();
+	dd($user);
+	echo $user->email.'<br/>';
+	echo $user->name.'<br/>';
+	echo $user->getAvatar();
 });
 
 Route::get('/test', [TestController::class, 'test']);
