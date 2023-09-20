@@ -35,7 +35,7 @@ class CustomerController extends Controller
             //     $data,
             //     'mail.register',
             // ));
-            RegisterJob::dispatch($request->email, 'Thank you for registering for our castro shop account!', $data, 'mail.register');
+            RegisterJob::dispatch($request->email, 'Thank you for registering for our castro shop account!', $data, 'mail.registermail');
             DB::commit();
             return response()->json([
                 'status'    => true,
