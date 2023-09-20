@@ -57,7 +57,7 @@
                                 <li><a href="my-account.html"><i class="fab fa-facebook-f"></i>Facebook</a></li>
                                 <li><a href="my-account.html"><i class="fab fa-google-plus-g"></i>Google</a></li>
                             </ul>
-                            <p>Already have an account? <a href="/login">Log In Now</a></p>
+                            <p>Already have an account? <a href="/login" class="text-danger">Log In Now</a></p>
                         </div>
                     </div>
                 </div>
