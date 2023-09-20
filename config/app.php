@@ -190,7 +190,11 @@ return [
     |
     */
 
-    'aliases' => [
+    // 'aliases' => [
+    //     'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+    // ],
+
+    'aliases' => Facade::defaultAliases()->merge([
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-    ],
+    ])->toArray(),
 ];
