@@ -36,7 +36,7 @@
                                 <input name="password" type="password">
                             </div>
                             <div class="form-group">
-                                <a href="my-account.html" class="recover-password">Lost your password?</a>
+                                <a href="/forgot-password" class="recover-password">Lost your password?</a>
                             </div>
                             {!! NoCaptcha::renderJs() !!}
                             {!! NoCaptcha::display() !!}
@@ -51,7 +51,7 @@
                                         <i class="fab fa-github"></i>
                                         GitHub
                                     </a></li>
-                                <li><a href="my-account.html"><i class="fab fa-google-plus-g"></i>Google</a></li>
+                                <li><a href="{{ url('/auth/google') }}"><i class="fab fa-google-plus-g"></i>Google</a></li>
                             </ul>
                             <p>Don't Have an Account? <a href="/register" class="text-danger">Sign up Now</a></p>
                         </div>

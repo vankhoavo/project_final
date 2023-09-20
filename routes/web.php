@@ -23,6 +23,17 @@ Route::get('auth/github/callback', function () {
     echo $user->getAvatar();
 });
 
+Route::get('auth/google', function () {
+    return Socialite::driver('google')->redirect();
+});
+Route::get('/auth/google/callback', function () {
+    $user = Socialite::driver('google')->user();
+    dd($user);
+    echo $user->email . '<br/>';
+    echo $user->name . '<br/>';
+    echo $user->getAvatar();
+});
+
 Route::get('/test', [TestController::class, 'test']);
 
 Route::get('/adminlte/admin/index', [AdminController::class, 'index']);
@@ -90,6 +101,9 @@ Route::get('/', [HomePageController::class, 'index']);
 Route::get('/login', [HomePageController::class, 'viewlogin']);
 Route::post('/login', [CustomerController::class, 'actionlogin']);
 Route::get('/active/{hash}', [CustomerController::class, 'active']);
+
+Route::get('/forgot-password', [CustomerController::class, 'viewforgotpassword']);
+Route::post('/forgot-password/{hash}', [CustomerController::class, 'actionforgotpassword']);
 
 Route::get('/register', [HomePageController::class, 'viewregister']);
 Route::post('/register', [CustomerController::class, 'actionregister']);

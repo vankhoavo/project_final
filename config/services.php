@@ -34,4 +34,9 @@ return [
         'client_secret' => '7fa7f3219abdf72e3fac7d115627c994c3bf4980',
         'redirect' => '/auth/github/callback',
     ],
+    'google' => [
+        'client_id' => '388781048902-nk1b4e9p13fquh99ojb5s07fbr6su955.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => '/auth/google/callback',
+    ],
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\customer\CheckMailResetPasswordRequest;
 use App\Http\Requests\customer\CreateRegisterRequest;
 use App\Http\Requests\customer\LoginCustomerRequest;
 use App\Jobs\RegisterJob;
@@ -35,8 +36,8 @@ class CustomerController extends Controller
             //     $data,
             //     'mail.register',
             // ));
-            RegisterJob::dispatch($request->email, 'Thank you for registering for our castro shop account!', $data, 'mail.registermail');
             DB::commit();
+            RegisterJob::dispatch($request->email, 'Thank you for registering for our castro shop account!', $data, 'mail.registermail');
             return response()->json([
                 'status'    => true,
                 'mess'      => "Successfully registered account!",
