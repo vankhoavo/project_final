@@ -86,6 +86,7 @@ Route::group(['prefix' => 'laravel-filemanager'], function () {
 
 // This is the Client's web route
 Route::get('/', [HomePageController::class, 'index']);
+Route::get('/shoppage1', [HomePageController::class, 'shoppage1']);
 
 Route::get('/register', [HomePageController::class, 'viewregister']);
 Route::post('/register', [CustomerController::class, 'actionregister']);

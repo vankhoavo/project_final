@@ -48,7 +48,7 @@
                                                     <li>
                                                         <h4>Shop Page</h4>
                                                     </li>
-                                                    <li><a href="shop-1.html">Shop Page 01</a></li>
+                                                    <li><a href="/shoppage1">Shop Page 01</a></li>
                                                     <li><a href="shop-2.html">Shop Page 02</a></li>
                                                     <li><a href="shop-3.html">Shop Page 03</a></li>
                                                     <li><a href="shop-4.html">Shop Page 04</a></li>
@@ -56,8 +56,6 @@
                                                     <li><a href="shop-6.html">Shop Page 06</a></li>
                                                     <li><a href="shop-7.html">Shop Page 07</a></li>
                                                     <li><a href="shop-8.html">Shop Page 08</a></li>
-                                                    <li><a href="shop-9.html">Shop Page 09</a></li>
-                                                    <li><a href="shop-10.html">Shop Page 10</a></li>
                                                 </ul>
                                             </div>
                                             <div class="col-lg-6 column">
@@ -100,54 +98,17 @@
                 <div class="category-box pull-left">
                     <p>All Categories</p>
                     <ul class="category-content">
-                        <li class="dropdown-option">
-                            <a href="index-2.html">Women’s Clothing</a>
-                            <ul>
-                                <li><a href="index-2.html">Categories 01</a></li>
-                                <li><a href="index-2.html">Categories 02</a></li>
-                                <li><a href="index-2.html">Categories 03</a></li>
-                                <li><a href="index-2.html">Categories 04</a></li>
-                            </ul>
+                        @foreach ($producttype as $key => $value)
+                        <li>
+                            <a href="{{ 'shoppage' . ($key + 1) }}">{{ $value->product_type_name }}</a>
                         </li>
-                        <li class="dropdown-option">
-                            <a href="index-2.html">Man Fashion</a>
-                            <ul>
-                                <li><a href="index-2.html">Categories 01</a></li>
-                                <li><a href="index-2.html">Categories 02</a></li>
-                                <li><a href="index-2.html">Categories 03</a></li>
-                                <li><a href="index-2.html">Categories 04</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown-option">
-                            <a href="index-2.html">Kids Clothing</a>
-                            <ul>
-                                <li><a href="index-2.html">Categories 01</a></li>
-                                <li><a href="index-2.html">Categories 02</a></li>
-                                <li><a href="index-2.html">Categories 03</a></li>
-                                <li><a href="index-2.html">Categories 04</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="index-2.html">Jewelry & Watches</a></li>
-                        <li><a href="index-2.html">Bags & Shoes</a></li>
-                        <li><a href="index-2.html">Toys & Kids</a></li>
-                        <li class="dropdown-option">
-                            <a href="index-2.html">Electronics</a>
-                            <ul>
-                                <li><a href="index-2.html">Categories 01</a></li>
-                                <li><a href="index-2.html">Categories 02</a></li>
-                                <li><a href="index-2.html">Categories 03</a></li>
-                                <li><a href="index-2.html">Categories 04</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="index-2.html">Computers</a></li>
-                        <li><a href="index-2.html">Others</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="search-info pull-right">
                     <form action="index-5.html" method="post" class="search-form">
                         <div class="form-group">
-                            <input type="search" name="search-field" placeholder="Search Product..."
-                                required="">
+                            <input type="search" name="search-field" placeholder="Search Product..." required="">
                             <button type="submit"><i class="flaticon-search"></i><span>Search</span></button>
                         </div>
                     </form>

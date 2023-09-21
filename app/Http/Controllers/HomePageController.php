@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\ProductType;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -9,7 +11,8 @@ class HomePageController extends Controller
 {
     public function index()
     {
-        return view('client.master');
+        $producttype = ProductType::get('product_type_name');
+        return view('client.page.homepage', compact('producttype'));
     }
 
     public function viewlogin()
@@ -20,5 +23,10 @@ class HomePageController extends Controller
     public function viewregister()
     {
         return view('client.page.register');
+    }
+
+    public function shoppage1()
+    {
+        return view('client.page.shoppage1');
     }
 }
