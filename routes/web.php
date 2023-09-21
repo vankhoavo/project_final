@@ -17,9 +17,9 @@ Route::get('auth/google', function () {
 });
 Route::get('/auth/google/callback', function () {
     $user = Socialite::driver('google')->user();
-    dd($user);
     echo $user->email . '<br/>';
     echo $user->name . '<br/>';
+    echo $user->user['locale'] . '<br/>';
     echo $user->getAvatar();
 });
 
