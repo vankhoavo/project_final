@@ -98,11 +98,11 @@
                 <div class="category-box pull-left">
                     <p>All Categories</p>
                     <ul class="category-content">
-                        @foreach ($producttype as $key => $value)
+                        {{-- @foreach ($producttype as $key => $value)
                         <li>
                             <a href="{{ 'shoppage' . ($key + 1) }}">{{ $value->product_type_name }}</a>
                         </li>
-                        @endforeach
+                        @endforeach --}}
                     </ul>
                 </div>
                 <div class="search-info pull-right">

@@ -10,7 +10,7 @@
                                     <ul class="tab-btns tab-buttons pull-right clearfix">
                                         @foreach ($producttype as $key => $value)
                                             <li class="nav-item">
-                                                <a class="nav-link active-btn {{ $key == 0 ? 'active' : '' }}"
+                                                <a class="tab-btn active-btn {{ $key == 0 ? 'active' : '' }}"
                                                     id="home-tab" data-toggle="tab" href="#home_{{ $key }}"
                                                     data-tab="#tab-1" aria-controls="home" aria-selected="true"
                                                     role="tab"
