@@ -448,8 +448,8 @@ a {text-decoration: none;}
                                                                         account with us.<br><br>Confirm your email
                                                                         address by clicking the button below. This step
                                                                         increases the security of your personal account
-                                                                        when shopping online by verifying you own this
-                                                                        email.</p>
+                                                                        when shopping online by verifying that you own
+                                                                        this email.</p>
                                                                 </td>
                                                             </tr>
                                                         </table>

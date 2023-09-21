@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\customer\ChangePasswordRequest;
 use App\Http\Requests\customer\CheckMailResetPasswordRequest;
 use App\Http\Requests\customer\CreateRegisterRequest;
 use App\Http\Requests\customer\LoginCustomerRequest;
-use App\Jobs\RegisterJob;
-use App\Mail\RegisterMail;
+use App\Jobs\sendMailJob;
 use App\Models\Customer;
 use Exception;
 use Illuminate\Http\Request;
@@ -37,10 +37,10 @@ class CustomerController extends Controller
             //     'mail.register',
             // ));
             DB::commit();
-            RegisterJob::dispatch($request->email, 'Thank you for registering for our castro shop account!', $data, 'mail.registermail');
+            sendMailJob::dispatch($request->email, 'Thank you for registering for our castro shop account!', $data, 'mail.registermail');
             return response()->json([
                 'status'    => true,
-                'mess'      => "Successfully registered account!",
+                'mess'      => "Successfully registered account! Please email to activate email before log in!",
             ]);
         } catch (Exception $e) {
             DB::rollBack();
@@ -81,6 +81,68 @@ class CustomerController extends Controller
         } else {
             toastr()->error("Link does not exist!");
             return redirect('/login');
+        }
+    }
+
+    public function viewforgotpassword()
+    {
+        return view('client.page.forgotpassword');
+    }
+
+    public function actionforgotpassword(CheckMailResetPasswordRequest $request)
+    {
+        $customer = Customer::where('email', $request->email)->first();
+        if ($customer) {
+            $customer->hash_reset = Str::uuid();
+            $customer->save();
+
+            $data['email']  = $customer->email;
+            $data['fullname'] = $customer->first_and_last_name;
+            $data['link'] = env('APP_URL') . '/changepassword/' . $customer->hash_reset;
+
+            sendMailJob::dispatch($customer->email, 'Password Recovery', $data, 'mail.forgotpasswordmail');
+
+            return response()->json([
+                'status'    => true,
+                'mess'  => "Please enter your email to change your password!",
+            ]);
+        } else {
+            return response()->json([
+                'status'    => 0,
+                'mess'  => "Invalid email or never used account registration email!",
+            ]);
+        }
+    }
+
+    public function viewchangepassword($hash)
+    {
+        $hash_reset = $hash;
+        $customer = Customer::where('hash_reset', $hash)->first();
+
+        if ($customer) {
+            return view('client.page.changepassword', compact('hash_reset'));
+        } else {
+            toastr()->error("The password reset link is incorrect. Please try again!");
+            return redirect('/forgotpassword');
+        }
+    }
+
+    public function actionchangepassword(ChangePasswordRequest $request)
+    {
+        $customer = Customer::where('hash_reset', $request->hash_reset)->first();
+        if ($customer) {
+            $customer->hash_reset = null;
+            $customer->password = bcrypt($request->password);
+            $customer->save();
+            return response()->json([
+                'status'    => true,
+                'mess'      => "Your password has been changed successfully!",
+            ]);
+        } else {
+            return response()->json([
+                'status'    => 0,
+                'mess'      => "Your password change information is incorrect or the password does not match. Please re-enter!",
+            ]);
         }
     }
 }

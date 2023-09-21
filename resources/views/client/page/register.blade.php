@@ -25,7 +25,7 @@
                             <h3>Create An Account</h3>
                             <p>Log in to access all your resources</p>
                         </div>
-                        <form class="default-form">
+                        <form id="form" class="default-form">
                             <div class="form-group">
                                 <label>Your name</label>
                                 <input v-model="add.first_and_last_name" type="text">
@@ -79,7 +79,8 @@
                             .post('/register', this.add)
                             .then((res) => {
                                 if (res.data.status) {
-                                    toastr.success(res.data.mess);
+                                    toastr.success(res.data.mess)
+                                    $("form").trigger("reset");
                                 } else if (res.data.status == 0) {
                                     toastr.error(res.data.mess);
                                 } else if (res.data.status == 2) {

@@ -16,25 +16,30 @@
     <!-- page-title end -->
 
     <!-- myaccount-section -->
-    <section class="myaccount-section" id="app">
-        <div class="auto-container">
+    <section class="myaccount-section">
+        <div class="auto-container" id="app">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 inner-column">
                     <div class="inner-box login-inner">
-                        <h1 class="upper-inner">Reset password</h1>
-                        <form class="default-form" id="form">
+                        <div class="upper-inner">
+                            <h1>Reset Password</h1>
+                        </div>
+                        <form class="default-form">
                             <div class="form-group">
-                                <label>Email address</label>
-                                <input v-model="customer.email" type="email">
+                                <label>Password</label>
+                                <input v-model="customer.password" type="password">
+                            </div>
+                            <div class="form-group">
+                                <label>Re - Password</label>
+                                <input v-model="customer.re_password" type="password">
                             </div>
                             <div class="form-group mt-2">
-                                <button v-on:click="resetpassword()" type="button" class="theme-btn-two">Submit<i
+                                <button v-on:click="resetpassword()" type="button" class="theme-btn-two">Confirm<i
                                         class="flaticon-right-1"></i></button>
                             </div>
                             <div class="lower-inner centred">
                                 <span>or</span>
                                 <p>Already have an account! <a href="/login" class="text-danger">Log In Now</a></p>
-                                <p>Don't Have an Account? <a href="/register" class="text-danger">Register Now</a></p>
                             </div>
                         </form>
                     </div>
@@ -48,18 +53,23 @@
         new Vue({
             el: "#app",
             data: {
-                customer: {},
+                customer: {
+                    hash_reset: {!! json_encode($hash_reset) !!},
+                },
             },
             methods: {
                 resetpassword() {
                     axios
-                        .post('/forgotpassword', this.customer)
+                        .post('/changepassword', this.customer)
                         .then((res) => {
                             if (res.data.status) {
                                 toastr.success(res.data.mess);
-                                $("form").trigger("reset");
+                                setTimeout(() => {
+                                    window.location.href = '/login';
+                                }, 1600);
                             } else if (res.data.status == 0) {
                                 toastr.error(res.data.mess);
+                                $("form").trigger("reset");
                             } else if (res.data.status == 2) {
                                 toastr.warning(res.data.mess);
                             }
@@ -72,6 +82,6 @@
                         });
                 }
             },
-        })
+        });
     </script>
 @endsection

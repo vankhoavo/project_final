@@ -87,12 +87,18 @@ Route::group(['prefix' => 'laravel-filemanager'], function () {
 // This is the Client's web route
 Route::get('/', [HomePageController::class, 'index']);
 
-Route::get('/login', [HomePageController::class, 'viewlogin']);
-Route::post('/login', [CustomerController::class, 'actionlogin']);
-Route::get('/active/{hash}', [CustomerController::class, 'active']);
-
-Route::get('/forgot-password', [CustomerController::class, 'viewforgotpassword']);
-Route::post('/forgot-password/{hash}', [CustomerController::class, 'actionforgotpassword']);
-
 Route::get('/register', [HomePageController::class, 'viewregister']);
 Route::post('/register', [CustomerController::class, 'actionregister']);
+
+Route::get('/active/{hash}', [CustomerController::class, 'active']);
+
+Route::get('/login', [HomePageController::class, 'viewlogin']);
+Route::post('/login', [CustomerController::class, 'actionlogin']);
+
+Route::get('/forgotpassword', [CustomerController::class, 'viewforgotpassword']);
+Route::post('/forgotpassword', [CustomerController::class, 'actionforgotpassword']);
+
+Route::get('/changepassword/{hash}', [CustomerController::class, 'viewchangepassword']);
+Route::post('/changepassword', [CustomerController::class, 'actionchangepassword']);
+
+

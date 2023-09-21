@@ -36,7 +36,7 @@
                                 <input name="password" type="password">
                             </div>
                             <div class="form-group">
-                                <a href="/forgot-password" class="recover-password">Lost your password?</a>
+                                <a href="/forgotpassword" class="recover-password">Lost your password?</a>
                             </div>
                             {!! NoCaptcha::renderJs() !!}
                             {!! NoCaptcha::display() !!}

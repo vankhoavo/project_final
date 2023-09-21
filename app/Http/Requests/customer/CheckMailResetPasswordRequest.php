@@ -17,4 +17,11 @@ class CheckMailResetPasswordRequest extends FormRequest
             'email' =>  'required|exists:customers,email',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'email.*'   => 'Invalid email or never used account registration email!',
+        ];
+    }
 }

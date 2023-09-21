@@ -9,5 +9,6 @@ class TestController extends Controller
     public function test()
     {
         return phpinfo();
+        // return view('mail.forgotpasswordmail');
     }
 }
