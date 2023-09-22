@@ -28,6 +28,7 @@ class CustomerController extends Controller
             $data['ip'] = $request->ip();
 
             Customer::create($data);
+            DB::commit();
 
             $data['fullname'] = $request->first_and_last_name;
             $data['link'] = env('APP_URL') . '/active/' . $data['hash_active'];
@@ -36,7 +37,6 @@ class CustomerController extends Controller
             //     $data,
             //     'mail.register',
             // ));
-            DB::commit();
             sendMailJob::dispatch($request->email, 'Thank you for registering for our castro shop account!', $data, 'mail.registermail');
             return response()->json([
                 'status'    => true,

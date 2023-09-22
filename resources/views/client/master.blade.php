@@ -23,6 +23,12 @@
         @include('client.shares.header')
         <!-- main-header end -->
 
+        <!-- Menu -->
+        <main>
+            @yield('content')
+        </main>
+        <!-- Menu -->
+
         <!-- Mobile Menu  -->
         <div class="mobile-menu">
             <div class="menu-backdrop"></div>
@@ -53,12 +59,6 @@
             </nav>
         </div>
         <!-- End Mobile Menu -->
-
-        <!-- Menu -->
-        <main>
-            @yield('content')
-        </main>
-        <!-- Menu -->
 
         <!-- main-footer -->
         @include('client.shares.footer')

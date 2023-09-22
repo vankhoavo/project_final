@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,8 +12,9 @@ class HomePageController extends Controller
 {
     public function index()
     {
-        $producttype = ProductType::get('product_type_name');
-        return view('client.page.homepage', compact('producttype'));
+        $productype = ProductType::get()->take(8);
+        $product = Product::where('status', 1)->get()->take(12);
+        return view('client.page.homepage', compact('product', 'productype'));
     }
 
     public function viewlogin()
