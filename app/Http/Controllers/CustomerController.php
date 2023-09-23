@@ -173,6 +173,7 @@ class CustomerController extends Controller
             $customer->hash_active  = Str::uuid(rand());
             $customer->hash_reset  = Str::uuid(rand());
             $customer->ip = $_SERVER['REMOTE_ADDR'];
+            $customer->provider = 'google';
             $customer->save();
         }
 

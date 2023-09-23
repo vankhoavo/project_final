@@ -20,5 +20,7 @@ class Customer extends Authenticatable
         'hash_reset',
         'is_active',
         'is_block',
+        'provider_id',
+        'provider'
     ];
 }
