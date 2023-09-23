@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -165,6 +166,7 @@ class CustomerController extends Controller
             $customer->first_and_last_name = $userGoogle->getName();
             $customer->email               = $userGoogle->getEmail();
             $customer->provider_id         = $providerid;
+            $customer->password = Hash::make(rand());
             $customer->save();
         }
 
