@@ -12,18 +12,13 @@ use App\Http\Controllers\OriginController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
-Route::get('auth/google', function () {
-    return Socialite::driver('google')->redirect();
-});
-Route::get('/auth/google/callback', function () {
-    $user = Socialite::driver('google')->user();
-    echo $user->email . '<br/>';
-    echo $user->name . '<br/>';
-    echo $user->user['locale'] . '<br/>';
-    echo $user->getAvatar();
-});
-
 Route::get('/test', [TestController::class, 'test']);
+
+
+Route::get('auth/google', function () {
+    return Socialite::driver('google')->redirect('/');
+});
+Route::get('/auth/google/callback', [CustomerController::class, 'googleCallback']);
 
 Route::get('/adminlte/admin/index', [AdminController::class, 'index']);
 Route::post('/adminlte/admin/create', [AdminController::class, 'create']);
