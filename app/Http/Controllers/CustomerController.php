@@ -156,10 +156,19 @@ class CustomerController extends Controller
 
     public function googleCallback()
     {
-        $user = Socialite::driver('google')->user();
-        echo $user->email . '<br/>';
-        echo $user->name . '<br/>';
-        echo $user->user['locale'] . '<br/>';
-        echo $user->getAvatar();
+        $userGoogle = Socialite::driver('google')->user();
+        $providerid = $userGoogle->getId();
+        $provider = 'google';
+        $customer = Customer::where('provider', $provider)->where('provider_id', $providerid)->first();
+        if (!$customer) {
+            $customer = new Customer();
+            $customer->first_and_last_name = $userGoogle->getName();
+            $customer->email               = $userGoogle->getEmail();
+            $customer->provider_id         = $providerid;
+            $customer->save();
+        }
+
+        $customerID = $customer->id;
+        Auth::loginUsingId($customerID);
     }
 }
