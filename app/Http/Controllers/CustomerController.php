@@ -28,8 +28,6 @@ class CustomerController extends Controller
             $data['hash_active'] = Str::uuid();
             $data['password'] = bcrypt($request->password);
             $data['ip'] = $request->ip();
-            $data['provider_id']    = $request->str_pad(mt_rand(1, 9999999999), 10, '0', STR_PAD_LEFT);
-            $data['provider']   = 'customer';
 
             Customer::create($data);
             DB::commit();
