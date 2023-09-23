@@ -7,7 +7,7 @@
             <div class="content-box">
                 <h1>My Account</h1>
                 <ul class="bread-crumb clearfix">
-                    <li><i class="flaticon-home-1"></i><a href="index.html">Home</a></li>
+                    <li><i class="flaticon-home-1"></i><a href="/">Home</a></li>
                     <li>My Account</li>
                 </ul>
             </div>
@@ -23,7 +23,6 @@
                     <div class="inner-box login-inner">
                         <div class="upper-inner">
                             <h3>Log in</h3>
-                            <p>Log in to access all your resources</p>
                         </div>
                         <form action="/login" method="post" class="default-form">
                             @csrf
@@ -40,15 +39,12 @@
                             </div>
                             {!! NoCaptcha::renderJs() !!}
                             {!! NoCaptcha::display() !!}
-                            <div class="form-group mt-2">
+                            <div class="form-group mt-3">
                                 <button type="submit" class="theme-btn-two">Log In<i class="flaticon-right-1"></i></button>
                             </div>
                         </form>
                         <div class="lower-inner centred">
                             <span>or</span>
-                            <ul class="social-links clearfix">
-                                <li><a href="{{ url('/auth/google') }}"><i class="fab fa-google-plus-g"></i>Google</a></li>
-                            </ul>
                             <p>Don't Have an Account? <a href="/register" class="text-danger">Sign up Now</a></p>
                         </div>
                     </div>

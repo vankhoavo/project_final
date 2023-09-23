@@ -7,7 +7,7 @@
             <div class="content-box">
                 <h1>My Account</h1>
                 <ul class="bread-crumb clearfix">
-                    <li><i class="flaticon-home-1"></i><a href="index.html">Home</a></li>
+                    <li><i class="flaticon-home-1"></i><a href="/">Home</a></li>
                     <li>My Account</li>
                 </ul>
             </div>
@@ -23,7 +23,6 @@
                     <div class="inner-box signup-inner">
                         <div class="upper-inner">
                             <h3>Create An Account</h3>
-                            <p>Log in to access all your resources</p>
                         </div>
                         <form id="form" class="default-form">
                             <div class="form-group">
@@ -53,9 +52,6 @@
                         </form>
                         <div class="lower-inner centred">
                             <span>or</span>
-                            <ul class="social-links clearfix">
-                                <li><a href="{{ url('/auth/google') }}"><i class="fab fa-google-plus-g"></i>Google</a></li>
-                            </ul>
                             <p>Already have an account? <a href="/login" class="text-danger">Log In Now</a></p>
                         </div>
                     </div>

@@ -22,24 +22,21 @@
                     <div class="form-group">
                         <a href="/forgotpassword" class="recover-password">Lost your password?</a>
                     </div>
-                    {!! NoCaptcha::renderJs() !!}
-                    {!! NoCaptcha::display() !!}
-                    <div class="form-group mt-2 text-center">
+                    <div class="form-group">
+                        {!! NoCaptcha::renderJs() !!}
+                        {!! NoCaptcha::display() !!}
+                    </div>
+                    <div class="form-group text-center">
                         <button type="submit" class="theme-btn-two">Log In<i class="flaticon-right-1"></i></button>
                     </div>
-                    <div class="lower-inner centred">
-                        <span>or</span>
-                        <ul class="social-links clearfix mt-3">
-                            <a style="background-color: red" href="{{ url('/auth/google') }}" class="theme-btn-two">Google<i
-                                    class="fab fa-google-plus-g"></i></a>
-                        </ul>
-                    </div>
                 </form>
+            </div>
+            <div class="modal-footer mt-n3">
+                <p>Don't Have an Account? <a href="/register" class="text-danger">Sign up Now</a></p>
             </div>
         </div>
     </div>
 </div>
-
 
 <!-- shop-style-three -->
 <section class="shop-style-three">

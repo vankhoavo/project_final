@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-use Laravel\Socialite\Facades\Socialite;
-use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -153,29 +151,5 @@ class CustomerController extends Controller
         Auth::guard('client')->logout();
         toastr()->success("Signed out successfully!");
         return redirect('/');
-    }
-
-    public function googleCallback()
-    {
-        $userGoogle = Socialite::driver('google')->user();
-        $providerid = $userGoogle->getId();
-        $provider = 'google';
-        $customer = Customer::where('provider', $provider)->where('provider_id', $providerid)->first();
-        if (!$customer) {
-            $customer = new Customer();
-            $customer->first_and_last_name = $userGoogle->getName();
-            $customer->email               = $userGoogle->getEmail();
-            $customer->provider_id         = $providerid;
-            $customer->password = Hash::make(rand());
-            $customer->phone_number = str_pad(mt_rand(1, 9999999999), 10, '0', STR_PAD_LEFT);
-            $customer->hash_active  = Str::uuid(rand());
-            $customer->hash_reset  = Str::uuid(rand());
-            $customer->ip = $_SERVER['REMOTE_ADDR'];
-            $customer->provider = 'google';
-            $customer->save();
-        }
-
-        $customerID = $customer->id;
-        Auth::loginUsingId($customerID);
     }
 }

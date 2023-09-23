@@ -14,12 +14,6 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/test', [TestController::class, 'test']);
 
-
-Route::get('auth/google', function () {
-    return Socialite::driver('google')->redirect('/');
-});
-Route::get('/auth/google/callback', [CustomerController::class, 'googleCallback']);
-
 Route::get('/adminlte/admin/index', [AdminController::class, 'index']);
 Route::post('/adminlte/admin/create', [AdminController::class, 'create']);
 Route::post('/adminlte/admin/changestatus', [AdminController::class, 'changestatus']);
