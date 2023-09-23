@@ -84,9 +84,13 @@
                     </nav>
                 </div>
                 <ul class="menu-right-content clearfix">
-                    <li><a href="/login"><i class="flaticon-user"></i></a></li>
+                    @if (Auth::guard('client')->check())
+                        <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    @else
+                        <li><a href="/login"><i class="flaticon-user"></i></a></li>
+                    @endif
                     <li class="shop-cart">
-                        <a href="shop.html"><i class="flaticon-shopping-cart-1"></i><span>3</span></a>
+                        <a href="/card"><i class="flaticon-shopping-cart-1"></i><span>3</span></a>
                     </li>
                 </ul>
             </div>

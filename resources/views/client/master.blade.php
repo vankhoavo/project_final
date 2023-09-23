@@ -6,19 +6,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
 </head>
 
 <!-- page wrapper -->
 
 <body>
     <div class="boxed_wrapper">
-        <!-- Preloader -->
-        <div class="loader-wrap">
-            <div class="layer layer-one"><span class="overlay"></span></div>
-            <div class="layer layer-two"><span class="overlay"></span></div>
-            <div class="layer layer-three"><span class="overlay"></span></div>
-        </div>
-
         <!-- main header -->
         @include('client.shares.header')
         <!-- main-header end -->

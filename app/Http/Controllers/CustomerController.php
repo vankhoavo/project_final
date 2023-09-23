@@ -145,4 +145,11 @@ class CustomerController extends Controller
             ]);
         }
     }
+
+    public function logout()
+    {
+        Auth::guard('client')->logout();
+        toastr()->success("Signed out successfully!");
+        return redirect('/');
+    }
 }

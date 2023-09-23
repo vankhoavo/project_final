@@ -95,6 +95,7 @@ Route::get('/active/{hash}', [CustomerController::class, 'active']);
 
 Route::get('/login', [HomePageController::class, 'viewlogin']);
 Route::post('/login', [CustomerController::class, 'actionlogin']);
+Route::get('/logout', [CustomerController::class, 'logout']);
 
 Route::get('/forgotpassword', [CustomerController::class, 'viewforgotpassword']);
 Route::post('/forgotpassword', [CustomerController::class, 'actionforgotpassword']);
@@ -102,4 +103,4 @@ Route::post('/forgotpassword', [CustomerController::class, 'actionforgotpassword
 Route::get('/changepassword/{hash}', [CustomerController::class, 'viewchangepassword']);
 Route::post('/changepassword', [CustomerController::class, 'actionchangepassword']);
 
-
+Route::get('/card', [HomePageController::class, 'card']);
