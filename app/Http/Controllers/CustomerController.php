@@ -167,7 +167,12 @@ class CustomerController extends Controller
             $customer->email               = $userGoogle->getEmail();
             $customer->provider_id         = $providerid;
             $customer->password = Hash::make(rand());
+            $customer->phone_number = str_pad(mt_rand(1, 9999999999), 10, '0', STR_PAD_LEFT);
+            $customer->hash_active  = Str::uuid(rand());
+            $customer->hash_reset  = Str::uuid(rand());
+            $customer->ip = $_SERVER['REMOTE_ADDR'];
             $customer->save();
+            return redirect('/');
         }
 
         $customerID = $customer->id;
