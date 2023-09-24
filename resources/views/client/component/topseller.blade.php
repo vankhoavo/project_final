@@ -39,14 +39,14 @@
 </div>
 
 <!-- shop-style-three -->
-<section class="shop-style-three">
+<section class="shop-style-three" id="app_topseller">
     <div class="large-container">
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 shop-column">
                 <div class="shop-inner">
                     <div class="tabs-box">
                         <div class="tab-btn-box clearfix">
-                            <h2>Top Saller</h2>
+                            <h2>Top Seller</h2>
                             <ul class="tab-btns tab-buttons pull-right clearfix">
                                 @foreach ($productype as $key => $value)
                                     <li class="tab-btn active-btn" data-tab="#tab-1">{{ $value->product_type_name }}
@@ -77,7 +77,8 @@
                                                         <ul class="info-list clearfix">
                                                             <li>
                                                                 @if (Auth::guard('client')->check())
-                                                                    <a title="shoppingcart"><i id="addtocard"
+                                                                    <a title="shoppingcart"
+                                                                        v-on:click="addToCart({{ $value->id }})"><i
                                                                             class="flaticon-shopping-cart-1"></i></a>
                                                                     <span>Add to cart</span>
                                                                 @else
@@ -87,6 +88,7 @@
                                                                             data-target="#loginModal"></i></a>
                                                                     <span>Add to cart</span>
                                                                 @endif
+                                                                <span>Add to cart</span>
                                                             </li>
                                                         </ul>
                                                     </figure>
@@ -145,7 +147,8 @@
                                         <div class="shop-block-three">
                                             <div class="inner-box">
                                                 <figure class="image-box">
-                                                    <img src="/client/images/resource/shop/shop-19.jpg" alt="">
+                                                    <img src="/client/images/resource/shop/shop-19.jpg"
+                                                        alt="">
                                                     <span class="category">New</span>
                                                     <ul class="info-list clearfix">
                                                         <li>

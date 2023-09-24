@@ -87,7 +87,7 @@
                     @if (Auth::guard('client')->check())
                         <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
                         <li class="shop-cart">
-                            <a href="/card"><i class="flaticon-shopping-cart-1"></i></a>
+                            <a href="/cart"><i class="flaticon-shopping-cart-1"></i><span>3</span></a>
                         </li>
                     @else
                         <li><a href="/login"><i class="flaticon-user"></i></a></li>

@@ -32,8 +32,8 @@ class HomePageController extends Controller
         return view('client.page.shoppage1');
     }
 
-    public function card()
+    public function cart()
     {
-        return view('client.page.card');
+        return view('client.page.cart');
     }
 }

@@ -14,10 +14,35 @@
         @endif
     </script>
     <script>
-        $(document).ready(function() {
-            $("#addtocard").click(function() {
-                console.log("Nó vừa click em đó anh yêu!");
-            });
+        new Vue({
+            el: "#app_topseller",
+            data: {
+
+            },
+            methods: {
+                addToCart(id_product) {
+                    var run = {
+                        'id_product': id_product,
+                    };
+                    axios
+                        .post('/add-to-cart', run)
+                        .then((res) => {
+                            if (res.data.status) {
+                                toastr.success(res.data.mess);
+                            } else if (res.data.status == 0) {
+                                toastr.error(res.data.mess);
+                            } else if (res.data.status == 2) {
+                                toastr.warning(res.data.mess);
+                            }
+                        })
+                        .catch((res) => {
+                            var listError = res.response.data.errors;
+                            $.each(listError, function(key, value) {
+                                toastr.error(value[0]);
+                            });
+                        });
+                },
+            },
         });
     </script>
 @endsection
