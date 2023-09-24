@@ -52,7 +52,7 @@
                                     <td class="qty">
                                         <div class="item-quantity">
                                             <input class="quantity-spinner" type="text" v-model="value.quantity"
-                                                v-on:change="update(v)">
+                                                v-on:change="update(value)">
                                         </div>
                                     </td>
                                     <td class="sub-total">@{{ format(value.into_money) }}</td>
@@ -108,12 +108,12 @@
                     }).format(money)
                 },
 
-                update(value) {
+                update(v) {
                     axios
-                        .post('/cart/update', value)
+                        .post('/cart/update', v)
                         .then((res) => {
                             if (res.data.status) {
-                                toastr.success(res.data.mess)
+                                toastr.success(res.data.mess);
                                 this.loadData();
                             } else if (res.data.status == 0) {
                                 toastr.error(res.data.mess);
@@ -122,13 +122,13 @@
                             }
                         })
                         .catch((res) => {
-                            var listError = res.response.data.errors;
-                            $.each(listError, function(key, value) {
-                                toastr.error(value[0]);
+                            var listE = res.response.data.errors;
+                            $.each(listE, function(k, v) {
+                                toastr.error(v[0]);
                             });
                         });
                 },
             },
-        }),
+        });
     </script>
 @endsection
