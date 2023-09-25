@@ -63,11 +63,6 @@ class InvoiceDetailController extends Controller
         ]);
     }
 
-    public function checkout()
-    {
-        return view('client.page.checkout');
-    }
-
     public function updatecard(Request $request)
     {
         $check = Auth::guard('client')->check();

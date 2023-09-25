@@ -5,6 +5,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\InvoiceDetailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WarehouseController;
@@ -98,4 +99,5 @@ Route::post('/add-to-cart', [InvoiceDetailController::class, 'addtocart']);
 Route::get('/cart/data', [InvoiceDetailController::class, 'data']);
 Route::post('/cart/update', [InvoiceDetailController::class, 'updatecard']);
 
-Route::get('/checkout', [InvoiceDetailController::class, 'checkout']);
+Route::get('/checkout', [InvoiceController::class, 'viewcheckout']);
+Route::get('/data', [InvoiceController::class, 'getdata']);

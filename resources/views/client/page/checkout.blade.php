@@ -28,12 +28,6 @@
                                             <input type="text" name="address" class="address">
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <label>Town/City</label>
-                                        <div class="field-input">
-                                            <input type="text" name="town_city">
-                                        </div>
-                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -46,36 +40,21 @@
                         <div class="payment-info mt-4">
                             <h4 class="sub-title">Payment Proccess</h4>
                             <div class="payment-inner">
-                                <div class="option-block">
-                                    <div class="custom-controls-stacked">
-                                        <label class="custom-control material-checkbox">
-                                            <input type="checkbox" class="material-control-input">
-                                            <span class="material-control-indicator"></span>
-                                            <span class="description">Direct bank transfer</span>
-                                        </label>
-                                    </div>
-                                    <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
-                                        Store Postcode.</p>
-                                </div>
-                                <div class="option-block">
-                                    <div class="custom-controls-stacked">
-                                        <label class="custom-control material-checkbox">
-                                            <input type="checkbox" class="material-control-input">
-                                            <span class="material-control-indicator"></span>
-                                            <span class="description">Paypal<a href="checkout.html">What is
-                                                    paypal?</a></span>
-                                        </label>
-                                    </div>
-                                </div>
+                                <p class="mb-2" style="text-align:justify">Note: If the system successfully notifies you
+                                    about your order, payment
+                                    through Paypal will be switched over automatically. Please check the email you used to
+                                    log in to make purchases and view transfer details in the event that you do not have
+                                    Paypal.</p>
                                 <div class="btn-box">
-                                    <a href="checkout.html" class="theme-btn-two">Place Your Order<i
-                                            class="flaticon-right-1"></i></a>
+                                    <a href="https://www.paypal.com/vn/webapps/mpp/home?locale.x=vi_VN"
+                                        class="theme-btn-two">Place Your Order<i class="flaticon-right-1"></i></a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 right-column">
+                <div class="col-lg-6 col-md-12 col-sm-12 right-column" id="app">
                     <div class="inner-box">
                         <div class="order-info mb-n1">
                             <h4 class="sub-title">Your Order</h4>
@@ -86,29 +65,15 @@
                                         <span>Total</span>
                                     </li>
                                     <li>
-                                        <div class="single-box clearfix">
-                                            <img src="/client/images/resource/shop/order-1.jpg" alt="">
-                                            <h6>Side-Tie Tank</h6>
-                                            <span>$35.00</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="single-box clearfix">
-                                            <img src="/client/images/resource/shop/order-2.jpg" alt="">
-                                            <h6>Must-Have Easy Tank</h6>
-                                            <span>$25.00</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="single-box clearfix">
-                                            <img src="/client/images/resource/shop/order-3.jpg" alt="">
-                                            <h6>Woven Crop Cami</h6>
-                                            <span>$90.00</span>
+                                        <div class="single-box clearfix" v-for="(value, key) in array">
+                                            <img v-bind:src="value.picture" alt="">
+                                            <h6>@{{ value.product_name }}</h6>
+                                            <span>@{{ format(value.into_money) }}</span>
                                         </div>
                                     </li>
                                     <li class="order-total clearfix">
                                         <h6>Order Total</h6>
-                                        <span>$150.50</span>
+                                        <span>@{{ format(totalmoney) }}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -121,4 +86,33 @@
     <!-- checkout-section end -->
 @endsection
 @section('js')
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                array: [],
+                totalmoney: 0,
+            },
+            created() {
+                this.loadData();
+            },
+            methods: {
+                loadData() {
+                    axios
+                        .get('/data')
+                        .then((res) => {
+                            this.array = res.data.data;
+                            this.totalmoney = res.data.totaldetailmoney;
+                        });
+                },
+
+                format(money) {
+                    return new Intl.NumberFormat('vi-VI', {
+                        style: 'currency',
+                        currency: 'VND'
+                    }).format(money)
+                },
+            },
+        });
+    </script>
 @endsection
