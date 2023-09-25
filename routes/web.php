@@ -99,5 +99,5 @@ Route::post('/add-to-cart', [InvoiceDetailController::class, 'addtocart']);
 Route::get('/cart/data', [InvoiceDetailController::class, 'data']);
 Route::post('/cart/update', [InvoiceDetailController::class, 'updatecard']);
 
-Route::get('/checkout', [InvoiceController::class, 'viewcheckout']);
 Route::get('/data', [InvoiceController::class, 'getdata']);
+Route::post('/create-bill', [InvoiceController::class, 'createbill']);

@@ -2,7 +2,7 @@
 @section('content')
     <!-- checkout-section -->
     <section class="checkout-section">
-        <div class="container">
+        <div class="container" id="app">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 left-column">
                     <div class="inner-box">
@@ -13,29 +13,23 @@
                                     <div class="col-lg-12 col-md-6 col-sm-12 form-group">
                                         <label>Full Name</label>
                                         <div class="field-input">
-                                            <input type="text" name="first_name">
+                                            <input v-model="bill.recipient_name" type="text">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                                         <label>Phone Number</label>
                                         <div class="field-input">
-                                            <input type="email" name="email">
+                                            <input v-model="bill.receiving_phone_number" type="number">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                                         <label>Address</label>
                                         <div class="field-input">
-                                            <input type="text" name="address" class="address">
+                                            <input v-model="bill.receiving_address" type="text">
                                         </div>
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                        <div class="additional-info">
-                            <div class="note-book">
-                                <label>Order Notes</label>
-                                <textarea name="note_box" placeholder="Notes about your order, e.g. special notes for your delivery"></textarea>
-                            </div>
                         </div>
                         <div class="payment-info mt-4">
                             <h4 class="sub-title">Payment Proccess</h4>
@@ -46,15 +40,16 @@
                                     log in to make purchases and view transfer details in the event that you do not have
                                     Paypal.</p>
                                 <div class="btn-box">
-                                    <a href="https://www.paypal.com/vn/webapps/mpp/home?locale.x=vi_VN"
-                                        class="theme-btn-two">Place Your Order<i class="flaticon-right-1"></i></a>
+                                    <button v-on:click="createbill()"
+                                        href="https://www.paypal.com/vn/webapps/mpp/home?locale.x=vi_VN"
+                                        class="theme-btn-two">Place Your Order<i class="flaticon-right-1"></i></button>
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 right-column" id="app">
+                <div class="col-lg-6 col-md-12 col-sm-12 right-column">
                     <div class="inner-box">
                         <div class="order-info mb-n1">
                             <h4 class="sub-title">Your Order</h4>
@@ -92,6 +87,7 @@
             data: {
                 array: [],
                 totalmoney: 0,
+                bill: {},
             },
             created() {
                 this.loadData();
@@ -112,6 +108,27 @@
                         currency: 'VND'
                     }).format(money)
                 },
+
+                createbill() {
+                    axios
+                        .post('/create-bill', this.bill)
+                        .then((res) => {
+                            if (res.data.status) {
+                                toastr.success(res.data.mess);
+                                this.loadData();
+                            } else if (res.data.status == 0) {
+                                toastr.error(res.data.mess);
+                            } else if (res.data.status == 2) {
+                                toastr.warning(res.data.mess);
+                            }
+                        })
+                        .catch((res) => {
+                            var listE = res.response.data.errors;
+                            $.each(listE, function(k, v) {
+                                toastr.error(v[0]);
+                            });
+                        });
+                }
             },
         });
     </script>

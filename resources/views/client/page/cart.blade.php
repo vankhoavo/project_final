@@ -81,18 +81,39 @@
             </div>
             <div class="cart-total mt-2">
                 <div class="row">
-                    <div class="col-xl-5 col-lg-12 col-md-12 offset-xl-7 cart-column">
+                    <div class="col-xl-7 col-lg-12 col-md-12 cart-column">
+                        <div class="total-cart-box clearfix">
+                            <form id="form" class="billing-form mb-n4">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-6 col-sm-12 form-group">
+                                        <label>Full Name</label>
+                                        <input v-model="bill.recipient_name" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-lg-12 col-md-6 col-sm-12 form-group">
+                                        <label>Phone Number</label>
+                                        <input v-model="bill.receiving_phone_number" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-lg-12 col-md-6 col-sm-12 form-group">
+                                        <label>Address</label>
+                                        <input v-model="bill.receiving_address" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-12 col-md-12 cart-column">
                         <div class="total-cart-box clearfix">
                             <h4>Cart Totals</h4>
                             <ul class="list clearfix">
                                 <li>Order Total:<span>@{{ format(totalmoney) }}</span></li>
                             </ul>
-                            <a href="/checkout" class="theme-btn-two">Proceed to Checkout<i
+                            <a v-on:click="createbill()" class="theme-btn-two">Place Your Order<i
                                     class="flaticon-right-1"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- cart section end -->
@@ -104,6 +125,7 @@
             data: {
                 array: [],
                 totalmoney: 0,
+                bill: {},
             },
             created() {
                 this.loadData();
@@ -150,6 +172,28 @@
                             });
                         });
                 },
+
+                createbill() {
+                    axios
+                        .post('/create-bill', this.bill)
+                        .then((res) => {
+                            if (res.data.status) {
+                                toastr.success(res.data.mess);
+                                this.loadData();
+                                $("#form").trigger("reset");
+                            } else if (res.data.status == 0) {
+                                toastr.error(res.data.mess);
+                            } else if (res.data.status == 2) {
+                                toastr.warning(res.data.mess);
+                            }
+                        })
+                        .catch((res) => {
+                            var listE = res.response.data.errors;
+                            $.each(listE, function(k, v) {
+                                toastr.error(v[0]);
+                            });
+                        });
+                }
             },
         });
     </script>

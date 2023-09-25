@@ -12,4 +12,3 @@
 <script src="/client/js/isotope.js"></script>
 <script src="/client/js/countdown.js"></script>
 <script src="/client/js/script.js"></script>
-
