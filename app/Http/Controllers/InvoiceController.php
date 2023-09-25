@@ -58,8 +58,7 @@ class InvoiceController extends Controller
 
             // $data['total_money'] = $invoice->total_money;
 
-            BillJob::dispatch($customer->email, 'Order Confirmation', $data, 'mail.billmail', $product);
-
+            BillJob::dispatch($customer->email, 'Order Confirmation', $data, 'mail.billmail');
 
             return response()->json([
                 'status'    => true,
