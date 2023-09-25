@@ -51,8 +51,25 @@
                                     <td class="price">@{{ format(value.unit_price) }}</td>
                                     <td class="qty">
                                         <div class="item-quantity">
-                                            <input class="quantity-spinner" type="text" v-model="value.quantity"
-                                                v-on:change="update(value)">
+                                            <div class="input-group bootstrap-touchspin">
+                                                <span class="input-group-addon bootstrap-touchspin-prefix"
+                                                    style="display: none;"></span>
+                                                <input class="quantity-spinner form-control" type="text"
+                                                    style="display: block;" v-model="value.quantity"
+                                                    v-on:change="update(value, 0)">
+                                                <span class="input-group-addon bootstrap-touchspin-postfix"
+                                                    style="display: none;"></span>
+                                                <span class="input-group-btn-vertical">
+                                                    <button class="btn btn-default bootstrap-touchspin-up"
+                                                        v-on:click="update(value,1)" type="button">
+                                                        <i class="glyphicon glyphicon-chevron-up"></i>
+                                                    </button>
+                                                    <button class="btn btn-default bootstrap-touchspin-down"
+                                                        v-on:click="update(value,-1)" type="button">
+                                                        <i class="glyphicon glyphicon-chevron-down"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
                                         </div>
                                     </td>
                                     <td class="sub-total">@{{ format(value.into_money) }}</td>
@@ -108,7 +125,12 @@
                     }).format(money)
                 },
 
-                update(v) {
+                update(v, t) {
+                    if (t == 1) {
+                        v.quantity++;
+                    } else if (t == -1) {
+                        v.quantity--;
+                    }
                     axios
                         .post('/cart/update', v)
                         .then((res) => {
