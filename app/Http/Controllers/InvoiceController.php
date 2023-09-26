@@ -34,24 +34,10 @@ class InvoiceController extends Controller
             // Khúc ni là đã có hoá đơn rồi nè.
             // ta sẽ lấy giỏ hàng (is_invoice = 0) của user đang login
             $cart = InvoiceDetails::where('is_invoice', 0)->where('id_customer', $customer->id)->get();
+
             // $product1 = InvoiceDetails::join('products', 'invoice_details.id_product', 'products.id')
-            // ->select('invoice_details.*', 'products.product_name', 'products.picture','products.quantity')
-            // ->get();
-
-            $product1 = DB::table('products')->select('product_name', 'picture')->get();
-            $product2 = DB::table('invoice_details')->select('quantity', 'into_money')->get();
-
-            foreach ($product1 as $item) {
-                $product_name = $item->product_name;
-                $picture = $item->picture;
-                // Sử dụng $product_name và $picture theo nhu cầu
-            }
-
-            foreach ($product2 as $item) {
-                $quantity = $item->quantity;
-                $into_money = $item->into_money;
-                // Sử dụng $quantity và $into_money theo nhu cầu
-            }
+            //     ->select('invoice_details.*', 'products.product_name', 'products.picture', 'products.quantity')
+            //     ->get();
 
             if (count($cart) <= 0) {
                 $invoice->delete();
@@ -69,23 +55,6 @@ class InvoiceController extends Controller
             $invoice->total_money = $totalmoneyinvoice;
             $invoice->invoice_code = 'CASTRO' . implode('', array_map(fn () => random_int(0, 9), range(1, 10)));;
             $invoice->save();
-
-            //Gửi Mail
-            $data['invoice_code'] = $invoice->invoice_code;
-            $data['buy_date'] =  Carbon::now()->subDay()->format('d-m-Y H:i:s');
-            $data['recipient_name'] = $invoice->recipient_name;
-            $data['receiving_phone_number'] = $invoice->receiving_phone_number;
-            $data['receiving_address'] = $invoice->receiving_address;
-            $data['totalmoney'] = $invoice->total_money;
-
-            $data['email'] = $customer->email;
-
-            $data['picture'] = $picture;
-            $data['product'] = $product_name;
-            $data['quantity'] = $quantity;
-            $data['intomoney'] = $into_money;
-
-            BillJob::dispatch($customer->email, 'Order Confirmation', $data, 'mail.billmail');
 
             return response()->json([
                 'status'    => true,
