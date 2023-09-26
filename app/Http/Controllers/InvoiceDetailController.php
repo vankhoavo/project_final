@@ -75,7 +75,6 @@ class InvoiceDetailController extends Controller
                 $invoicedetail->save();
                 return response()->json([
                     'status'  =>   true,
-                    'mess'    => "Cart updated successfully!",
                 ]);
             }
         }

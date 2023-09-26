@@ -8,7 +8,7 @@
                     <div class="inner-box">
                         <div class="billing-info">
                             <h4 class="sub-title">Billing Details</h4>
-                            <form action="#" method="post" class="billing-form mb-n4">
+                            <form class="billing-form mb-n4">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-6 col-sm-12 form-group">
                                         <label>Full Name</label>
@@ -16,10 +16,10 @@
                                             <input v-model="bill.recipient_name" type="text">
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <div class="col-lg-12 col-md-6 col-sm-12 form-group">
                                         <label>Phone Number</label>
                                         <div class="field-input">
-                                            <input v-model="bill.receiving_phone_number" type="number">
+                                            <input v-model="bill.receiving_phone_number" type="text">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
@@ -40,7 +40,7 @@
                                     log in to make purchases and view transfer details in the event that you do not have
                                     Paypal.</p>
                                 <div class="btn-box">
-                                    <button v-on:click="createbill()"
+                                    <button
                                         href="https://www.paypal.com/vn/webapps/mpp/home?locale.x=vi_VN"
                                         class="theme-btn-two">Place Your Order<i class="flaticon-right-1"></i></button>
                                 </div>
@@ -98,7 +98,7 @@
                         .get('/data')
                         .then((res) => {
                             this.array = res.data.data;
-                            this.totalmoney = res.data.totaldetailmoney;
+                            this.totalmoney = res.data.totalmoney;
                         });
                 },
 
@@ -109,26 +109,7 @@
                     }).format(money)
                 },
 
-                createbill() {
-                    axios
-                        .post('/create-bill', this.bill)
-                        .then((res) => {
-                            if (res.data.status) {
-                                toastr.success(res.data.mess);
-                                this.loadData();
-                            } else if (res.data.status == 0) {
-                                toastr.error(res.data.mess);
-                            } else if (res.data.status == 2) {
-                                toastr.warning(res.data.mess);
-                            }
-                        })
-                        .catch((res) => {
-                            var listE = res.response.data.errors;
-                            $.each(listE, function(k, v) {
-                                toastr.error(v[0]);
-                            });
-                        });
-                }
+
             },
         });
     </script>

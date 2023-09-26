@@ -49,9 +49,8 @@
                             <h2>Top Seller</h2>
                             <ul class="tab-btns tab-buttons pull-right clearfix">
                                 @foreach ($productype as $key => $value)
-                                    <li class="tab-btn active-btn" data-tab="#tab-1">{{ $value->product_type_name }}
-                                    </li>
-                                @endforeach
+                                    <li class="tab-btn active-btn" data-tab="#tab-1">{{ $value->product_type_name }}</li>
+
                                 {{-- <li class="tab-btn" data-tab="#tab-2">New Arraivals</li>
                                 <li class="tab-btn" data-tab="#tab-3">Top Rate</li>
                                 <li class="tab-btn" data-tab="#tab-4">Special Offer</li>
@@ -59,6 +58,7 @@
                                 <li class="tab-btn" data-tab="#tab-6">Special Offer</li>
                                 <li class="tab-btn" data-tab="#tab-7">Special Offer</li>
                                 <li class="tab-btn" data-tab="#tab-8">Special Offer</li> --}}
+                                @endforeach
                             </ul>
                         </div>
                         <div class="tabs-content">
@@ -110,6 +110,8 @@
                                     @endforeach
                                 </div>
                             </div>
+
+
 
                             <div class="tab" id="tab-2">
                                 <div class="row clearfix">

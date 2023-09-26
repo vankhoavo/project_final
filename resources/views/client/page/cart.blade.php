@@ -79,27 +79,23 @@
                     </div>
                 </div>
             </div>
-            <div class="cart-total mt-2">
+            <div class="cart-total mt-3">
                 <div class="row">
                     <div class="col-xl-7 col-lg-12 col-md-12 cart-column">
-                        <div class="total-cart-box clearfix">
-                            <form id="form" class="billing-form mb-n4">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-6 col-sm-12 form-group">
-                                        <label>Full Name</label>
-                                        <input v-model="bill.recipient_name" type="text" class="form-control">
-                                    </div>
-                                    <div class="col-lg-12 col-md-6 col-sm-12 form-group">
-                                        <label>Phone Number</label>
-                                        <input v-model="bill.receiving_phone_number" type="text" class="form-control">
-                                    </div>
-                                    <div class="col-lg-12 col-md-6 col-sm-12 form-group">
-                                        <label>Address</label>
-                                        <input v-model="bill.receiving_address" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        <form id="form" class="billing-form mb-n4">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input v-model="bill.recipient_name" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input v-model="bill.receiving_phone_number" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input v-model="bill.receiving_address" type="text" class="form-control">
+                            </div>
+                        </form>
                     </div>
                     <div class="col-xl-5 col-lg-12 col-md-12 cart-column">
                         <div class="total-cart-box clearfix">
@@ -157,7 +153,6 @@
                         .post('/cart/update', v)
                         .then((res) => {
                             if (res.data.status) {
-                                toastr.success(res.data.mess);
                                 this.loadData();
                             } else if (res.data.status == 0) {
                                 toastr.error(res.data.mess);
@@ -179,8 +174,8 @@
                         .then((res) => {
                             if (res.data.status) {
                                 toastr.success(res.data.mess);
+                                $("#form").trigger('reset');
                                 this.loadData();
-                                $("#form").trigger("reset");
                             } else if (res.data.status == 0) {
                                 toastr.error(res.data.mess);
                             } else if (res.data.status == 2) {
@@ -193,7 +188,7 @@
                                 toastr.error(v[0]);
                             });
                         });
-                }
+                },
             },
         });
     </script>

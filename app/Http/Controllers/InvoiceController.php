@@ -6,10 +6,12 @@ use App\Http\Requests\invoice\CreateInvoiceRequets;
 use App\Jobs\BillJob;
 use App\Models\Invoice;
 use App\Models\InvoiceDetails;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Js;
 
 class InvoiceController extends Controller
 {
@@ -32,9 +34,29 @@ class InvoiceController extends Controller
             // Khúc ni là đã có hoá đơn rồi nè.
             // ta sẽ lấy giỏ hàng (is_invoice = 0) của user đang login
             $cart = InvoiceDetails::where('is_invoice', 0)->where('id_customer', $customer->id)->get();
-            $product = InvoiceDetails::join('products', 'invoice_details.id_product', 'products.id')
-                ->select('invoice_details.*', 'products.product_name', 'products.picture')
-                ->get();
+            // $product1 = InvoiceDetails::join('products', 'invoice_details.id_product', 'products.id')
+            // ->select('invoice_details.*', 'products.product_name', 'products.picture','products.quantity')
+            // ->get();
+
+            $product1 = DB::table('products')->select('product_name', 'picture')->get();
+            $product2 = DB::table('invoice_details')->select('quantity', 'into_money')->get();
+
+            foreach ($product1 as $item) {
+                $product_name = $item->product_name;
+                $picture = $item->picture;
+                // Sử dụng $product_name và $picture theo nhu cầu
+            }
+
+            foreach ($product2 as $item) {
+                $quantity = $item->quantity;
+                $into_money = $item->into_money;
+                // Sử dụng $quantity và $into_money theo nhu cầu
+            }
+
+            if (count($cart) <= 0) {
+                $invoice->delete();
+                return response()->json(['status' => 0, 'mess' => 'The shopping cart is empty!']);
+            }
 
             $totalmoneyinvoice = 0;
             foreach ($cart as $key => $value) {
@@ -43,20 +65,25 @@ class InvoiceController extends Controller
                 $value->save();
                 $totalmoneyinvoice = $totalmoneyinvoice + $value->into_money;
             }
+
             $invoice->total_money = $totalmoneyinvoice;
-            $randomNumbers = implode('', array_map(fn () => random_int(0, 9), range(1, 10)));
-            $invoice->invoice_code = 'CASTRO' . $randomNumbers;
+            $invoice->invoice_code = 'CASTRO' . implode('', array_map(fn () => random_int(0, 9), range(1, 10)));;
             $invoice->save();
 
-
+            //Gửi Mail
             $data['invoice_code'] = $invoice->invoice_code;
-            $data['buy_date'] = Carbon::now();
-            $data['email'] = $customer->email;
+            $data['buy_date'] =  Carbon::now()->subDay()->format('d-m-Y H:i:s');
             $data['recipient_name'] = $invoice->recipient_name;
             $data['receiving_phone_number'] = $invoice->receiving_phone_number;
             $data['receiving_address'] = $invoice->receiving_address;
+            $data['totalmoney'] = $invoice->total_money;
 
-            // $data['total_money'] = $invoice->total_money;
+            $data['email'] = $customer->email;
+
+            $data['picture'] = $picture;
+            $data['product'] = $product_name;
+            $data['quantity'] = $quantity;
+            $data['intomoney'] = $into_money;
 
             BillJob::dispatch($customer->email, 'Order Confirmation', $data, 'mail.billmail');
 

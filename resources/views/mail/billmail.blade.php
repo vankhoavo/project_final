@@ -113,7 +113,8 @@
                                                                                 <tr>
                                                                                     <td align="center"
                                                                                         class="esd-block-text es-p5t es-p5b es-p40r es-p40l es-m-p0r es-m-p0l">
-                                                                                        <p>{{ $data['buy_date'] }}</p>
+                                                                                        <p>{{ $data['buy_date'] }}
+                                                                                        </p>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -157,7 +158,7 @@
                                                                                                         <a
                                                                                                             target="_blank"><img
                                                                                                                 class="adapt-img"
-                                                                                                                src="https://xgxxwe.stripocdn.email/content/guids/CABINET_c67048fd0acf81b47e18129166337c05/images/79021618299486570.png"
+                                                                                                                src="{{ $data['picture'] }}"
                                                                                                                 alt
                                                                                                                 style="display: block;"
                                                                                                                 width="70"></a>
@@ -186,7 +187,7 @@
                                                                                                 <tr>
                                                                                                     <td align="left"
                                                                                                         class="esd-block-text">
-                                                                                                        <p><strong>Polo</strong>
+                                                                                                        <p><strong>{{ $data['product'] }}</strong>
                                                                                                         </p>
                                                                                                     </td>
                                                                                                 </tr>
@@ -212,7 +213,8 @@
                                                                                                 <tr>
                                                                                                     <td align="center"
                                                                                                         class="esd-block-text">
-                                                                                                        <p>2 pcs</p>
+                                                                                                        <p>{{ $data['quantity'] }}
+                                                                                                        </p>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             </tbody>
@@ -237,7 +239,8 @@
                                                                                                 <tr>
                                                                                                     <td align="right"
                                                                                                         class="esd-block-text">
-                                                                                                        <p>$20</p>
+                                                                                                        <p>{{ $data['intomoney'] }}
+                                                                                                        </p>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             </tbody>
@@ -269,7 +272,7 @@
                                                                                         class="esd-block-text es-m-txt-r es-p10t es-p20b">
                                                                                         <p style="line-height: 200%;">
                                                                                             Total:
-                                                                                            <strong>$50.00</strong>
+                                                                                            <strong>{{ $data['totalmoney'] }}</strong>
                                                                                         </p>
                                                                                     </td>
                                                                                 </tr>
@@ -335,8 +338,10 @@
                                                                                     <td align="left"
                                                                                         class="esd-block-text es-m-txt-l">
                                                                                         <p><strong>TRANSFER
-                                                                                                INFORMATION</strong></p>
-                                                                                        <p>Account Name: <strong>VO VAN
+                                                                                                INFORMATION</strong>
+                                                                                        </p>
+                                                                                        <p>Account Name: <strong>VO
+                                                                                                VAN
                                                                                                 KHOA</strong></p>
                                                                                         <p>Account
                                                                                             Number:
@@ -374,14 +379,19 @@
                                                                                 <tr>
                                                                                     <td align="center"
                                                                                         class="esd-block-text es-p10t es-p10b">
-                                                                                        <p>If you do not want to pay via
+                                                                                        <p>If you do not want to pay
+                                                                                            via
                                                                                             Paypal. Then you can
-                                                                                            transfer money directly to
+                                                                                            transfer money directly
+                                                                                            to
                                                                                             us, we already have the
-                                                                                            transfer information. And
-                                                                                            after transferring, please
+                                                                                            transfer information.
+                                                                                            And
+                                                                                            after transferring,
+                                                                                            please
                                                                                             contact
-                                                                                            us:<strong>{{ $data['email'] }}</strong>
+                                                                                            us:
+                                                                                            <strong>{{ $data['email'] }}</strong>
                                                                                         </p>
                                                                                     </td>
                                                                                 </tr>
@@ -393,7 +403,9 @@
                                                         </table>
                                                     </td>
                                                 </tr>
+
                                             </tbody>
+
                                         </table>
                                     </td>
                                 </tr>

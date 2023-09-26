@@ -12,7 +12,6 @@ use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\OriginController;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/test', [TestController::class, 'test']);
 
