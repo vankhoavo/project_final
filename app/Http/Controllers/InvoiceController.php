@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\invoice\CheckIDInvocieRequest;
 use App\Http\Requests\invoice\CreateInvoiceRequets;
-use App\Jobs\BillJob;
 use App\Models\Invoice;
 use App\Models\InvoiceDetails;
-use App\Models\Product;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Js;
 
 class InvoiceController extends Controller
@@ -34,10 +31,6 @@ class InvoiceController extends Controller
             // Khúc ni là đã có hoá đơn rồi nè.
             // ta sẽ lấy giỏ hàng (is_invoice = 0) của user đang login
             $cart = InvoiceDetails::where('is_invoice', 0)->where('id_customer', $customer->id)->get();
-
-            // $product1 = InvoiceDetails::join('products', 'invoice_details.id_product', 'products.id')
-            //     ->select('invoice_details.*', 'products.product_name', 'products.picture', 'products.quantity')
-            //     ->get();
 
             if (count($cart) <= 0) {
                 $invoice->delete();
@@ -64,6 +57,24 @@ class InvoiceController extends Controller
             return response()->json([
                 'status'    => 1,
                 'mess'      => "Please log in first.",
+            ]);
+        }
+    }
+
+    public function myinvoice()
+    {
+        return view('client.page.myinvoice');
+    }
+
+    public function getdata(Request $request)
+    {
+        $check = Auth::guard('client')->check();
+        if ($check) {
+            $customer = Auth::guard('client')->user();
+            $invoice = Invoice::where('email_name', $customer->email)
+                ->get();
+            return response()->json([
+                'dataleft'  => $invoice,
             ]);
         }
     }

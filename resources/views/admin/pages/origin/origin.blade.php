@@ -114,7 +114,6 @@
                         .get('/adminlte/origin/data')
                         .then((res) => {
                             this.array = res.data.data;
-                            console.log(this.array);
                         })
                 },
             }

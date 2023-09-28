@@ -13,10 +13,10 @@
                     <div class="icon">
                         <div class="top-left pull-left">
                             <ul class="social-links clearfix">
-                                <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="index.html"><i class="fab fa-vimeo-v"></i></a></li>
-                                <li><a href="index.html"><i class="fab fa-google-plus-g"></i></a></li>
+                                @if (Auth::guard('client')->check())
+                                    You are logged in with email:
+                                    <strong>{{ Auth::guard('client')->user()->email }}</strong>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -88,6 +88,9 @@
                         <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
                         <li class="shop-cart">
                             <a href="/cart"><i class="flaticon-shopping-cart-1"></i><span>3</span></a>
+                        </li>
+                        <li class="shop-cart">
+                            <a href="/myinvoice"> <i class="fa-solid fa-receipt"></i></a>
                         </li>
                     @else
                         <li><a href="/login"><i class="flaticon-user"></i></a></li>

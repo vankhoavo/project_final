@@ -100,3 +100,7 @@ Route::post('/cart/update', [InvoiceDetailController::class, 'updatecard']);
 
 Route::get('/data', [InvoiceController::class, 'getdata']);
 Route::post('/create-bill', [InvoiceController::class, 'createbill']);
+
+Route::get('/myinvoice', [InvoiceController::class, 'myinvoice']);
+Route::get('/dataleft', [InvoiceController::class, 'getdata']);
+Route::get('/dataright', [InvoiceController::class, 'getdata']);
