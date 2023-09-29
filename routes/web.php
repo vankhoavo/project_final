@@ -8,7 +8,6 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\InvoiceDetailController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\OriginController;
 use Illuminate\Support\Facades\Route;
@@ -56,17 +55,6 @@ Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
         Route::post('/getupdate', [ProductController::class, 'getupdate']);
         Route::post('/checkslug', [ProductController::class, 'checkslug']);
         Route::post('/delete', [ProductController::class, 'destroy']);
-    });
-    Route::group(['prefix' => '/warehouse'], function () {
-        Route::get('/index', [WarehouseController::class, 'index']);
-        Route::get('/listwarehouse', [WarehouseController::class, 'listwarehouse']);
-        Route::post('/search', [WarehouseController::class, 'searchproduct']);
-        Route::get('/data', [WarehouseController::class, 'getdata']);
-        Route::post('/create', [WarehouseController::class, 'store']);
-        Route::post('/delete', [WarehouseController::class, 'destroy']);
-        Route::post('/update', [WarehouseController::class, 'update']);
-        Route::get('/create', [WarehouseController::class, 'storewarehouse']);
-        Route::post('/detailwarehouse', [WarehouseController::class, 'detailwarehouse']);
     });
 });
 
