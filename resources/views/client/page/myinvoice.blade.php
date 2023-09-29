@@ -16,14 +16,14 @@
     <!-- page-title end -->
 
     <section class="myaccount-section">
-        <div class="auto-container">
+        <div class="auto-container" id="app">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             List of Invoice
                         </div>
-                        <div class="card-body" id="app">
+                        <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
                                     <th class="align-middle text-center">#</th>
@@ -38,7 +38,9 @@
                                         <td class="text-center align-middle">@{{ value.invoice_code }}</td>
                                         <td class="text-center align-middle">@{{ format(value.total_money) }}</td>
                                         <td class="text-center align-middle">
-                                            <button class="btn btn-info">See order details</button>
+                                            <button class="btn btn-info" v-on:click="detail = value" data-toggle="modal"
+                                                data-target="#seenModal">See
+                                                order details</button>
                                         </td>
                                         <td class="text-center align-middle">
                                             <button class="btn btn-primary" v-if="value.payment == 1">Paid</button>
@@ -49,35 +51,39 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            Invoice Details
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <th class="align-middle text-center">#</th>
-                                    <th class="align-middle text-center">Invoice Code</th>
-                                    <th class="align-middle text-center">Email</th>
-                                    <th class="align-middle text-center">Status Payment</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th class="text-center align-middle">1</th>
-                                        <th class="text-center align-middle">CASTRO12313213</th>
-                                        <th class="text-center align-middle">voankhoa2001@hotmail.com</th>
-                                        <th class="text-center align-middle">See</th>
-                                        <th class="text-center align-middle">
-                                            <button class="btn btn-primary">Paid</button>
-                                        </th>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="seenModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Invoice Details</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <th class="text-center align-middle">Invoice Code</th>
+                                                <th class="text-center align-middle">Product Name</th>
+                                                <th class="text-center align-middle">Quantity</th>
+                                                <th class="text-center align-middle">Unit Price</th>
+                                                <th class="text-center align-middle">Into Money</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="(value, key) in arr">
+                                                    <td class="text-center align-middle">@{{ value.invoice_code }}</td>
+                                                    <td class="text-center align-middle">@{{ value.product_name }}</td>
+                                                    <td class="text-center align-middle">@{{ value.quantity }}</td>
+                                                    <td class="text-center align-middle">@{{ format(value.unit_price) }}</td>
+                                                    <td class="text-center align-middle">@{{ format(value.into_money) }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,20 +93,16 @@
 @endsection
 @section('js')
     <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    </script>
-    <script>
         new Vue({
             el: "#app",
             data: {
                 arrayleft: [],
+                arr: [],
+                detail:{},
             },
             created() {
                 this.loadDataLeft();
+                this.loadDataModal();
             },
             methods: {
                 loadDataLeft() {
@@ -116,6 +118,14 @@
                         style: 'currency',
                         currency: 'VND'
                     }).format(money)
+                },
+
+                loadDataModal() {
+                    axios
+                        .get('/dataright')
+                        .then((res) => {
+                            this.arr = res.data.datamodal;
+                        })
                 },
             },
         });

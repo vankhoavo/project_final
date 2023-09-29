@@ -66,7 +66,7 @@ class InvoiceController extends Controller
         return view('client.page.myinvoice');
     }
 
-    public function getdata(Request $request)
+    public function getdata()
     {
         $check = Auth::guard('client')->check();
         if ($check) {
@@ -75,6 +75,22 @@ class InvoiceController extends Controller
                 ->get();
             return response()->json([
                 'dataleft'  => $invoice,
+            ]);
+        }
+    }
+
+    public function getdatamodal(Request $request)
+    {
+        $check = Auth::guard('client')->check();
+        if ($check) {
+            $result = InvoiceDetails::join('products', 'invoice_details.id_product', 'products.id')
+                ->join('invoices', 'invoice_details.id_invoice', 'invoices.id')
+                ->select('invoice_details.*', 'products.product_name', 'invoices.invoice_code')
+                ->where('invoices.id', $request->id_invoice) // Thêm điều kiện where
+                ->get();
+
+            return response()->json([
+                'datamodal' => $result,
             ]);
         }
     }

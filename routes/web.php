@@ -103,4 +103,4 @@ Route::post('/create-bill', [InvoiceController::class, 'createbill']);
 
 Route::get('/myinvoice', [InvoiceController::class, 'myinvoice']);
 Route::get('/dataleft', [InvoiceController::class, 'getdata']);
-Route::get('/dataright', [InvoiceController::class, 'getdata']);
+Route::get('/dataright', [InvoiceController::class, 'getdatamodal']);

@@ -16,6 +16,9 @@
                                 @if (Auth::guard('client')->check())
                                     You are logged in with email:
                                     <strong>{{ Auth::guard('client')->user()->email }}</strong>
+                                    <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                                @else
+                                    <li><a href="/login"><i class="flaticon-user"></i></a></li>
                                 @endif
                             </ul>
                         </div>
@@ -85,15 +88,12 @@
                 </div>
                 <ul class="menu-right-content clearfix">
                     @if (Auth::guard('client')->check())
-                        <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
                         <li class="shop-cart">
                             <a href="/cart"><i class="flaticon-shopping-cart-1"></i><span>3</span></a>
                         </li>
                         <li class="shop-cart">
                             <a href="/myinvoice"> <i class="fa-solid fa-receipt"></i></a>
                         </li>
-                    @else
-                        <li><a href="/login"><i class="flaticon-user"></i></a></li>
                     @endif
                 </ul>
             </div>

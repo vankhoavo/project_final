@@ -14,7 +14,7 @@ class CheckIDInvocieRequest extends FormRequest
     public function rules()
     {
         return [
-            'id'    => 'required|exists:invoices,id',
+            'id_invoice'    => 'required|exists:invoices,id_invoice',
         ];
     }
 }
