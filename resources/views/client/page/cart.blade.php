@@ -115,6 +115,7 @@
     <!-- cart section end -->
 @endsection
 @section('js')
+    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
     <script>
         new Vue({
             el: "#app",
@@ -173,9 +174,9 @@
                         .post('/create-bill', this.bill)
                         .then((res) => {
                             if (res.data.status) {
-                                toastr.success(res.data.mess);
                                 $("#form").trigger('reset');
-                                this.loadData();
+                                this.paymentPaypal(res.data.id);
+                                toastr.success(res.data.mess);
                             } else if (res.data.status == 0) {
                                 toastr.error(res.data.mess);
                             } else if (res.data.status == 2) {
@@ -189,6 +190,22 @@
                             });
                         });
                 },
+
+                paymentPaypal(id) {
+                    total = this.totalmoney / 23000;
+                    axios
+                        .get('/process-transaction', {
+                            params: {
+                                price: total.toFixed(2),
+                                id_invoice: id,
+                            }
+                        })
+                        .then((res) => {
+                            if (res.data.status) {
+                                window.location = res.data.link
+                            }
+                        });
+                }
             },
         });
     </script>

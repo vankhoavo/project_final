@@ -46,11 +46,12 @@ class InvoiceController extends Controller
             }
 
             $invoice->total_money = $totalmoneyinvoice;
-            $invoice->invoice_code = 'CASTRO' . implode('', array_map(fn () => random_int(0, 9), range(1, 10)));;
+            // $invoice->invoice_code = 'CASTRO' . implode('', array_map(fn () => random_int(0, 9), range(1, 10)));;
             $invoice->save();
 
             return response()->json([
                 'status'    => true,
+                'id'        => $invoice->id,
                 'mess'      => "Invoice created successfully!",
             ]);
         } else {

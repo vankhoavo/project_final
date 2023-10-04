@@ -10,6 +10,7 @@ use App\Http\Controllers\InvoiceDetailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\OriginController;
+use App\Http\Controllers\PayPalController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/test', [TestController::class, 'test']);
@@ -92,3 +93,8 @@ Route::post('/create-bill', [InvoiceController::class, 'createbill']);
 Route::get('/myinvoice', [InvoiceController::class, 'myinvoice']);
 Route::get('/dataleft', [InvoiceController::class, 'getdata']);
 Route::get('/dataright', [InvoiceController::class, 'getdatamodal']);
+
+Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
+Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
+Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
+Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
