@@ -97,10 +97,10 @@
                                                         <div class="price">
                                                             <span
                                                                 class="price_discount">{{ number_format($value->price_discount, 0, ',', '.') }}
-                                                                VND</span>
+                                                                $</span>
                                                             <span style="float: right;text-decoration: line-through;"
                                                                 class="price_sell">{{ number_format($value->price_sell, 0, ',', '.') }}
-                                                                VND</span>
+                                                                $</span>
                                                         </div>
                                                     </div>
                                                 </div>

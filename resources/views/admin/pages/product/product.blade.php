@@ -72,14 +72,14 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>Price Sell New (VND)</label>
+                                            <label>Price Sell New (USD)</label>
                                             <input id="price_sell_new" type="number" min="0" class="form-control"
                                                 placeholder="Enter the new selling price">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>Price Discount New (VND)</label>
+                                            <label>Price Discount New (USD)</label>
                                             <input id="price_discount_new" type="number" min="0"
                                                 class="form-control" placeholder="Enter the new price discount">
                                         </div>
@@ -247,7 +247,7 @@
                                                         </div>
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <label>Price Sell Update (VND)</label>
+                                                                <label>Price Sell Update (USD)</label>
                                                                 <input id="price_sell_update" type="number"
                                                                     min="0" class="form-control"
                                                                     placeholder="Enter the update selling price">
@@ -255,7 +255,7 @@
                                                         </div>
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <label>Price Discount Update (VND)</label>
+                                                                <label>Price Discount Update (USD)</label>
                                                                 <input id="price_discount_update" type="number"
                                                                     min="0" class="form-control"
                                                                     placeholder="Enter the update price discount">
@@ -475,9 +475,9 @@
             }
 
             function formatCurrency(number) {
-                return new Intl.NumberFormat('vi-VN', {
+                return new Intl.NumberFormat('en-US', {
                     style: 'currency',
-                    currency: 'VND'
+                    currency: 'USD'
                 }).format(number);
             }
 

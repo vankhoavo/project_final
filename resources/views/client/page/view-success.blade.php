@@ -28,7 +28,7 @@
                     toastr.success("Payment success");
                     window.setTimeout(() => {
                         window.location.href = "/myinvoice";
-                    }, 2000);
+                    }, 2500);
 
                 },
             },

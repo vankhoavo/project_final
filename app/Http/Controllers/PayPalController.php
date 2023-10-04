@@ -20,7 +20,6 @@ class PayPalController extends Controller
             if ($invoice) {
                 $invoice->total_money = $request->price;
                 $invoice->payment = 1;
-                $invoice->invoice_code = 'CASTRO' . implode('', array_map(fn () => random_int(0, 9), range(1, 10)));;
                 $invoice->save();
 
                 $data['carts'] = InvoiceDetails::where('is_invoice', 1)->where('id_invoice', $request->id_invoice)

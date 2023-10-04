@@ -44,8 +44,8 @@
                                         </td>
                                         <td class="text-center align-middle">
                                             <button class="btn btn-primary" v-if="value.payment == 1">Paid</button>
-                                            <a href="https://www.paypal.com/vn/business?locale.x=vi_VN"
-                                                class="btn btn-danger" v-else>Unpaid</a>
+                                            <button v-on:click="paymentPaypal(value.id, value.total_money)"
+                                                class="btn btn-danger" v-else>Unpaid</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -98,7 +98,7 @@
             data: {
                 arrayleft: [],
                 arr: [],
-                detail:{},
+                detail: {},
             },
             created() {
                 this.loadDataLeft();
@@ -114,9 +114,9 @@
                 },
 
                 format(money) {
-                    return new Intl.NumberFormat('vi-VI', {
+                    return new Intl.NumberFormat('en-US', {
                         style: 'currency',
-                        currency: 'VND'
+                        currency: 'USD'
                     }).format(money)
                 },
 
@@ -127,6 +127,22 @@
                             this.arr = res.data.datamodal;
                         })
                 },
+
+                paymentPaypal(id, totalmoney) {
+                    total = totalmoney;
+                    axios
+                        .get('/process-transaction', {
+                            params: {
+                                price: total.toFixed(2),
+                                id_invoice: id,
+                            }
+                        })
+                        .then((res) => {
+                            if (res.data.status) {
+                                window.location = res.data.link
+                            }
+                        });
+                }
             },
         });
     </script>

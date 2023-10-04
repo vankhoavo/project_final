@@ -138,9 +138,9 @@
                 },
 
                 format(money) {
-                    return new Intl.NumberFormat('vi-VI', {
+                    return new Intl.NumberFormat('en-US', {
                         style: 'currency',
-                        currency: 'VND'
+                        currency: 'USD'
                     }).format(money)
                 },
 
@@ -192,7 +192,7 @@
                 },
 
                 paymentPaypal(id) {
-                    total = this.totalmoney / 23000;
+                    total = this.totalmoney;
                     axios
                         .get('/process-transaction', {
                             params: {
