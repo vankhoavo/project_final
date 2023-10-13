@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Brand Management</h1>
+                    <h1 class="m-0">Admin Management</h1>
                 </div>
             </div>
         </div>
@@ -49,8 +49,10 @@
                             </div>
                             <div class="form-group">
                                 <label>Account Type New</label>
-                                <select v-model="add.rule_id" class="form-control">
+                                <select v-model="add.rule_id" class="form-control"
+                                    placeholder="Please select registration option">
                                     <option value="1">Admin Master</option>
+                                    <option value="2">Staff</option>
                                 </select>
                             </div>
                         </div>
@@ -73,7 +75,9 @@
                                         <th class="align-middle text-nowrap text-center">Phone Number</th>
                                         <th class="align-middle text-nowrap text-center">Email</th>
                                         <th class="align-middle text-nowrap text-center">Date of Birth</th>
-                                        <th class="align-middle text-nowrap text-center">Status</th>
+                                        @if (Auth::guard('admin')->user()->rude_id == 1)
+                                            <th class="align-middle text-nowrap text-center">Status</th>
+                                        @endif
                                         <th class="align-middle text-nowrap text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -84,16 +88,20 @@
                                         <td class="text-center text-nowrap align-middle">@{{ value.phone_number }}</td>
                                         <td class="text-center text-nowrap align-middle">@{{ value.email }}</td>
                                         <td class="text-center text-nowrap align-middle">@{{ value.date_of_birth }}</td>
+                                        @if (Auth::guard('admin')->user()->rude_id == 1)
+                                            <td class="text-center text-nowrap align-middle">
+                                                <button v-on:click="changestatus(value)" v-if="value.is_block == 0"
+                                                    class="btn btn-success">Active</button>
+                                                <button v-on:click="changestatus(value)" v-else class="btn btn-info">Stop
+                                                    Active</button>
+                                            </td>
+                                        @endif
                                         <td class="text-center text-nowrap align-middle">
-                                            <button v-on:click="changestatus(value)" v-if="value.is_block == 0"
-                                                class="btn btn-success">Active</button>
-                                            <button v-on:click="changestatus(value)" v-else class="btn btn-info">Stop
-                                                Active</button>
-                                        </td>
-                                        <td class="text-center text-nowrap align-middle">
+                                            @if (Auth::guard('admin')->user()->rude_id == 1)
+                                                <button class="btn btn-danger">Remove</button>
+                                            @endif
                                             <button v-on:click="callmodal(value)" data-toggle="modal"
                                                 data-target="#updateModal" class="btn btn-primary">Update</button>
-                                            <button class="btn btn-danger">Remove</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -110,7 +118,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <input type="text" v-model="update.id" class="form-control">
+                                                <input type="text" hidden v-model="update.id" class="form-control">
                                                 <div class="form-group">
                                                     <label>Full Name Update</label>
                                                     <input v-model="update.first_and_last_name" type="text"
@@ -129,8 +137,10 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Account Type Update</label>
-                                                    <select v-model="update.rule_id" class="form-control">
+                                                    <select v-model="update.rule_id" class="form-control"
+                                                        placeholder="Please select registration option">
                                                         <option value="1">Admin Master</option>
+                                                        <option value="2">Staff</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -157,9 +167,13 @@
         new Vue({
             el: "#app",
             data: {
-                add: {},
+                add: {
+                    rule_id: 2,
+                },
                 list: [],
-                update: {},
+                update: {
+                    rule_id: 2,
+                },
             },
             created() {
                 this.getdata();
@@ -188,7 +202,7 @@
 
                 getdata() {
                     axios
-                        .get('/api/adminlte/admin/data')
+                        .get('/adminlte/admin/data')
                         .then((res) => {
                             this.list = res.data.data;
                         });

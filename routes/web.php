@@ -12,22 +12,25 @@ use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\OriginController;
 use App\Http\Controllers\PayPalController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 Route::get('/test', [TestController::class, 'test']);
-
-Route::get('/adminlte/admin/index', [AdminController::class, 'index']);
-Route::post('/adminlte/admin/create', [AdminController::class, 'create']);
-Route::post('/adminlte/admin/changestatus', [AdminController::class, 'changestatus']);
-Route::post('/adminlte/admin/update', [AdminController::class, 'update']);
 
 Route::post('/adminlte/login', [AdminController::class, 'actionlogin']);
 Route::get('/adminlte/login', [AdminController::class, 'viewlogin']);
 
 Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
-    // Route::group(['prefix' => '/adminlte'], function () {
+    Route::get('/admin/index', [AdminController::class, 'index']);
+    Route::post('/admin/create', [AdminController::class, 'create']);
+    Route::post('/admin/changestatus', [AdminController::class, 'changestatus']);
+    Route::post('/admin/update', [AdminController::class, 'update']);
+    Route::get('/admin/data', [AdminController::class, 'getdata']);
+
     Route::get('/logout', [AdminController::class, 'logout']);
+
     Route::group(['prefix' => '/product-type'], function () {
         Route::get('/index', [ProductTypeController::class, 'index']);
+        Route::get('/data', [ProductTypeController::class, 'getdata']);
         Route::post('/create', [ProductTypeController::class, 'create']);
         Route::post('/delete', [ProductTypeController::class, 'destroy']);
         Route::post('/getupdate', [ProductTypeController::class, 'getupdate']);
@@ -38,6 +41,7 @@ Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
         Route::get('/index', [BrandController::class, 'index']);
         Route::post('/create', [BrandController::class, 'create']);
         Route::post('/getupdate', [BrandController::class, 'getupdate']);
+        Route::get('/data', [BrandController::class, 'getdata']);
         Route::post('/checkslug', [BrandController::class, 'checkslug']);
         Route::post('/delete', [BrandController::class, 'destroy']);
         Route::post('/update', [BrandController::class, 'update']);
@@ -50,6 +54,7 @@ Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
     Route::group(['prefix' => '/product'], function () {
         Route::get('/index', [ProductController::class, 'index']);
         Route::post('/create', [ProductController::class, 'create']);
+        Route::get('/data', [ProductController::class, 'getdata']);
         Route::get('/get', [ProductController::class, 'getData']);
         Route::post('/changestatus', [ProductController::class, 'changestatus']);
         Route::post('/update', [ProductController::class, 'update']);
@@ -98,3 +103,5 @@ Route::get('create-transaction', [PayPalController::class, 'createTransaction'])
 Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
 Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
+
+Route::get('/product/{slug}', [ProductController::class, 'showdetailproduct']);

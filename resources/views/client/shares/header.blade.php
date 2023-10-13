@@ -43,32 +43,19 @@
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
                                 <li class="current"><a href="/">Home</a></li>
-                                <li class="dropdown"><a href="index.html">Shop<span>Hot</span></a>
+                                <li class="dropdown"><a href="index.html">Shop</a>
                                     <div class="megamenu">
                                         <div class="row clearfix">
-                                            <div class="col-lg-6 column">
+                                            <div class="col-lg-12 column">
                                                 <ul>
                                                     <li>
-                                                        <h4>Shop Page</h4>
+                                                        <h4>Castro Shop Page</h4>
                                                     </li>
-                                                    <li><a href="/shoppage1">Shop Page 01</a></li>
-                                                    <li><a href="shop-2.html">Shop Page 02</a></li>
-                                                    <li><a href="shop-3.html">Shop Page 03</a></li>
-                                                    <li><a href="shop-4.html">Shop Page 04</a></li>
-                                                    <li><a href="shop-5.html">Shop Page 05</a></li>
-                                                    <li><a href="shop-6.html">Shop Page 06</a></li>
-                                                    <li><a href="shop-7.html">Shop Page 07</a></li>
                                                     <li><a href="shop-8.html">Shop Page 08</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-6 column">
-                                                <ul>
-                                                    <li>
-                                                        <h4>Other Shop Page</h4>
-                                                    </li>
-                                                    <li><a href="cart.html">Cart Page</a></li>
-                                                    <li><a href="checkout.html">Checkout Page</a></li>
-                                                    <li><a href="my-account.html">My Account</a></li>
+                                                    @if (Auth::guard('client')->check())
+                                                        <li><a href="/cart">Cart Page</a></li>
+                                                    @endif
+                                                    <li><a href="/login">My Account</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -101,16 +88,9 @@
     </div>
     <div class="header-lower">
         <div class="large-container">
-            <div class="outer-box clearfix">
-                <div class="category-box pull-left">
+            <div class="outer-box">
+                <div class="category-box">
                     <p>All Categories</p>
-                    <ul class="category-content">
-                        {{-- @foreach ($producttype as $key => $value)
-                        <li>
-                            <a href="{{ 'shoppage' . ($key + 1) }}">{{ $value->product_type_name }}</a>
-                        </li>
-                        @endforeach --}}
-                    </ul>
                 </div>
                 <div class="search-info pull-right">
                     <form action="index-5.html" method="post" class="search-form">

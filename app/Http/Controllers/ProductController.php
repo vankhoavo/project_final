@@ -9,9 +9,25 @@ use App\Http\Requests\product\UpdateProductRequest;
 use App\Models\ProductType;
 use App\Models\Product;
 use App\Models\Brand;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
+    public function showdetailproduct($slug)
+    {
+        $search = strpos($slug, 'post');
+        $id = Str::substr($slug, $search + 4);
+
+        $product = Product::join('product_types', 'product_types.id', 'products.id_product_type')
+            ->select('products.*', 'product_types.product_type_name')
+            ->where('products.id', $id)
+            ->get();
+
+        $product2 = Product::get();
+
+        return view('client.page.productdetail', compact('product', 'product2'));
+    }
+
     public function index()
     {
         $producttype = ProductType::get();

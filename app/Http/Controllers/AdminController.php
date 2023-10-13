@@ -18,6 +18,12 @@ class AdminController extends Controller
 
     public function create(CreateAdminRequest $request)
     {
+        if ($request->rule_id == 1) {
+            return response()->json([
+                'status'    => 0,
+                'mess'      => "You cannot create an account with Admin Master rights!",
+            ]);
+        }
         $data = $request->all();
         $data['password'] = bcrypt($request->password);
         Admin::create($data);
@@ -56,6 +62,12 @@ class AdminController extends Controller
     public function update(UpdateAdminRequest $request)
     {
         $admin = Admin::where('id', $request->id)->first();
+        if ($request->rule_id == 1) {
+            return response()->json([
+                'status'    => 0,
+                'mess'      => "You cannot create an account with Admin Master rights!",
+            ]);
+        }
         $admin->update($request->all());
         return response()->json([
             'status'    => true,

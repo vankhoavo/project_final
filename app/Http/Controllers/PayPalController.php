@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\sendMailJob;
-use App\Mail\sendOrderMail;
 use App\Models\Invoice;
 use App\Models\InvoiceDetails;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
-use stdClass;
 
 class PayPalController extends Controller
 {
@@ -41,11 +38,6 @@ class PayPalController extends Controller
         return view("client.page.view-cancel");
     }
 
-    /**
-     * process transaction.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function processTransaction(Request $request)
     {
         $provider = new PayPalClient;
@@ -90,11 +82,6 @@ class PayPalController extends Controller
         }
     }
 
-    /**
-     * success transaction.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function successTransaction(Request $request)
     {
         $provider = new PayPalClient;
@@ -113,11 +100,6 @@ class PayPalController extends Controller
         }
     }
 
-    /**
-     * cancel transaction.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function cancelTransaction(Request $request)
     {
         return redirect()

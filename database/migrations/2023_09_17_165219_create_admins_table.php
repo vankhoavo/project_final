@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->string('hash_reset')->nullable();
             $table->integer('is_block')->default(0);
-            $table->integer('rule_id')->default(1);
+            $table->integer('rule_id')->default(2);
             $table->timestamps();
         });
     }

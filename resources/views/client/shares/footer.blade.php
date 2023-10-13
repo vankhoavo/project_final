@@ -73,12 +73,6 @@
             <ul class="cart-list pull-left clearfix">
                 <li><a><img src="/client/images/resource/card-1.png" alt=""></a>
                 </li>
-                <li><a><img src="/client/images/resource/card-2.png" alt=""></a>
-                </li>
-                <li><a><img src="/client/images/resource/card-3.png" alt=""></a>
-                </li>
-                <li><a><img src="/client/images/resource/card-4.png" alt=""></a>
-                </li>
             </ul>
             <div class="copyright pull-right">
                 <p><a href="/">castro</a> &copy; 2023 VOVANKHOA - All Right Reserved</p>

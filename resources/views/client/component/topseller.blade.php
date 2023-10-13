@@ -49,9 +49,10 @@
                             <h2>Top Seller</h2>
                             <ul class="tab-btns tab-buttons pull-right clearfix">
                                 @foreach ($productype as $key => $value)
-                                    <li class="tab-btn active-btn" data-tab="#tab-1">{{ $value->product_type_name }}</li>
+                                    <li class="tab-btn active-btn" data-tab="#tab-1">{{ $value->product_type_name }}
+                                    </li>
 
-                                {{-- <li class="tab-btn" data-tab="#tab-2">New Arraivals</li>
+                                    {{-- <li class="tab-btn" data-tab="#tab-2">New Arraivals</li>
                                 <li class="tab-btn" data-tab="#tab-3">Top Rate</li>
                                 <li class="tab-btn" data-tab="#tab-4">Special Offer</li>
                                 <li class="tab-btn" data-tab="#tab-5">Special Offer</li>
@@ -93,7 +94,8 @@
                                                         </ul>
                                                     </figure>
                                                     <div class="lower-content">
-                                                        <a href="/product-detail-1.html">{{ $value->product_name }}</a>
+                                                        <a
+                                                            href="/product/{{ $value->slug_product }}-post{{ $value->id }}">{{ $value->product_name }}</a>
                                                         <div class="price">
                                                             <span
                                                                 class="price_discount">{{ number_format($value->price_discount, 0, ',', '.') }}
