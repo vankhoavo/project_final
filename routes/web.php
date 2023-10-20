@@ -13,8 +13,14 @@ use App\Http\Controllers\OriginController;
 use App\Http\Controllers\PayPalController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/test', [TestController::class, 'test']);
+
+Route::get('auth/google', function () {
+    return Socialite::driver('google')->redirect('/');
+});
+Route::get('/auth/google/callback', [CustomerController::class, 'googleCallback']);
 
 Route::post('/adminlte/login', [AdminController::class, 'actionlogin']);
 Route::get('/adminlte/login', [AdminController::class, 'viewlogin']);

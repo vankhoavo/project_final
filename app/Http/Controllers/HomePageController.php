@@ -14,6 +14,7 @@ class HomePageController extends Controller
     {
         $productype = ProductType::get('product_type_name');
         $product = Product::where('status', 1)->get()->take(12);
+        
         return view('client.page.homepage', compact('product', 'productype'));
     }
 

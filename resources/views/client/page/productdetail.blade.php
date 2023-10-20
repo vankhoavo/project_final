@@ -81,31 +81,29 @@
                                 <div class="text">
                                     {{ $value->short_description }}
                                 </div>
-                                <div class="othre-options clearfix">
+                                <div class="othre-options clearfix" id="add">
                                     <div class="item-quantity">
                                         <div class="input-group bootstrap-touchspin">
                                             <span class="input-group-addon bootstrap-touchspin-prefix"
                                                 style="display: none;"></span>
-                                            <input class="quantity-spinner form-control" type="text"
-                                                style="display: block;" v-model="value.quantity"
-                                                v-on:change="update(value, 0)">
+                                            <input class="quantity-spinner form-control" type="text" value="1"
+                                                v-on:change="update(value, 0)" style="display: block;">
                                             <span class="input-group-addon bootstrap-touchspin-postfix"
                                                 style="display: none;"></span>
                                             <span class="input-group-btn-vertical">
-                                                <button class="btn btn-default bootstrap-touchspin-up"
-                                                    v-on:click="update(value,1)" type="button">
-                                                    <i class="glyphicon glyphicon-chevron-up"></i>
-                                                </button>
-                                                <button class="btn btn-default bootstrap-touchspin-down"
-                                                    v-on:click="update(value,-1)" type="button">
-                                                    <i class="glyphicon glyphicon-chevron-down"></i>
-                                                </button>
+                                                <button class="btn btn-default bootstrap-touchspin-up" type="button"><i
+                                                        v-on:click="update(value,1)"
+                                                        class="glyphicon glyphicon-chevron-up"></i></button>
+                                                <button class="btn btn-default bootstrap-touchspin-down" type="button"><i
+                                                        v-on:click="update(value,-1)"
+                                                        class="glyphicon glyphicon-chevron-down"></i></button>
                                             </span>
                                         </div>
                                     </div>
                                     @if (Auth::guard('client')->check())
-                                        <div class="btn-box">
-                                            <button type="button" class="theme-btn-two">Add to cart</button>
+                                        <div class="btn-box" id="productdetail">
+                                            <a v-on:click="addToCart({{ $value->id }})" type="button"
+                                                class="theme-btn-two">Add to cart</a>
                                         </div>
                                     @else
                                         <div class="btn-box">
@@ -185,109 +183,188 @@
                 <span class="separator" style="background-image: url(/client/images/icons/separator-2.png);"></span>
             </div>
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
-                    <div class="shop-block-one">
-                        <div class="inner-box">
-                            <figure class="image-box">
-                                <img src="/client/images/resource/shop/shop-1.jpg" alt="">
-                                <ul class="info-list clearfix">
-                                    <li>
-                                        @if (Auth::guard('client')->check())
-                                            <a title="shoppingcart" v-on:click="addToCart({{ $value->id }})"><i
-                                                    class="flaticon-shopping-cart-1"></i></a>
-                                            <span>Add to cart</span>
-                                        @else
-                                            <a title="shoppingCart"><i class="flaticon-shopping-cart-1"
-                                                    data-toggle="modal" data-target="#loginModal"></i></a>
-                                        @endif
-                                    </li>
-                                </ul>
-                            </figure>
-                            <div class="lower-content">
-                                <a href="product-details.html">Cold Crewneck Sweater</a>
-                                <span class="price">$70.30</span>
+                @foreach ($product as $key => $value)
+                    <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
+                        <div class="shop-block-one">
+                            <div class="inner-box">
+                                <figure class="image-box">
+                                    <img src="{{ $value->picture }}" alt="">
+                                    <ul class="info-list clearfix">
+                                        <li>
+                                            @if (Auth::guard('client')->check())
+                                                <a id="productdetail" title="shoppingcart"
+                                                    v-on:click="addToCart({{ $value->id }})"><i
+                                                        class="flaticon-shopping-cart-1"></i></a>
+                                                <span>Add to cart</span>
+                                            @else
+                                                <a title="shoppingCart"><i class="flaticon-shopping-cart-1"
+                                                        data-toggle="modal" data-target="#loginModal"></i></a>
+                                            @endif
+                                        </li>
+                                    </ul>
+                                </figure>
+                                <div class="lower-content">
+                                    <a
+                                        href="/product/{{ $value->slug_product }}-post{{ $value->id }}">{{ $value->product_name }}</a>
+                                    <span class="price">${{ $value->price_discount }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
-                    <div class="shop-block-one">
-                        <div class="inner-box">
-                            <figure class="image-box">
-                                <img src="/client/images/resource/shop/shop-1.jpg" alt="">
-                                <ul class="info-list clearfix">
-                                    <li>
-                                        @if (Auth::guard('client')->check())
-                                            <a title="shoppingcart" v-on:click="addToCart({{ $value->id }})"><i
-                                                    class="flaticon-shopping-cart-1"></i></a>
-                                            <span>Add to cart</span>
-                                        @else
-                                            <a title="shoppingCart"><i class="flaticon-shopping-cart-1"
-                                                    data-toggle="modal" data-target="#loginModal"></i></a>
-                                        @endif
-                                    </li>
-                                </ul>
-                            </figure>
-                            <div class="lower-content">
-                                <a href="product-details.html">Cold Crewneck Sweater</a>
-                                <span class="price">$70.30</span>
+                    <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
+                        <div class="shop-block-one">
+                            <div class="inner-box">
+                                <figure class="image-box">
+                                    <img src="{{ $value->picture }}" alt="">
+                                    <ul class="info-list clearfix">
+                                        <li>
+                                            @if (Auth::guard('client')->check())
+                                                <a id="productdetail" title="shoppingcart"
+                                                    v-on:click="addToCart({{ $value->id }})"><i
+                                                        class="flaticon-shopping-cart-1"></i></a>
+                                                <span>Add to cart</span>
+                                            @else
+                                                <a title="shoppingCart"><i class="flaticon-shopping-cart-1"
+                                                        data-toggle="modal" data-target="#loginModal"></i></a>
+                                            @endif
+                                        </li>
+                                    </ul>
+                                </figure>
+                                <div class="lower-content">
+                                    <a
+                                        href="/product/{{ $value->slug_product }}-post{{ $value->id }}">{{ $value->product_name }}</a>
+                                    <span class="price">${{ $value->price_discount }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
-                    <div class="shop-block-one">
-                        <div class="inner-box">
-                            <figure class="image-box">
-                                <img src="/client/images/resource/shop/shop-1.jpg" alt="">
-                                <ul class="info-list clearfix">
-                                    <li>
-                                        @if (Auth::guard('client')->check())
-                                            <a title="shoppingcart" v-on:click="addToCart({{ $value->id }})"><i
-                                                    class="flaticon-shopping-cart-1"></i></a>
-                                            <span>Add to cart</span>
-                                        @else
-                                            <a title="shoppingCart"><i class="flaticon-shopping-cart-1"
-                                                    data-toggle="modal" data-target="#loginModal"></i></a>
-                                        @endif
-                                    </li>
-                                </ul>
-                            </figure>
-                            <div class="lower-content">
-                                <a href="product-details.html">Cold Crewneck Sweater</a>
-                                <span class="price">$70.30</span>
+                    <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
+                        <div class="shop-block-one">
+                            <div class="inner-box">
+                                <figure class="image-box">
+                                    <img src="{{ $value->picture }}" alt="">
+                                    <ul class="info-list clearfix">
+                                        <li>
+                                            @if (Auth::guard('client')->check())
+                                                <a id="productdetail" title="shoppingcart"
+                                                    v-on:click="addToCart({{ $value->id }})"><i
+                                                        class="flaticon-shopping-cart-1"></i></a>
+                                                <span>Add to cart</span>
+                                            @else
+                                                <a title="shoppingCart"><i class="flaticon-shopping-cart-1"
+                                                        data-toggle="modal" data-target="#loginModal"></i></a>
+                                            @endif
+                                        </li>
+                                    </ul>
+                                </figure>
+                                <div class="lower-content">
+                                    <a
+                                        href="/product/{{ $value->slug_product }}-post{{ $value->id }}">{{ $value->product_name }}</a>
+                                    <span class="price">${{ $value->price_discount }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
-                    <div class="shop-block-one">
-                        <div class="inner-box">
-                            <figure class="image-box">
-                                <img src="/client/images/resource/shop/shop-1.jpg" alt="">
-                                <ul class="info-list clearfix">
-                                    <li>
-                                        @if (Auth::guard('client')->check())
-                                            <a title="shoppingcart" v-on:click="addToCart({{ $value->id }})"><i
-                                                    class="flaticon-shopping-cart-1"></i></a>
-                                            <span>Add to cart</span>
-                                        @else
-                                            <a title="shoppingCart"><i class="flaticon-shopping-cart-1"
-                                                    data-toggle="modal" data-target="#loginModal"></i></a>
-                                        @endif
-                                    </li>
-                                </ul>
-                            </figure>
-                            <div class="lower-content">
-                                <a href="product-details.html">Cold Crewneck Sweater</a>
-                                <span class="price">$70.30</span>
+                    <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
+                        <div class="shop-block-one">
+                            <div class="inner-box">
+                                <figure class="image-box">
+                                    <img src="{{ $value->picture }}" alt="">
+                                    <ul class="info-list clearfix">
+                                        <li>
+                                            @if (Auth::guard('client')->check())
+                                                <a id="productdetail" title="shoppingcart"
+                                                    v-on:click="addToCart({{ $value->id }})"><i
+                                                        class="flaticon-shopping-cart-1"></i></a>
+                                                <span>Add to cart</span>
+                                            @else
+                                                <a title="shoppingCart"><i class="flaticon-shopping-cart-1"
+                                                        data-toggle="modal" data-target="#loginModal"></i></a>
+                                            @endif
+                                        </li>
+                                    </ul>
+                                </figure>
+                                <div class="lower-content">
+                                    <a
+                                        href="/product/{{ $value->slug_product }}-post{{ $value->id }}">{{ $value->product_name }}</a>
+                                    <span class="price">${{ $value->price_discount }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
         </div>
     </section>
     <!-- product-details end -->
+@endsection
+@section('js')
+    <script>
+        new Vue({
+            el: "#productdetail",
+            data: {
+
+            },
+            methods: {
+                addToCart(id_product) {
+                    var run = {
+                        'id_product': id_product,
+                    };
+                    axios
+                        .post('/add-to-cart', run)
+                        .then((res) => {
+                            if (res.data.status) {
+                                toastr.success(res.data.mess);
+                            } else if (res.data.status == 0) {
+                                toastr.error(res.data.mess);
+                            } else if (res.data.status == 2) {
+                                toastr.warning(res.data.mess);
+                            }
+                        })
+                        .catch((res) => {
+                            var listError = res.response.data.errors;
+                            $.each(listError, function(key, value) {
+                                toastr.error(value[0]);
+                            });
+                        });
+                },
+
+            },
+        });
+    </script>
+    <script>
+        new Vue({
+            el: "#add",
+            data: {
+
+            },
+            methods: {
+                update(v, t) {
+                    if (t == 1) {
+                        v.quantity++;
+                    } else if (t == -1) {
+                        v.quantity--;
+                    }
+                    axios
+                        .post('/cart/update', v)
+                        .then((res) => {
+                            if (res.data.status) {
+                                this.loadData();
+                            } else if (res.data.status == 0) {
+                                toastr.error(res.data.mess);
+                            } else if (res.data.status == 2) {
+                                toastr.warning(res.data.mess);
+                            }
+                        })
+                        .catch((res) => {
+                            var listE = res.response.data.errors;
+                            $.each(listE, function(k, v) {
+                                toastr.error(v[0]);
+                            });
+                        });
+                },
+            },
+        });
+    </script>
 @endsection

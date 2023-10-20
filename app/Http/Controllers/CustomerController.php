@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
 
 class CustomerController extends Controller
 {
@@ -151,5 +152,14 @@ class CustomerController extends Controller
         Auth::guard('client')->logout();
         toastr()->success("Signed out successfully!");
         return redirect('/');
+    }
+
+    public function googleCallback()
+    {
+        $user = Socialite::driver('google')->user();
+        echo $user->email . '<br/>';
+        echo $user->name . '<br/>';
+        echo $user->user['locale'] . '<br/>';
+        echo $user->getAvatar();
     }
 }

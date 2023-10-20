@@ -18,11 +18,9 @@
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
-                                        <li><a href="index.html">Men</a></li>
-                                        <li><a href="index.html">Women</a></li>
-                                        <li><a href="index.html">Kids</a></li>
-                                        <li><a href="index.html">Accessories</a></li>
-                                        <li><a href="index.html">Shoe</a></li>
+                                        {{-- @foreach ($productype as $key => $value)
+                                            <li><a>{{ $value->product_type_name }}</a></li>
+                                        @endforeach --}}
                                     </ul>
                                 </div>
                             </div>

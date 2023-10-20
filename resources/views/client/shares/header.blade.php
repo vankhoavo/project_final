@@ -2,13 +2,6 @@
     <div class="header-top">
         <div class="large-container">
             <div class="top-inner clearfix">
-                <div class="top-left pull-left">
-                    <ul class="info clearfix">
-                        {{-- <li><i class="fa-regular fa-address-card"></i><a
-                                href="mailto:support@example.com">vovankhoa2001@hotmail.com</a>
-                        </li> --}}
-                    </ul>
-                </div>
                 <div class="top-right pull-right">
                     <div class="icon">
                         <div class="top-left pull-left">
