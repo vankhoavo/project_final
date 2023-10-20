@@ -45,6 +45,9 @@
                         </form>
                         <div class="lower-inner centred">
                             <span>or</span>
+                            <ul class="social-links clearfix">
+                                <li><a href="/auth/google"><i class="fab fa-google-plus-g"></i>Google</a></li>
+                            </ul>
                             <p>Don't Have an Account? <a href="/register" class="text-danger">Sign up Now</a></p>
                         </div>
                     </div>
