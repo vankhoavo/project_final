@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\invoice\CheckIDInvocieRequest;
 use App\Http\Requests\invoice\CreateInvoiceRequets;
 use App\Models\Invoice;
 use App\Models\InvoiceDetails;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Js;
 
 class InvoiceController extends Controller
 {
@@ -80,14 +77,16 @@ class InvoiceController extends Controller
         }
     }
 
-    public function getdatamodal(Request $request)
+    public function getdatamodal($id)
     {
-        $check = Auth::guard('client')->check();
+        $check = Auth::guard('client')->user();
+
         if ($check) {
+
             $result = InvoiceDetails::join('products', 'invoice_details.id_product', 'products.id')
-                ->join('invoices', 'invoice_details.id_invoice', 'invoices.id')
-                ->select('invoice_details.*', 'products.product_name', 'invoices.invoice_code')
-                ->where('invoices.id', $request->id_invoice) // Thêm điều kiện where
+                ->join('invoices', 'invoices.id', 'invoice_details.id_invoice')
+                ->select('invoice_details.*','invoices.*' ,'products.product_name')
+                ->where('id_invoice', $id)
                 ->get();
 
             return response()->json([

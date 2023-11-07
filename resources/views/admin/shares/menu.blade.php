@@ -78,6 +78,13 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/adminlte/dashboard" class="nav-link">
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

@@ -72,6 +72,9 @@
                             <a href="/cart"><i class="flaticon-shopping-cart-1"></i><span>3</span></a>
                         </li>
                         <li class="shop-cart">
+                            <a href="/viewprofile"><i class="fa-solid fa-user"></i></a>
+                        </li>
+                        <li class="shop-cart">
                             <a href="/myinvoice"> <i class="fa-solid fa-receipt"></i></a>
                         </li>
                     @endif

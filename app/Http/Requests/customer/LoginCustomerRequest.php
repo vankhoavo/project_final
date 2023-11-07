@@ -16,7 +16,7 @@ class LoginCustomerRequest extends FormRequest
         return [
             'email'         =>  'required|email',
             'password'      =>  'required',
-            'g-recaptcha-response' => 'required|captcha',
+            // 'g-recaptcha-response' => 'required|captcha',
         ];
     }
 }

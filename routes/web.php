@@ -103,7 +103,7 @@ Route::post('/create-bill', [InvoiceController::class, 'createbill']);
 
 Route::get('/myinvoice', [InvoiceController::class, 'myinvoice']);
 Route::get('/dataleft', [InvoiceController::class, 'getdata']);
-Route::get('/dataright', [InvoiceController::class, 'getdatamodal']);
+Route::get('/dataright/{id}', [InvoiceController::class, 'getdatamodal']);
 
 Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
 Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');

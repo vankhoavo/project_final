@@ -38,12 +38,12 @@
                                         <td class="text-center align-middle">@{{ value.invoice_code }}</td>
                                         <td class="text-center align-middle">@{{ format(value.total_money) }}</td>
                                         <td class="text-center align-middle">
-                                            <button class="btn btn-info" v-on:click="detail = value" data-toggle="modal"
+                                            <button class="btn btn-info" v-on:click="loadDataModal(value.id)" data-toggle="modal"
                                                 data-target="#seenModal">See
                                                 order details</button>
                                         </td>
                                         <td class="text-center align-middle">
-                                            <button class="btn btn-primary" v-if="value.payment == 1">Paid</button>
+                                            <a class="btn btn-primary" v-if="value.payment == 1">Paid</a>
                                             <button v-on:click="paymentPaypal(value.id, value.total_money)"
                                                 class="btn btn-danger" v-else>Unpaid</button>
                                         </td>
@@ -65,7 +65,6 @@
                                     <div class="modal-body">
                                         <table class="table table-bordered">
                                             <thead>
-                                                <th class="text-center align-middle">Invoice Code</th>
                                                 <th class="text-center align-middle">Product Name</th>
                                                 <th class="text-center align-middle">Quantity</th>
                                                 <th class="text-center align-middle">Unit Price</th>
@@ -73,7 +72,6 @@
                                             </thead>
                                             <tbody>
                                                 <tr v-for="(value, key) in arr">
-                                                    <td class="text-center align-middle">@{{ value.invoice_code }}</td>
                                                     <td class="text-center align-middle">@{{ value.product_name }}</td>
                                                     <td class="text-center align-middle">@{{ value.quantity }}</td>
                                                     <td class="text-center align-middle">@{{ format(value.unit_price) }}</td>
@@ -102,7 +100,7 @@
             },
             created() {
                 this.loadDataLeft();
-                this.loadDataModal();
+                // this.loadDataModal();
             },
             methods: {
                 loadDataLeft() {
@@ -120,9 +118,9 @@
                     }).format(money)
                 },
 
-                loadDataModal() {
+                loadDataModal(id) {
                     axios
-                        .get('/dataright')
+                        .get('/dataright/'+id)
                         .then((res) => {
                             this.arr = res.data.datamodal;
                         })
