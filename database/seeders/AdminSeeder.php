@@ -15,9 +15,9 @@ class AdminSeeder extends Seeder
         DB::table('admins')->truncate();
         DB::table('admins')->insert([
             'first_and_last_name'  => 'Võ Văn Khoa',
-            'email' => 'vovankhoa2001@hotmail.com',
+            'email' => 'admin@gmail.com',
             'phone_number' => '0905955162',
-            'password' => bcrypt('123456'),
+            'password' => bcrypt('123123'),
             'date_of_birth' => '2001-05-04',
             'rule_id' => '1',
             'created_at' => Carbon::now(),

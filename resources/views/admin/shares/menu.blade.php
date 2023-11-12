@@ -44,20 +44,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/adminlte/warehouse/index" class="nav-link">
-                        <p>
-                            Warehouse Management
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/adminlte/warehouse/listwarehouse" class="nav-link">
-                        <p>
-                            Manage Inventory List
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="/adminlte/origin/index" class="nav-link">
                         <p>
                             Origin Management
@@ -72,16 +58,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/adminlte/logout" class="nav-link">
+                    <a href="/adminlte/dashboard" class="nav-link">
                         <p>
-                            Log Out
+                            Dashboard
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/adminlte/dashboard" class="nav-link">
+                    <a href="/adminlte/logout" class="nav-link">
                         <p>
-                            Dashboard
+                            Log Out
                         </p>
                     </a>
                 </li>
