@@ -52,6 +52,11 @@ Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
         Route::post('/delete', [BrandController::class, 'destroy']);
         Route::post('/update', [BrandController::class, 'update']);
     });
+    Route::group(['prefix' => '/dashboard'], function () {
+        Route::get('/index', [\App\Http\Controllers\DashboardController::class, 'viewDashboard']);
+        Route::get('/get-total-user', [\App\Http\Controllers\DashboardController::class, 'getTotalUser']);
+        Route::get('/get-total-order', [\App\Http\Controllers\DashboardController::class, 'getTotalOrder']);
+    });
     Route::group(['prefix' => '/origin'], function () {
         Route::get('/index', [OriginController::class, 'index']);
         Route::post('/create', [OriginController::class, 'store']);

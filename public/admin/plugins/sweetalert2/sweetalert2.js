@@ -637,7 +637,7 @@
     timerProgressBar.style.width = "".concat(timerProgressBarPercent, "%");
   };
 
-  // Detect Node env
+  // Detect Node .env
   var isNodeEnv = function isNodeEnv() {
     return typeof window === 'undefined' || typeof document === 'undefined';
   };
@@ -774,7 +774,7 @@
   };
 
   var animationEndEvent = function () {
-    // Prevent run in Node env
+    // Prevent run in Node .env
 
     /* istanbul ignore if */
     if (isNodeEnv()) {
@@ -3560,7 +3560,7 @@
     function SweetAlert() {
       _classCallCheck(this, SweetAlert);
 
-      // Prevent run in Node env
+      // Prevent run in Node .env
       if (typeof window === 'undefined') {
         return;
       } // Check for the existence of Promise

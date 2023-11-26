@@ -58,9 +58,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/adminlte/dashboard" class="nav-link">
+                    <a href="/adminlte/dashboard/index" class="nav-link">
                         <p>
-                            Dashboard
+                            Dashboard Management
                         </p>
                     </a>
                 </li>
