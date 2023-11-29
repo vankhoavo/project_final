@@ -16,11 +16,11 @@ class InvoiceController extends Controller
             $customer = Auth::guard('client')->user();
             $invoice = Invoice::create([
                 // 'invoice_code',  "Chưa có, vì lúc đó đã cho nó nullable rồi"
-                'recipient_name'    => $request->recipient_name,
-                'buyer_name'      =>  $customer->first_and_last_name,
-                'email_name'      =>  $customer->email,
-                'receiving_phone_number'    => $request->receiving_phone_number,
-                'receiving_address'    => $request->receiving_address,
+                'recipient_name' => $request->recipient_name,
+                'buyer_name' => $customer->first_and_last_name,
+                'email_name' => $customer->email,
+                'receiving_phone_number' => $request->receiving_phone_number,
+                'receiving_address' => $request->receiving_address,
                 // 'payment',       vì cho default = 0
                 // 'total_money',   lúc ni chưa biết hoá đơn mấy tiền
             ]);
@@ -43,18 +43,18 @@ class InvoiceController extends Controller
             }
 
             $invoice->total_money = $totalmoneyinvoice;
-            $invoice->invoice_code = 'CASTRO' . implode('', array_map(fn () => random_int(0, 9), range(1, 10)));;
+            $invoice->invoice_code = 'CASTRO' . implode('', array_map(fn() => random_int(0, 9), range(1, 10)));;
             $invoice->save();
 
             return response()->json([
-                'status'    => true,
-                'id'        => $invoice->id,
-                'mess'      => "Invoice created successfully!",
+                'status' => true,
+                'id' => $invoice->id,
+                'mess' => "Invoice created successfully!",
             ]);
         } else {
             return response()->json([
-                'status'    => 1,
-                'mess'      => "Please log in first.",
+                'status' => 1,
+                'mess' => "Please log in first.",
             ]);
         }
     }
@@ -72,7 +72,7 @@ class InvoiceController extends Controller
             $invoice = Invoice::where('email_name', $customer->email)
                 ->get();
             return response()->json([
-                'dataleft'  => $invoice,
+                'dataleft' => $invoice,
             ]);
         }
     }
@@ -85,7 +85,7 @@ class InvoiceController extends Controller
 
             $result = InvoiceDetails::join('products', 'invoice_details.id_product', 'products.id')
                 ->join('invoices', 'invoices.id', 'invoice_details.id_invoice')
-                ->select('invoice_details.*','invoices.*' ,'products.product_name')
+                ->select('invoice_details.*', 'invoices.*', 'products.product_name')
                 ->where('id_invoice', $id)
                 ->get();
 
@@ -93,5 +93,10 @@ class InvoiceController extends Controller
                 'datamodal' => $result,
             ]);
         }
+    }
+
+    public function see_order()
+    {
+        return view('admin.pages.order.index');
     }
 }

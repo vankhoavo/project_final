@@ -12,10 +12,30 @@ class HomePageController extends Controller
 {
     public function index()
     {
-        $productype = ProductType::get('product_type_name');
-        $product = Product::where('status', 1)->get()->take(12);
-        
-        return view('client.page.homepage', compact('product', 'productype'));
+        return view('client.page.homepage');
+    }
+
+    public function getCategory()
+    {
+        $productype = ProductType::get();
+        return response()->json([
+            'data'    => $productype,
+        ]);
+    }
+    public function getProduct(Request $request)
+    {
+        $product = Product::where('status', 1);
+        if($request->name != ""){
+            $product = $product->where("product_name","like","%".$request->name."%");
+        }
+        if($request->id_category != 0){
+            $product = $product->where("id_product_type", $request->id_category);
+        }
+        $product = $product->get()->take(20);
+
+        return response()->json([
+            'data'    => $product,
+        ]);
     }
 
     public function viewlogin()

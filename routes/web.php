@@ -31,8 +31,10 @@ Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
     Route::post('/admin/changestatus', [AdminController::class, 'changestatus']);
     Route::post('/admin/update', [AdminController::class, 'update']);
     Route::get('/admin/data', [AdminController::class, 'getdata']);
-
     Route::get('/logout', [AdminController::class, 'logout']);
+
+    Route::get('/see-order', [InvoiceController::class,'see_order']);
+    Route::get('/see-customer', [CustomerController::class,'see_customer']);
 
     Route::group(['prefix' => '/product-type'], function () {
         Route::get('/index', [ProductTypeController::class, 'index']);
@@ -81,6 +83,8 @@ Route::group(['prefix' => 'laravel-filemanager'], function () {
 
 // This is the Client's web route
 Route::get('/', [HomePageController::class, 'index']);
+Route::get('/get-category', [HomePageController::class, 'getCategory']);
+Route::post('/get-product', [HomePageController::class, 'getProduct']);
 Route::get('/shoppage1', [HomePageController::class, 'shoppage1']);
 
 Route::get('/register', [HomePageController::class, 'viewregister']);

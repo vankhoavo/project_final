@@ -65,6 +65,20 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/adminlte/see-order" class="nav-link">
+                        <p>
+                            Order Management
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/adminlte/see-customer" class="nav-link">
+                        <p>
+                            Customer Management
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/adminlte/logout" class="nav-link">
                         <p>
                             Log Out
