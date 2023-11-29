@@ -46,6 +46,8 @@ class BrandSeeder extends Seeder
             ['brand_name'  => 'Seagate', 'slug_brand' => 'seagate', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['brand_name'  => 'Toshiba', 'slug_brand' => 'toshiba', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['brand_name'  => 'Quadro', 'slug_brand' => 'quadro', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['brand_name'  => 'LG', 'slug_brand' => 'lg', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['brand_name'  => 'ViewSonic', 'slug_brand' => 'viewsonic', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ]);
     }
 }
