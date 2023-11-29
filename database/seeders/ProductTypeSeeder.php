@@ -22,7 +22,6 @@ class ProductTypeSeeder extends Seeder
             ['product_type_name' => 'RAM', 'slug_product_type_name' => 'ram', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['product_type_name' => 'ROM', 'slug_product_type_name' => 'rom', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['product_type_name' => 'Graphics card', 'slug_product_type_name' => 'graphics-card', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['product_type_name' => 'Hard drive', 'slug_product_type_name' => 'hard-drive', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['product_type_name' => 'Computer screen', 'slug_product_type_name' => 'computer-screen', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['product_type_name' => 'Mainboard', 'slug_product_type_name' => 'mainboard', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ]);

@@ -38,6 +38,14 @@ class BrandSeeder extends Seeder
             ['brand_name'  => 'Samsung', 'slug_brand' => 'samsung', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['brand_name'  => 'SSTC', 'slug_brand' => 'sstc', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['brand_name'  => 'WD', 'slug_brand' => 'wd', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['brand_name'  => 'Kingston', 'slug_brand' => 'kingston', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['brand_name'  => 'TEAMGROUP', 'slug_brand' => 'temgroup', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['brand_name'  => 'Geil', 'slug_brand' => 'geli', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['brand_name'  => 'G.Skill', 'slug_brand' => 'g-skill', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['brand_name'  => 'Transcend', 'slug_brand' => 'transcend', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['brand_name'  => 'Seagate', 'slug_brand' => 'seagate', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['brand_name'  => 'Toshiba', 'slug_brand' => 'toshiba', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['brand_name'  => 'Quadro', 'slug_brand' => 'quadro', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ]);
     }
 }

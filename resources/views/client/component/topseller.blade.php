@@ -46,7 +46,7 @@
                 <div class="shop-inner">
                     <div class="tabs-box">
                         <div class="tab-btn-box clearfix">
-                            <h2>Top Seller</h2>
+                            <h2>Top Product</h2>
                             <ul class="tab-btns tab-buttons pull-right clearfix">
 
                             </ul>
