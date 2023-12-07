@@ -18,9 +18,13 @@
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
-                                        {{-- @foreach ($productype as $key => $value)
-                                            <li><a>{{ $value->product_type_name }}</a></li>
-                                        @endforeach --}}
+                                        <li><a>Keyboard</a></li>
+                                        <li><a>Computer Mouse</a></li>
+                                        <li><a>RAM</a></li>
+                                        <li><a>ROM</a></li>
+                                        <li><a>Graphics Card</a></li>
+                                        <li><a>Computer screen</a></li>
+                                        <li><a>Mainboard</a></li>
                                     </ul>
                                 </div>
                             </div>

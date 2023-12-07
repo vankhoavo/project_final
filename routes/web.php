@@ -120,3 +120,7 @@ Route::get('success-transaction', [PayPalController::class, 'successTransaction'
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
 
 Route::get('/product/{slug}', [ProductController::class, 'showdetailproduct']);
+
+Route::get('/viewprofile', [HomePageController::class, 'viewprofile']);
+Route::get('/get-user', [HomePageController::class, 'getUser']);
+Route::post('/updateviewprofile', [HomePageController::class, 'updateviewprofile']);

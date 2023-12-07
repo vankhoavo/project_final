@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('hash_reset')->nullable();
             $table->integer('is_active')->default(0);
             $table->integer('is_block')->default(0);
+            $table->string('google_id')->nullable();
             $table->timestamps();
         });
     }
