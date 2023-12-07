@@ -40,8 +40,8 @@ class CustomerController extends Controller
             // ));
             sendMailJob::dispatch($request->email, 'Thank you for registering for our castro shop account!', $data, 'mail.registermail');
             return response()->json([
-                'status'    => true,
-                'mess'      => "Successfully registered account! Please email to activate email before log in!",
+                'status' => true,
+                'mess' => "Successfully registered account! Please email to activate email before log in!",
             ]);
         } catch (Exception $e) {
             DB::rollBack();
@@ -97,20 +97,20 @@ class CustomerController extends Controller
             $customer->hash_reset = Str::uuid();
             $customer->save();
 
-            $data['email']  = $customer->email;
+            $data['email'] = $customer->email;
             $data['fullname'] = $customer->first_and_last_name;
             $data['link'] = env('APP_URL') . '/changepassword/' . $customer->hash_reset;
 
             sendMailJob::dispatch($customer->email, 'Password Recovery', $data, 'mail.forgotpasswordmail');
 
             return response()->json([
-                'status'    => true,
-                'mess'  => "Please enter your email to change your password!",
+                'status' => true,
+                'mess' => "Please enter your email to change your password!",
             ]);
         } else {
             return response()->json([
-                'status'    => 0,
-                'mess'  => "Invalid email or never used account registration email!",
+                'status' => 0,
+                'mess' => "Invalid email or never used account registration email!",
             ]);
         }
     }
@@ -136,13 +136,13 @@ class CustomerController extends Controller
             $customer->password = bcrypt($request->password);
             $customer->save();
             return response()->json([
-                'status'    => true,
-                'mess'      => "Your password has been changed successfully!",
+                'status' => true,
+                'mess' => "Your password has been changed successfully!",
             ]);
         } else {
             return response()->json([
-                'status'    => 0,
-                'mess'      => "Your password change information is incorrect or the password does not match. Please re-enter!",
+                'status' => 0,
+                'mess' => "Your password change information is incorrect or the password does not match. Please re-enter!",
             ]);
         }
     }
@@ -159,12 +159,46 @@ class CustomerController extends Controller
         return view('admin.pages.customer.index');
     }
 
-    public function googleCallback()
+    public function getGoogleSignInUrl()
     {
-        $user = Socialite::driver('google')->user();
-        echo $user->email . '<br/>';
-        echo $user->name . '<br/>';
-        echo $user->user['locale'] . '<br/>';
-        echo $user->getAvatar();
+        try {
+            $url = Socialite::driver('google')->stateless()
+                ->redirect()->getTargetUrl();
+            return redirect($url);
+        } catch (\Exception $exception) {
+            return $exception;
+        }
+    }
+
+    public function googleCallback(Request $request)
+    {
+        try {
+            $state = $request->input('state');
+
+            parse_str($state, $result);
+            $googleUser = Socialite::driver('google')->stateless()->user();
+            $finduser = Customer::where('email', $googleUser->email)->first();
+            if ($finduser && $finduser->google_id == null) {
+                return redirect("/login")->withErrors('Google sign in email existed');
+            }
+            if ($finduser == null) {
+                $finduser = Customer::create([
+                    'first_and_last_name' => $googleUser->name,
+                    'email' => $googleUser->email,
+                    'google_id' => $googleUser->id,
+                    'password' => bcrypt('123456dummy'),
+                    'hash_active' => Str::uuid(),
+                    'ip' => "127.0.0.1",
+                    'phone_number' => "0905955162",
+                    'is_active' => "1",
+
+                ]);
+            }
+            // Auth::login($finduser);
+            Auth::guard('client')->attempt(['email' => $googleUser->email, 'password' => "123456dummy"]);
+            return redirect("/");
+        } catch (\Exception $exception) {
+            return redirect("/login")->withErrors('Login with google failed');
+        }
     }
 }

@@ -20,6 +20,6 @@ class Customer extends Authenticatable
         'hash_reset',
         'is_active',
         'is_block',
-        // 'id_google',
+        'google_id',
     ];
 }

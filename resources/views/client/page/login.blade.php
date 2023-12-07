@@ -37,10 +37,9 @@
                             <div class="form-group">
                                 <a href="/forgotpassword" class="recover-password">Lost your password?</a>
                             </div>
-                            {!! NoCaptcha::renderJs() !!}
-                            {!! NoCaptcha::display() !!}
                             <div class="form-group mt-3">
-                                <button type="submit" class="theme-btn-two">Log In<i class="flaticon-right-1"></i></button>
+                                <button type="submit" class="theme-btn-two">Log In<i class="flaticon-right-1"></i>
+                                </button>
                             </div>
                         </form>
                         <div class="lower-inner centred">
@@ -55,13 +54,4 @@
             </div>
         </div>
     </section>
-@endsection
-@section('js')
-    <script>
-        @if (count($errors) > 0)
-            @foreach ($errors->all() as $error)
-                toastr.error("{{ $error }}");
-            @endforeach
-        @endif
-    </script>
 @endsection
