@@ -84,6 +84,8 @@ Route::get('/get-category', [HomePageController::class, 'getCategory']);
 Route::post('/get-product', [HomePageController::class, 'getProduct']);
 Route::get('/shoppage1', [HomePageController::class, 'shoppage1']);
 
+Route::get('/get-total-order', [HomePageController::class, 'getTotalOrder']);
+
 Route::get('/register', [HomePageController::class, 'viewregister']);
 Route::post('/register', [CustomerController::class, 'actionregister']);
 
@@ -121,3 +123,4 @@ Route::get('/product/{slug}', [ProductController::class, 'showdetailproduct']);
 Route::get('/viewprofile', [HomePageController::class, 'viewprofile']);
 Route::get('/get-user', [HomePageController::class, 'getUser']);
 Route::post('/updateviewprofile', [HomePageController::class, 'updateviewprofile']);
+Route::post('/add-to-cart-by-quantity', [InvoiceDetailController::class, 'addtocartByQuantity']);

@@ -79,4 +79,39 @@ class InvoiceDetailController extends Controller
             }
         }
     }
+
+    public function addtocartByQuantity(Request $request)
+    {
+        $product = Product::where('id', $request->id_product)->first();
+        $customer = Auth::guard('client')->user();
+        if ($product && $customer) {
+            $check = InvoiceDetails::where('is_invoice', 0)
+                ->where('id_customer', $customer->id)
+                ->where('id_product', $request->id_product)
+                ->first();
+            if ($check) {
+                $check->quantity = $check->quantity + $request->quantity;
+                $check->into_money = $check->unit_price * $check->quantity;
+                $check->save();
+            } else {
+                $price = $product->price_discount != null ? $product->price_discount : $product->price_sell;
+                InvoiceDetails::create([
+                    'id_product'    => $request->id_product,
+                    'id_customer'   => $customer->id,
+                    'unit_price'    => $price,
+                    'quantity'      => $request->quantity,
+                    'into_money'    => $price * 1,
+                ]);
+            }
+            return response()->json([
+                'status'    => true,
+                'mess'  => "Product invoice added successfully!",
+            ]);
+        } else {
+            return response()->json([
+                'status'    => 1,
+                'mess'  => "The product does not exist or the customer is not logged in!",
+            ]);
+        }
+    }
 }

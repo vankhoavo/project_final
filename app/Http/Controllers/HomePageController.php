@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Customer\UpdateProfileRequest;
 use App\Models\Customer;
+use App\Models\InvoiceDetails;
 use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Support\Facades\Auth;
@@ -90,6 +91,17 @@ class HomePageController extends Controller
         }
         return response()->json([
             'status' => false,
+        ]);
+    }
+
+    public function getTotalOrder()
+    {
+        $user = Auth::guard('client')->user();
+        $data = InvoiceDetails::where('id_customer', $user->id)
+            ->where("is_invoice", 0)
+            ->sum("quantity");
+        return response()->json([
+            'data'    => $data,
         ]);
     }
 }

@@ -1,4 +1,4 @@
-<header class="main-header style-four">
+<header class="main-header style-four" id="app_header">
     <div class="header-top">
         <div class="large-container">
             <div class="top-inner clearfix">
@@ -35,8 +35,13 @@
                     <nav class="main-menu navbar-expand-md navbar-light">
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <li class="current"><a href="/">Home</a></li>
-                                <li class="navigation"><a href="index.html">Blog</a>
+                                <li ><a href="/">Home</a></li>
+                                <li class="dropdown"><a href="index.html">Blog</a>
+                                    <ul>
+                                        <li><a href="blog-1.html">Blog 01</a></li>
+                                        <li><a href="blog-2.html">Blog 02</a></li>
+                                        <li><a href="blog-3.html">Blog 03</a></li>
+                                    </ul>
                                 </li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
@@ -46,7 +51,7 @@
                 <ul class="menu-right-content clearfix">
                     @if (Auth::guard('client')->check())
                         <li class="shop-cart">
-                            <a href="/cart"><i class="flaticon-shopping-cart-1"></i><span>3</span></a>
+                            <a href="/cart"><i class="flaticon-shopping-cart-1"></i><span>@{{total}}</span></a>
                         </li>
                         <li class="shop-cart">
                             <a href="/viewprofile"><i class="fa-solid fa-user"></i></a>
@@ -60,3 +65,4 @@
         </div>
     </div>
 </header>
+
