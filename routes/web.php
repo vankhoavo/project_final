@@ -133,3 +133,7 @@ Route::get('/viewprofile', [HomePageController::class, 'viewprofile']);
 Route::get('/get-user', [HomePageController::class, 'getUser']);
 Route::post('/updateviewprofile', [HomePageController::class, 'updateviewprofile']);
 Route::post('/add-to-cart-by-quantity', [InvoiceDetailController::class, 'addtocartByQuantity']);
+
+Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index']);
+
+Route::get('/contact',[\App\Http\Controllers\ContactController::class,'index']);

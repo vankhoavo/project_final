@@ -58,7 +58,8 @@ class CustomerController extends Controller
                 return redirect('/');
             } else {
                 toastr()->error('Please confirm email!');
-                return redirect()->back();
+                Auth::guard('client')->logout();
+                return redirect('/login');
             }
         } else {
             toastr()->error('Incorrect account or password!');
@@ -71,7 +72,7 @@ class CustomerController extends Controller
         $active = Customer::where('hash_active', $hash)->first();
         if ($active) {
             if ($active->is_active) {
-                toastr()->warning('Your account has been previously activated!');
+                toastr()->success('Your account has been successfully activated!');
                 return redirect('/');
             } else {
                 $active->is_active = 1;

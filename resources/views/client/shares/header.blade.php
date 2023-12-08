@@ -35,15 +35,10 @@
                     <nav class="main-menu navbar-expand-md navbar-light">
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <li ><a href="/">Home</a></li>
-                                <li class="dropdown"><a href="index.html">Blog</a>
-                                    <ul>
-                                        <li><a href="blog-1.html">Blog 01</a></li>
-                                        <li><a href="blog-2.html">Blog 02</a></li>
-                                        <li><a href="blog-3.html">Blog 03</a></li>
-                                    </ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/blog">Blog</a>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="/contact">Contact</a></li>
                             </ul>
                         </div>
                     </nav>

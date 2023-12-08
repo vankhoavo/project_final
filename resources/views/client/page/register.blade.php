@@ -7,8 +7,8 @@
             <div class="content-box">
                 <h1>My Account</h1>
                 <ul class="bread-crumb clearfix">
-                    <li><i class="flaticon-home-1"></i><a href="/">Home</a></li>
-                    <li>My Account</li>
+                    <li><i class="flaticon-home-1"></i>My Account</li>
+                    <li><a href="/">Home</a></li>
                 </ul>
             </div>
         </div>
