@@ -121,9 +121,9 @@ class InvoiceDetailController extends Controller
         $check = Auth::guard('client')->check();
         if($check) {
             $customer = Auth::guard('client')->user();
-            InvoiceDetails::where('is_invoice', $request->is_invoice)
-                ->where('id_customer', $customer->id) // thằng đang login yêu cầu xóa của nó
-//                ->where('is_invoice', 0)   // nó là giỏ hàng
+            InvoiceDetails::where('id', $request->id)
+                ->where('id_customer', $customer->id)
+                ->where('is_invoice', 0)
                 ->first()
                 ->delete();
             return response()->json(['status' => 1, 'mess' => 'Đã cập nhật giỏ hàng thành công!']);

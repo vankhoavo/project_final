@@ -38,7 +38,7 @@
                                 <td colspan="4" class="prod-column">
                                     <div class="column-box">
                                         <div class="remove-btn">
-                                            <a v-on:click="remove(b)"><i class="flaticon-close"></i></a>
+                                            <a v-on:click="remove(value,id)"><i class="flaticon-close"></i></a>
                                         </div>
                                         <div class="prod-thumb">
                                             <a href="#"><img v-bind:src="value.picture" alt=""></a>
@@ -123,9 +123,9 @@
                 array: [],
                 totalmoney: 0,
                 bill: {
-                    phone_number : "",
-                    recipient_name : "",
-                    address:"",
+                    phone_number: "",
+                    recipient_name: "",
+                    address: "",
                 },
             },
             created() {
@@ -212,20 +212,19 @@
                         });
                 },
 
-                getUser()
-                {
+                getUser() {
                     axios
                         .get('/get-user')
-                        .then((res)=>{
+                        .then((res) => {
                             this.bill.recipient_name = res.data.data.first_and_last_name;
                             this.bill.receiving_phone_number = res.data.data.phone_number;
                             this.bill.receiving_address = res.data.data.address;
                         })
                 },
 
-                remove(payload) {
+                remove(id) {
                     axios
-                        .post('/cart/delete', payload)
+                        .post('/cart/delete', id)
                         .then((res) => {
                             if (res.data.status) {
                                 toastr.success(res.data.mess);

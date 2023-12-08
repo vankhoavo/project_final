@@ -102,7 +102,7 @@ class InvoiceController extends Controller
 
     public function getdataInvoiceAdmin()
     {
-        $invoice = Invoice::where("payment", 1)->get();
+        $invoice = Invoice::get();
         if ($invoice) {
             return response()->json([
                 'data'  => $invoice,

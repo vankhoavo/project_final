@@ -14,7 +14,7 @@ class DeleteCartRequest extends FormRequest
     public function rules()
     {
         return [
-            'is_invoice'    =>  'required|exists:invoice_details,is_invoice'
+            'id'    =>  'required|exists:invoice_details,id'
         ];
     }
 }

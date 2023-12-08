@@ -44,7 +44,7 @@
                                     </td>
                                     <td class="text-center text-nowrap align-middle">
                                         <button class="btn btn-primary" v-if="value.payment == 1">Paid</button>
-                                        <button class="btn btn-danger" v-else="value.payment == 0">Unpaid</button>
+                                        <button class="btn btn-danger" v-else>Unpaid</button>
                                     </td>
                                     <td class="text-center text-nowrap align-middle">
                                         <button class="btn btn-info" v-on:click="loadDataModal(value.id)"
