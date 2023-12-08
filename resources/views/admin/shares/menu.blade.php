@@ -65,14 +65,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/adminlte/see-order" class="nav-link">
+                    <a href="/adminlte/invoice/index" class="nav-link">
                         <p>
                             Order Management
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/adminlte/see-customer" class="nav-link">
+                    <a href="/adminlte/user/index" class="nav-link">
                         <p>
                             Customer Management
                         </p>

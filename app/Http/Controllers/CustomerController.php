@@ -154,11 +154,6 @@ class CustomerController extends Controller
         return redirect('/');
     }
 
-    public function see_customer()
-    {
-        return view('admin.pages.customer.index');
-    }
-
     public function getGoogleSignInUrl()
     {
         try {

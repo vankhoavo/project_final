@@ -33,36 +33,17 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 big-column">
                     <div class="row clearfix">
-                        <div class="col-lg-6 col-md-6 col-sm-12 footer-column">
+                        <div class="col-lg-12 col-md-12 col-sm-12 footer-column">
                             <div class="footer-widget contact-widget">
                                 <div class="widget-title">
                                     <h3>Contact</h3>
                                 </div>
                                 <ul class="info-list clearfix">
-                                    <li><i class="flaticon-maps-and-flags"></i>4708 Ruecker Wall,
-                                        Kassandratown, HI</li>
-                                    <li><i class="flaticon-phone-ringing"></i><a href="tel:23055873407">+2(305)
-                                            587-3407</a></li>
+                                    <li><i class="flaticon-maps-and-flags"></i>02 Phan Châu Trinh, phường Minh An, thành phố Hội An, tỉnh Quảng Nam</li>
+                                    <li><i class="flaticon-phone-ringing"></i><a href="tel:23055873407">+84(913)-031-912</a></li>
                                     <li><i class="flaticon-email"></i><a
-                                            href="mailto:info@example.com">info@example.com</a></li>
+                                            href="mailto:info@example.com">khoavvgcd191275@fpt.edu.vn</a></li>
                                 </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget newsletter-widget">
-                                <div class="widget-title">
-                                    <h3>Newsletter</h3>
-                                </div>
-                                <div class="widget-content">
-                                    <p>4708 Ruecker Wall, Kassandratown, HI 97729</p>
-                                    <form action="contact.html" method="post" class="newsletter-form">
-                                        <div class="form-group">
-                                            <input type="email" name="email" placeholder="Enter your email"
-                                                required="">
-                                            <button type="submit" class="theme-btn-three">Subscribe</button>
-                                        </div>
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -73,7 +54,7 @@
     <div class="footer-bottom">
         <div class="auto-container clearfix">
             <ul class="cart-list pull-left clearfix">
-                <li><a><img src="/client/images/resource/card-1.png" alt=""></a>
+                <li><a><img src="/client/images/resource/card-paypal.png" alt=""></a>
                 </li>
             </ul>
             <div class="copyright pull-right">

@@ -95,8 +95,31 @@ class InvoiceController extends Controller
         }
     }
 
-    public function see_order()
+    public function indexAdmin()
     {
         return view('admin.pages.order.index');
+    }
+
+    public function getdataInvoiceAdmin()
+    {
+        $invoice = Invoice::where("payment", 1)->get();
+        if ($invoice) {
+            return response()->json([
+                'data'  => $invoice,
+            ]);
+        }
+    }
+    public function getdataInvoiceDetailAdmin($id)
+    {
+        $result = InvoiceDetails::join('products', 'invoice_details.id_product', 'products.id')
+            ->join('invoices', 'invoices.id', 'invoice_details.id_invoice')
+            ->select('invoice_details.*','invoices.*' ,'products.product_name')
+            ->where('invoice_details.id_invoice', $id)
+            ->first();
+        if ($result) {
+            return response()->json([
+                'data' => $result,
+            ]);
+        }
     }
 }

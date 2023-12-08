@@ -23,57 +23,57 @@
                     <div class="table-outer">
                         <table class="cart-table">
                             <thead class="cart-header">
-                                <tr>
-                                    <th>&nbsp;</th>
-                                    <th class="prod-column">Product Name</th>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                    <th class="price">Price</th>
-                                    <th class="quantity">Quantity</th>
-                                    <th>Total</th>
-                                </tr>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th class="prod-column">Product Name</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th class="price">Price</th>
+                                <th class="quantity">Quantity</th>
+                                <th>Total</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(value, key) in array">
-                                    <td colspan="4" class="prod-column">
-                                        <div class="column-box">
-                                            <div class="remove-btn">
-                                                <i class="flaticon-close"></i>
-                                            </div>
-                                            <div class="prod-thumb">
-                                                <a href="#"><img v-bind:src="value.picture" alt=""></a>
-                                            </div>
-                                            <div class="prod-title">
-                                                @{{ value.product_name }}
-                                            </div>
+                            <tr v-for="(value, key) in array">
+                                <td colspan="4" class="prod-column">
+                                    <div class="column-box">
+                                        <div class="remove-btn">
+                                            <a v-on:click="remove(b)"><i class="flaticon-close"></i></a>
                                         </div>
-                                    </td>
-                                    <td class="price">@{{ format(value.unit_price) }}</td>
-                                    <td class="qty">
-                                        <div class="item-quantity">
-                                            <div class="input-group bootstrap-touchspin">
+                                        <div class="prod-thumb">
+                                            <a href="#"><img v-bind:src="value.picture" alt=""></a>
+                                        </div>
+                                        <div class="prod-title">
+                                            @{{ value.product_name }}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price">@{{ format(value.unit_price) }}</td>
+                                <td class="qty">
+                                    <div class="item-quantity">
+                                        <div class="input-group bootstrap-touchspin">
                                                 <span class="input-group-addon bootstrap-touchspin-prefix"
-                                                    style="display: none;"></span>
-                                                <input class="quantity-spinner form-control" type="text"
-                                                    style="display: block;" v-model="value.quantity"
-                                                    v-on:change="update(value, 0)">
-                                                <span class="input-group-addon bootstrap-touchspin-postfix"
-                                                    style="display: none;"></span>
-                                                <span class="input-group-btn-vertical">
+                                                      style="display: none;"></span>
+                                            <input class="quantity-spinner form-control" type="text"
+                                                   style="display: block;" v-model="value.quantity"
+                                                   v-on:change="update(value, 0)">
+                                            <span class="input-group-addon bootstrap-touchspin-postfix"
+                                                  style="display: none;"></span>
+                                            <span class="input-group-btn-vertical">
                                                     <button class="btn btn-default bootstrap-touchspin-up"
-                                                        v-on:click="update(value,1)" type="button">
+                                                            v-on:click="update(value,1)" type="button">
                                                         <i class="glyphicon glyphicon-chevron-up"></i>
                                                     </button>
                                                     <button class="btn btn-default bootstrap-touchspin-down"
-                                                        v-on:click="update(value,-1)" type="button">
+                                                            v-on:click="update(value,-1)" type="button">
                                                         <i class="glyphicon glyphicon-chevron-down"></i>
                                                     </button>
                                                 </span>
-                                            </div>
                                         </div>
-                                    </td>
-                                    <td class="sub-total">@{{ format(value.into_money) }}</td>
-                                </tr>
+                                    </div>
+                                </td>
+                                <td class="sub-total">@{{ format(value.into_money) }}</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -122,10 +122,15 @@
             data: {
                 array: [],
                 totalmoney: 0,
-                bill: {},
+                bill: {
+                    phone_number : "",
+                    recipient_name : "",
+                    address:"",
+                },
             },
             created() {
                 this.loadData();
+                this.getUser();
             },
             methods: {
                 loadData() {
@@ -163,7 +168,7 @@
                         })
                         .catch((res) => {
                             var listE = res.response.data.errors;
-                            $.each(listE, function(k, v) {
+                            $.each(listE, function (k, v) {
                                 toastr.error(v[0]);
                             });
                         });
@@ -185,7 +190,7 @@
                         })
                         .catch((res) => {
                             var listE = res.response.data.errors;
-                            $.each(listE, function(k, v) {
+                            $.each(listE, function (k, v) {
                                 toastr.error(v[0]);
                             });
                         });
@@ -204,6 +209,36 @@
                             if (res.data.status) {
                                 window.location = res.data.link
                             }
+                        });
+                },
+
+                getUser()
+                {
+                    axios
+                        .get('/get-user')
+                        .then((res)=>{
+                            this.bill.recipient_name = res.data.data.first_and_last_name;
+                            this.bill.receiving_phone_number = res.data.data.phone_number;
+                            this.bill.receiving_address = res.data.data.address;
+                        })
+                },
+
+                remove(payload) {
+                    axios
+                        .post('/cart/delete', payload)
+                        .then((res) => {
+                            if (res.data.status) {
+                                toastr.success(res.data.mess);
+                                this.loadData();
+                            } else if (res.data.status == 0) {
+                                toastr.error(res.data.mess);
+                            }
+                        })
+                        .catch((res) => {
+                            var listE = res.response.data.errors;
+                            $.each(listE, function (k, v) {
+                                toastr.error(v[0]);
+                            });
                         });
                 }
             },

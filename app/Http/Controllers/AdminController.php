@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\admin\CreateAdminRequest;
 use App\Http\Requests\admin\UpdateAdminRequest;
 use App\Models\Admin;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,16 +21,16 @@ class AdminController extends Controller
     {
         if ($request->rule_id == 1) {
             return response()->json([
-                'status'    => 0,
-                'mess'      => "You cannot create an account with Admin Master rights!",
+                'status' => 0,
+                'mess' => "You cannot create an account with Admin Master rights!",
             ]);
         }
         $data = $request->all();
         $data['password'] = bcrypt($request->password);
         Admin::create($data);
         return response()->json([
-            'status'    => true,
-            'mess'      => "Added admin account successfully!",
+            'status' => true,
+            'mess' => "Added admin account successfully!",
         ]);
     }
 
@@ -37,7 +38,7 @@ class AdminController extends Controller
     {
         $admin = Admin::get();
         return response()->json([
-            'data'  => $admin,
+            'data' => $admin,
         ]);
     }
 
@@ -48,13 +49,13 @@ class AdminController extends Controller
             $admin->is_block = !$admin->is_block;
             $admin->save();
             return response()->json([
-                'status'        => true,
-                'mess'          => "Status changed successfully! " . $admin->first_and_last_name,
+                'status' => true,
+                'mess' => "Status changed successfully! " . $admin->first_and_last_name,
             ]);
         } else {
             return response()->json([
-                'status'        => 1,
-                'mess'          => "Cannot change status!",
+                'status' => 1,
+                'mess' => "Cannot change status!",
             ]);
         }
     }
@@ -64,14 +65,14 @@ class AdminController extends Controller
         $admin = Admin::where('id', $request->id)->first();
         if ($request->rule_id == 1) {
             return response()->json([
-                'status'    => 0,
-                'mess'      => "You cannot create an account with Admin Master rights!",
+                'status' => 0,
+                'mess' => "You cannot create an account with Admin Master rights!",
             ]);
         }
         $admin->update($request->all());
         return response()->json([
-            'status'    => true,
-            'mess'  => "The admin account has been updated successfully!",
+            'status' => true,
+            'mess' => "The admin account has been updated successfully!",
         ]);
     }
 
@@ -86,13 +87,13 @@ class AdminController extends Controller
         $check = Auth::guard('admin')->attempt($data);
         if ($check) {
             return response()->json([
-                'status'    => true,
-                'mess'      => "Signed in successfully!",
+                'status' => true,
+                'mess' => "Signed in successfully!",
             ]);
         } else {
             return response()->json([
-                'status'    => 0,
-                'mess'      => "Incorrect account or password!",
+                'status' => 0,
+                'mess' => "Incorrect account or password!",
             ]);
         }
     }
@@ -100,6 +101,35 @@ class AdminController extends Controller
     public function logout()
     {
         Auth::guard('admin')->logout();
+        toastr()->success("Logout successfully");
         return redirect('/adminlte/login');
+
+    }
+
+    public function viewUser()
+    {
+        return view('admin.pages.customer.index');
+    }
+
+    public function getdataUser()
+    {
+        $user = Customer::get();
+        return response()->json([
+            'data' => $user,
+        ]);
+    }
+
+    public function destroyUser($id)
+    {
+        $user = Customer::find($id);
+        if ($user) {
+            $user->delete();
+            return response()->json([
+                'status' => true,
+            ]);
+        }
+        return response()->json([
+            'status' => false,
+        ]);
     }
 }

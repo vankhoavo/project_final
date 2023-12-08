@@ -324,11 +324,11 @@
                                                                                 <tr>
                                                                                     <td align="left"
                                                                                         class="esd-block-text">
-                                                                                        <p>Email:
-                                                                                            <strong>{{ $data['email_name'] }}</strong>
+                                                                                        <p><b>Email:</b>
+                                                                                            {{ $data['email_name'] }}
                                                                                         </p>
-                                                                                        <p>Phone Number: {{ $data['receiving_phone_number'] }}</p>
-                                                                                        <p>Address: {{ $data['receiving_address'] }}</p>
+                                                                                        <p><b>Phone Number:</b> {{ $data['receiving_phone_number'] }}</p>
+                                                                                        <p><b>Address:</b> {{ $data['receiving_address'] }}</p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -351,9 +351,9 @@
                                                                                 <tr>
                                                                                     <td align="left"
                                                                                         class="esd-block-text">
-                                                                                        <p>Full Name: <strong>{{ $data['buyer_name'] }}</strong></p>
-                                                                                        <p>Payment methods: PayPal</p>
-                                                                                        <p>Order Date: {{ $data['updated_at'] }}</p>
+                                                                                        <p><b>Full Name:</b> {{ $data['buyer_name'] }}</p>
+                                                                                        <p><b>Payment methods:</b> PayPal</p>
+                                                                                        <p><b>Order Date:</b> {{ $data['updated_at'] }}</p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -391,8 +391,8 @@
                                                                                 <tr>
                                                                                     <td align="center"
                                                                                         class="esd-block-text">
-                                                                                        <p>Thank you for your successful
-                                                                                            order payment!</p>
+                                                                                        <p><b>Thank you for your successful
+                                                                                            order payment!</b></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>

@@ -38,6 +38,10 @@
                                 <input v-model="add.phone_number" type="text">
                             </div>
                             <div class="form-group">
+                                <label>Address</label>
+                                <input v-model="add.address" type="text">
+                            </div>
+                            <div class="form-group">
                                 <label>Password</label>
                                 <input v-model="add.password" type="password">
                             </div>
@@ -63,7 +67,7 @@
 @endsection
 @section('js')
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             new Vue({
                 el: "#app",
                 data: {
@@ -85,7 +89,7 @@
                             })
                             .catch((res) => {
                                 var listError = res.response.data.errors;
-                                $.each(listError, function(key, value) {
+                                $.each(listError, function (key, value) {
                                     toastr.error(value[0]);
                                 });
                             });

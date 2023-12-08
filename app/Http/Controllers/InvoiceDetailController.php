@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\invoice\DeleteCartRequest;
 use App\Models\Customer;
 use App\Models\InvoiceDetails;
 use App\Models\Product;
@@ -112,6 +113,20 @@ class InvoiceDetailController extends Controller
                 'status'    => 1,
                 'mess'  => "The product does not exist or the customer is not logged in!",
             ]);
+        }
+    }
+
+    public function deleteCart(DeleteCartRequest $request)
+    {
+        $check = Auth::guard('client')->check();
+        if($check) {
+            $customer = Auth::guard('client')->user();
+            InvoiceDetails::where('is_invoice', $request->is_invoice)
+                ->where('id_customer', $customer->id) // thằng đang login yêu cầu xóa của nó
+//                ->where('is_invoice', 0)   // nó là giỏ hàng
+                ->first()
+                ->delete();
+            return response()->json(['status' => 1, 'mess' => 'Đã cập nhật giỏ hàng thành công!']);
         }
     }
 }

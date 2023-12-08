@@ -84,6 +84,7 @@ class HomePageController extends Controller
             $data->first_and_last_name = $request->first_and_last_name;
             $data->email = $request->email;
             $data->phone_number = $request->phone_number;
+            $data->address = $request->address;
             $data->save();
             return response()->json([
                 'status' => true,

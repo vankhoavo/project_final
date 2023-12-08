@@ -30,9 +30,6 @@ Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
     Route::get('/admin/data', [AdminController::class, 'getdata']);
     Route::get('/logout', [AdminController::class, 'logout']);
 
-    Route::get('/see-order', [InvoiceController::class,'see_order']);
-    Route::get('/see-customer', [CustomerController::class,'see_customer']);
-
     Route::group(['prefix' => '/product-type'], function () {
         Route::get('/index', [ProductTypeController::class, 'index']);
         Route::get('/data', [ProductTypeController::class, 'getdata']);
@@ -72,6 +69,17 @@ Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
         Route::post('/checkslug', [ProductController::class, 'checkslug']);
         Route::post('/delete', [ProductController::class, 'destroy']);
     });
+
+    Route::group(['prefix' => '/invoice'], function () {
+        Route::get('/index', [InvoiceController::class, 'indexAdmin']);
+        Route::get('/data', [InvoiceController::class, 'getdataInvoiceAdmin']);
+        Route::get('/get-invoice-detail/{id}', [InvoiceController::class, 'getdataInvoiceDetailAdmin']);
+    });
+    Route::group(['prefix' => '/user'], function () {
+        Route::get('/index', [AdminController::class, 'viewUser']);
+        Route::get('/data', [AdminController::class, 'getdataUser']);
+        Route::get('/destroy/{id}', [AdminController::class, 'destroyUser']);
+    });
 });
 
 Route::group(['prefix' => 'laravel-filemanager'], function () {
@@ -105,6 +113,7 @@ Route::get('/cart', [HomePageController::class, 'cart']);
 Route::post('/add-to-cart', [InvoiceDetailController::class, 'addtocart']);
 Route::get('/cart/data', [InvoiceDetailController::class, 'data']);
 Route::post('/cart/update', [InvoiceDetailController::class, 'updatecard']);
+Route::post('/cart/delete', [InvoiceDetailController::class, 'deleteCart']);
 
 Route::get('/data', [InvoiceController::class, 'getdata']);
 Route::post('/create-bill', [InvoiceController::class, 'createbill']);

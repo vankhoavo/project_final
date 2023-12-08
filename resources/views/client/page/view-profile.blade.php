@@ -34,6 +34,10 @@
                                 <label>Phone Number</label>
                                 <input v-model="user.phone_number" type="text">
                             </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input v-model="user.address" type="text">
+                            </div>
                             <div class="form-group row mt-3">
                                 <div class="col-8"></div>
                                 <div class="col-4">
