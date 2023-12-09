@@ -80,15 +80,12 @@ class InvoiceController extends Controller
     public function getdatamodal($id)
     {
         $check = Auth::guard('client')->user();
-
         if ($check) {
-
             $result = InvoiceDetails::join('products', 'invoice_details.id_product', 'products.id')
                 ->join('invoices', 'invoices.id', 'invoice_details.id_invoice')
                 ->select('invoice_details.*', 'invoices.*', 'products.product_name')
                 ->where('id_invoice', $id)
                 ->get();
-
             return response()->json([
                 'datamodal' => $result,
             ]);

@@ -33,11 +33,6 @@ class CustomerController extends Controller
 
             $data['fullname'] = $request->first_and_last_name;
             $data['link'] = env('APP_URL') . '/active/' . $data['hash_active'];
-            // Mail::to($request->email)->send(new RegisterMail(
-            //     'Thank you for registering for our castro shop account!',
-            //     $data,
-            //     'mail.register',
-            // ));
             sendMailJob::dispatch($request->email, 'Thank you for registering for our castro shop account!', $data, 'mail.registermail');
             return response()->json([
                 'status' => true,
@@ -72,7 +67,6 @@ class CustomerController extends Controller
         $active = Customer::where('hash_active', $hash)->first();
         if ($active) {
             if ($active->is_active) {
-                toastr()->success('Your account has been successfully activated!');
                 return redirect('/');
             } else {
                 $active->is_active = 1;
@@ -184,13 +178,11 @@ class CustomerController extends Controller
                     'google_id' => $googleUser->id,
                     'password' => bcrypt('123456dummy'),
                     'hash_active' => Str::uuid(),
-                    'ip' => "127.0.0.1",
+                    'ip' => $request->ip(),
                     'phone_number' => "0905955162",
                     'is_active' => "1",
-
                 ]);
             }
-            // Auth::login($finduser);
             Auth::guard('client')->attempt(['email' => $googleUser->email, 'password' => "123456dummy"]);
             return redirect("/");
         } catch (\Exception $exception) {

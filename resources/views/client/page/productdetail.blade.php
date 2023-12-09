@@ -22,10 +22,6 @@
                         <a href="/forgotpassword" class="recover-password">Lost your
                             password?</a>
                     </div>
-                    <div class="form-group">
-                        {!! NoCaptcha::renderJs() !!}
-                        {!! NoCaptcha::display() !!}
-                    </div>
                     <div class="form-group text-center">
                         <button type="submit" class="theme-btn-two">Log In<i class="flaticon-right-1"></i></button>
                     </div>

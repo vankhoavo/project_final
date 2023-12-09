@@ -36,7 +36,7 @@ class InvoiceDetailController extends Controller
             }
             return response()->json([
                 'status'    => true,
-                'mess'  => "Product invoice added successfully!",
+                'mess'  => "Product cart added successfully!",
             ]);
         } else {
             return response()->json([
@@ -126,7 +126,7 @@ class InvoiceDetailController extends Controller
                 ->where('is_invoice', 0)
                 ->first()
                 ->delete();
-            return response()->json(['status' => 1, 'mess' => 'Đã cập nhật giỏ hàng thành công!']);
+            return response()->json(['status' => 1, 'mess' => 'Product successfully removed from cart!']);
         }
     }
 }

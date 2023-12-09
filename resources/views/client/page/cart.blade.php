@@ -37,8 +37,8 @@
                             <tr v-for="(value, key) in array">
                                 <td colspan="4" class="prod-column">
                                     <div class="column-box">
-                                        <div class="remove-btn">
-                                            <a v-on:click="remove(value,id)"><i class="flaticon-close"></i></a>
+                                        <div class="remove-btn" v-on:click="remove(value,id)">
+                                            <a><i class="flaticon-close"></i></a>
                                         </div>
                                         <div class="prod-thumb">
                                             <a href="#"><img v-bind:src="value.picture" alt=""></a>
@@ -82,7 +82,7 @@
             <div class="cart-total mt-3">
                 <div class="row">
                     <div class="col-xl-7 col-lg-12 col-md-12 cart-column">
-                        <form id="form" class="billing-form mb-n4">
+                        <form class="billing-form mb-n4">
                             <div class="form-group">
                                 <label>Full Name</label>
                                 <input v-model="bill.recipient_name" type="text" class="form-control">
@@ -179,7 +179,6 @@
                         .post('/create-bill', this.bill)
                         .then((res) => {
                             if (res.data.status) {
-                                $("#form").trigger('reset');
                                 this.paymentPaypal(res.data.id);
                                 toastr.success(res.data.mess);
                             } else if (res.data.status == 0) {

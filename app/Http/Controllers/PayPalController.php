@@ -59,8 +59,6 @@ class PayPalController extends Controller
                 ]
             ]
         ]);
-        // dd($response);
-        // <>
         if (isset($response['id']) && $response['id'] != null) {
 
             // redirect to approve href
@@ -73,7 +71,6 @@ class PayPalController extends Controller
                     ]);
                 }
             }
-
             return redirect()
                 ->route('createTransaction', ['status' => 0]);
         } else {

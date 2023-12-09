@@ -34,19 +34,4 @@ class OriginController extends Controller
             'data'  => $origin,
         ]);
     }
-
-    public function edit()
-    {
-        //
-    }
-
-    public function update()
-    {
-        //
-    }
-
-    public function destroy()
-    {
-        //
-    }
 }

@@ -9,6 +9,7 @@ use App\Http\Requests\product\UpdateProductRequest;
 use App\Models\ProductType;
 use App\Models\Product;
 use App\Models\Brand;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
