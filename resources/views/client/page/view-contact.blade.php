@@ -7,7 +7,7 @@
             <div class="content-box">
                 <h1>Contact us</h1>
                 <ul class="bread-crumb clearfix">
-                    <li><i class="flaticon-home-1"></i><a href="index.html">Home</a></li>
+                    <li><i class="flaticon-home-1"></i><a href="/">Home</a></li>
                     <li>Contact us</li>
                 </ul>
             </div>

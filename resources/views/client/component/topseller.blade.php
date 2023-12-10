@@ -43,9 +43,6 @@
                     <div class="tabs-box">
                         <div class="tab-btn-box clearfix">
                             <h2>Top Product</h2>
-                            <ul class="tab-btns tab-buttons pull-right clearfix">
-
-                            </ul>
                         </div>
                         <div class="tabs-content">
                             <div class="tab active-tab" id="tab-1">
