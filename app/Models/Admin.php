@@ -15,8 +15,6 @@ class Admin extends Authenticatable
         'email',
         'phone_number',
         'password',
-        'date_of_birth',
-        'hash_reset',
         'is_block',
         'rule_id',
     ];

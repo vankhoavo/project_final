@@ -178,8 +178,7 @@ class CustomerController extends Controller
                     'google_id' => $googleUser->id,
                     'password' => bcrypt('123456dummy'),
                     'hash_active' => Str::uuid(),
-                    'ip' => $request->ip(),
-                    'phone_number' => "0905955162",
+                    'ip' => "127.0.0.1",
                     'is_active' => "1",
                 ]);
             }

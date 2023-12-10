@@ -18,7 +18,6 @@ class AdminSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'phone_number' => '0905955162',
             'password' => bcrypt('123123'),
-            'date_of_birth' => '2001-05-04',
             'rule_id' => '1',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()

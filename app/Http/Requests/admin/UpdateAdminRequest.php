@@ -17,7 +17,6 @@ class UpdateAdminRequest extends FormRequest
             'id'                    => 'required|exists:admins,id',
             'first_and_last_name'       => 'required|min:2|max:20',
             'phone_number'      => 'required|digits:10',
-            'date_of_birth'     => 'required|date',
             'rule_id'       => 'required',
         ];
     }

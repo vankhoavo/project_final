@@ -68,6 +68,16 @@ class HomePageController extends Controller
         return view('client.page.view-profile');
     }
 
+    public function viewblog()
+    {
+        return view('client.page.view-blog');
+    }
+
+    public function viewcontact()
+    {
+        return view('client.page.view-contact');
+    }
+
     public function getUser()
     {
         $user = Auth::guard('client')->user();

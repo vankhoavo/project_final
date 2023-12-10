@@ -58,6 +58,7 @@
                         </div>
                     </div>
                 </div>
+{{--                Ở Đây--}}
                 <div class="col-lg-4 col-md-6 col-sm-12 news-block">
                     <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
                          data-wow-duration="1500ms">
@@ -66,17 +67,17 @@
                                         src="client/images/news/news-6.jpg" alt=""></a></figure>
                             <div class="lower-content">
                                 <span class="post-date">May 09, 2020</span>
-                                <h3><a href="blog-details.html">Inspiration from the pre-fall collection.</a></h3>
-                                <ul class="post-info clearfix">
-                                    <li><a href="index.html">by admin</a></li>
-                                    <li><a href="index.html">05 Comments</a></li>
-                                </ul>
+                                <h3><a>Inspiration from the pre-fall collection.</a></h3>
+                                <p class="post-info clearfix">
+                                    <li><a>by admin</a></li>
+                                </p>
                                 <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
                                     exercitation laboris.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+{{--                kHoa--}}
                 <div class="col-lg-4 col-md-6 col-sm-12 news-block">
                     <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
                          data-wow-duration="1500ms">

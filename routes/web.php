@@ -80,6 +80,12 @@ Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
         Route::get('/data', [AdminController::class, 'getdataUser']);
         Route::get('/destroy/{id}', [AdminController::class, 'destroyUser']);
     });
+    Route::group(['prefix' => '/blog'], function () {
+        Route::get('/index', [\App\Http\Controllers\BlogController::class, 'index']);
+    });
+    Route::group(['prefix' => '/contact'], function () {
+        Route::get('/index', [\App\Http\Controllers\ContactController::class, 'index']);
+    });
 });
 
 Route::group(['prefix' => 'laravel-filemanager'], function () {
@@ -134,6 +140,5 @@ Route::get('/get-user', [HomePageController::class, 'getUser']);
 Route::post('/updateviewprofile', [HomePageController::class, 'updateviewprofile']);
 Route::post('/add-to-cart-by-quantity', [InvoiceDetailController::class, 'addtocartByQuantity']);
 
-Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index']);
-
-Route::get('/contact',[\App\Http\Controllers\ContactController::class,'index']);
+Route::get('/blog', [\App\Http\Controllers\HomePageController::class, 'viewblog']);
+Route::get('/contact', [\App\Http\Controllers\HomePageController::class, 'viewcontact']);

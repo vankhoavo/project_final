@@ -19,7 +19,6 @@ class CreateAdminRequest extends FormRequest
             'phone_number'      => 'required|digits:10',
             'password'      => 'required|min:6|max:10',
             're_password'       => 'required|same:password',
-            'date_of_birth'     => 'required|date',
             'rule_id'       => 'required',
         ];
     }

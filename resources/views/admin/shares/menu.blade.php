@@ -44,13 +44,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/adminlte/origin/index" class="nav-link">
-                        <p>
-                            Origin Management
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="/adminlte/admin/index" class="nav-link">
                         <p>
                             Admin Management
@@ -75,6 +68,20 @@
                     <a href="/adminlte/user/index" class="nav-link">
                         <p>
                             Customer Management
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/adminlte/contact/index" class="nav-link">
+                        <p>
+                            Contact Management
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/adminlte/blog/index" class="nav-link">
+                        <p>
+                            Blog Management
                         </p>
                     </a>
                 </li>

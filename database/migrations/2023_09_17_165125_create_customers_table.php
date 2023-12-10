@@ -13,8 +13,8 @@ return new class extends Migration
             $table->string('first_and_last_name');
             $table->string('email');
             $table->string('password');
-            $table->string('phone_number');
-            $table->string('address');
+            $table->string('phone_number')->nullable();
+            $table->string('address')->nullable();
             $table->string('hash_active');
             $table->string('ip');
             $table->string('hash_reset')->nullable();

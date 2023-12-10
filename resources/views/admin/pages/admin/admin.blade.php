@@ -44,10 +44,6 @@
                                     class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Date Of Birth New</label>
-                                <input v-model="add.date_of_birth" type="date" class="form-control">
-                            </div>
-                            <div class="form-group">
                                 <label>Account Type New</label>
                                 <select v-model="add.rule_id" class="form-control"
                                     placeholder="Please select registration option">
@@ -74,7 +70,6 @@
                                         <th class="align-middle text-nowrap text-center">Full Name</th>
                                         <th class="align-middle text-nowrap text-center">Phone Number</th>
                                         <th class="align-middle text-nowrap text-center">Email</th>
-                                        <th class="align-middle text-nowrap text-center">Date of Birth</th>
                                         @if (Auth::guard('admin')->user()->rude_id == 1)
                                             <th class="align-middle text-nowrap text-center">Status</th>
                                         @endif
@@ -87,7 +82,6 @@
                                         <td class="text-center text-nowrap align-middle">@{{ value.first_and_last_name }}</td>
                                         <td class="text-center text-nowrap align-middle">@{{ value.phone_number }}</td>
                                         <td class="text-center text-nowrap align-middle">@{{ value.email }}</td>
-                                        <td class="text-center text-nowrap align-middle">@{{ value.date_of_birth }}</td>
                                         @if (Auth::guard('admin')->user()->rude_id == 1)
                                             <td class="text-center text-nowrap align-middle">
                                                 <button v-on:click="changestatus(value)" v-if="value.is_block == 0"
@@ -129,11 +123,6 @@
                                                     <label>Phone Number Update</label>
                                                     <input v-model="update.phone_number" type="number"
                                                         placeholder="Enter the update phone number" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Date Of Birth Update</label>
-                                                    <input v-model="update.date_of_birth" type="date"
-                                                        class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Account Type Update</label>
