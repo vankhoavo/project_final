@@ -21,97 +21,18 @@
         <div class="auto-container">
             <div class="row clearfix">
                 <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div class="inner-box">
-                            <figure class="image-box"><a href="blog-details.html"><img
-                                        src="client/images/news/news-4.jpg" alt=""></a></figure>
-                            <div class="lower-content">
-                                <span class="post-date">May 11, 2020</span>
-                                <h3><a href="blog-details.html">The ultimate fall 2020 shoe guide line</a></h3>
-                                <ul class="post-info clearfix">
-                                    <li><a href="index.html">by admin</a></li>
-                                    <li><a href="index.html">03 Comments</a></li>
-                                </ul>
-                                <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                    exercitation laboris.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="300ms"
-                         data-wow-duration="1500ms">
-                        <div class="inner-box">
-                            <figure class="image-box"><a href="blog-details.html"><img
-                                        src="client/images/news/news-5.jpg" alt=""></a></figure>
-                            <div class="lower-content">
-                                <span class="post-date">May 10, 2020</span>
-                                <h3><a href="blog-details.html">These hair-color trends are going to be huge.</a></h3>
-                                <ul class="post-info clearfix">
-                                    <li><a href="index.html">by admin</a></li>
-                                    <li><a href="index.html">07 Comments</a></li>
-                                </ul>
-                                <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                    exercitation laboris.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-{{--                Ở Đây--}}
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
                     <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
                          data-wow-duration="1500ms">
                         <div class="inner-box">
-                            <figure class="image-box"><a href="blog-details.html"><img
-                                        src="client/images/news/news-6.jpg" alt=""></a></figure>
+                            <figure class="image-box"><a><img
+                                        src="client/images/news/Success2.png" alt=""></a></figure>
                             <div class="lower-content">
-                                <span class="post-date">May 09, 2020</span>
-                                <h3><a>Inspiration from the pre-fall collection.</a></h3>
+                                <span class="post-date">July 13, 2023</span>
+                                <h3><a>Tất tần tật về Dimensity 8300: Chip cận cao cấp với công nghệ và sức mạnh đột phá</a></h3>
                                 <p class="post-info clearfix">
-                                    <li><a>by admin</a></li>
+                                    <li><a>by Lê Nguyễn Hoàng Duy</a></li>
                                 </p>
-                                <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                    exercitation laboris.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-{{--                kHoa--}}
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div class="inner-box">
-                            <figure class="image-box"><a href="blog-details.html"><img
-                                        src="client/images/news/news-7.jpg" alt=""></a></figure>
-                            <div class="lower-content">
-                                <span class="post-date">May 08, 2020</span>
-                                <h3><a href="blog-details.html">City of london wants to have it’s brexit cake.</a></h3>
-                                <ul class="post-info clearfix">
-                                    <li><a href="index.html">by admin</a></li>
-                                    <li><a href="index.html">08 Comments</a></li>
-                                </ul>
-                                <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                    exercitation laboris.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="300ms"
-                         data-wow-duration="1500ms">
-                        <div class="inner-box">
-                            <figure class="image-box"><a href="blog-details.html"><img
-                                        src="client/images/news/news-8.jpg" alt=""></a></figure>
-                            <div class="lower-content">
-                                <span class="post-date">May 07, 2020</span>
-                                <h3><a href="blog-details.html">On the other hand we provide with righteous.</a></h3>
-                                <ul class="post-info clearfix">
-                                    <li><a href="index.html">by admin</a></li>
-                                    <li><a href="index.html">07 Comments</a></li>
-                                </ul>
-                                <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                    exercitation laboris.</p>
+                                <p>MediaTek Dimensity 8300 là vi xử lý cận cao cấp không chỉ tiếp nối dòng Dimensity 8000 nổi tiếng mà còn là biểu tượng của sự hiện đại với kiến trúc CPU Armv9 và những cải tiến đột phá trong hiệu năng và tiết kiệm năng lượng. Vậy Dimensity 8300 là chip gì? Dimensity 8300 có hiệu năng ra sao? Chip Dimensity 8300 được trang bị trên máy nào? Câu trả lời sẽ có ngay trong bài viết dưới đây nhé!</p>
                             </div>
                         </div>
                     </div>
@@ -120,56 +41,15 @@
                     <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
                          data-wow-duration="1500ms">
                         <div class="inner-box">
-                            <figure class="image-box"><a href="blog-details.html"><img
-                                        src="client/images/news/news-9.jpg" alt=""></a></figure>
+                            <figure class="image-box"><a><img
+                                        src="client/images/news/Success1.png" alt=""></a></figure>
                             <div class="lower-content">
-                                <span class="post-date">May 06, 2020</span>
-                                <h3><a href="blog-details.html">The spectacle before us was indeed sublime.</a></h3>
-                                <ul class="post-info clearfix">
-                                    <li><a href="index.html">by admin</a></li>
-                                    <li><a href="index.html">05 Comments</a></li>
-                                </ul>
-                                <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                    exercitation laboris.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div class="inner-box">
-                            <figure class="image-box"><a href="blog-details.html"><img
-                                        src="client/images/news/news-10.jpg" alt=""></a></figure>
-                            <div class="lower-content">
-                                <span class="post-date">May 05, 2020</span>
-                                <h3><a href="blog-details.html">Why is a ticket to lagos so expensive?</a></h3>
-                                <ul class="post-info clearfix">
-                                    <li><a href="index.html">by admin</a></li>
-                                    <li><a href="index.html">03 Comments</a></li>
-                                </ul>
-                                <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                    exercitation laboris.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="300ms"
-                         data-wow-duration="1500ms">
-                        <div class="inner-box">
-                            <figure class="image-box"><a href="blog-details.html"><img
-                                        src="client/images/news/news-11.jpg" alt=""></a></figure>
-                            <div class="lower-content">
-                                <span class="post-date">May 04, 2020</span>
-                                <h3><a href="blog-details.html">But i must explain to you how all this mistaken
-                                        idea.</a></h3>
-                                <ul class="post-info clearfix">
-                                    <li><a href="index.html">by admin</a></li>
-                                    <li><a href="index.html">07 Comments</a></li>
-                                </ul>
-                                <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                    exercitation laboris.</p>
+                                <span class="post-date">May 20, 2022</span>
+                                <h3><a>Samsung Galaxy A55 giá bao nhiêu khi có chip Exynos 1480 cùng trang bị hấp dẫn?</a></h3>
+                                <p class="post-info clearfix">
+                                    <li><a>by Nguyễn Hoàng Duy</a></li>
+                                </p>
+                                <p>MediaTek Dimensity 8300 là vi xử lý cận cao cấp không chỉ tiếp nối dòng Dimensity 8000 nổi tiếng mà còn là biểu tượng của sự hiện đại với kiến trúc CPU Armv9 và những cải tiến đột phá trong hiệu năng và tiết kiệm năng lượng. Vậy Dimensity 8300 là chip gì? Dimensity 8300 có hiệu năng ra sao? Chip Dimensity 8300 được trang bị trên máy nào? Câu trả lời sẽ có ngay trong bài viết dưới đây nhé!</p>
                             </div>
                         </div>
                     </div>
@@ -178,17 +58,117 @@
                     <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
                          data-wow-duration="1500ms">
                         <div class="inner-box">
-                            <figure class="image-box"><a href="blog-details.html"><img
-                                        src="client/images/news/news-12.jpg" alt=""></a></figure>
+                            <figure class="image-box"><a><img
+                                        src="client/images/news/Success5 (1).png" alt=""></a></figure>
                             <div class="lower-content">
-                                <span class="post-date">May 03, 2020</span>
-                                <h3><a href="blog-details.html">The Biebers Just Switched Up Their Couple Style</a></h3>
-                                <ul class="post-info clearfix">
-                                    <li><a href="index.html">by admin</a></li>
-                                    <li><a href="index.html">05 Comments</a></li>
-                                </ul>
-                                <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud
-                                    exercitation laboris.</p>
+                                <span class="post-date">Nov 11, 2023</span>
+                                <h3><a>Sony tiết lộ về cảm biến mạnh nhất của hãng chỉ có trên các flagship hàng đầu</a></h3>
+                                <p class="post-info clearfix">
+                                    <li><a>by Nguyễn Hoàng Duy</a></li>
+                                </p>
+                                <p>MediaTek Dimensity 8300 là vi xử lý cận cao cấp không chỉ tiếp nối dòng Dimensity 8000 nổi tiếng mà còn là biểu tượng của sự hiện đại với kiến trúc CPU Armv9 và những cải tiến đột phá trong hiệu năng và tiết kiệm năng lượng. Vậy Dimensity 8300 là chip gì? Dimensity 8300 có hiệu năng ra sao? Chip Dimensity 8300 được trang bị trên máy nào? Câu trả lời sẽ có ngay trong bài viết dưới đây nhé!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
+                         data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <figure class="image-box"><a><img
+                                        src="client/images/news/Success5 (2).png" alt=""></a></figure>
+                            <div class="lower-content">
+                                <span class="post-date">May 15, 2023</span>
+                                <h3><a>Galaxy A15 và Galaxy A25 5G ra mắt tại Việt Nam với thiết kế Key Island, chip mạnh</a></h3>
+                                <p class="post-info clearfix">
+                                    <li><a>by Nguyễn Hoàng Duy</a></li>
+                                </p>
+                                <p>MediaTek Dimensity 8300 là vi xử lý cận cao cấp không chỉ tiếp nối dòng Dimensity 8000 nổi tiếng mà còn là biểu tượng của sự hiện đại với kiến trúc CPU Armv9 và những cải tiến đột phá trong hiệu năng và tiết kiệm năng lượng. Vậy Dimensity 8300 là chip gì? Dimensity 8300 có hiệu năng ra sao? Chip Dimensity 8300 được trang bị trên máy nào? Câu trả lời sẽ có ngay trong bài viết dưới đây nhé!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
+                         data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <figure class="image-box"><a><img
+                                        src="client/images/news/Screenshot 2023-12-11 205136.png" alt=""></a></figure>
+                            <div class="lower-content">
+                                <span class="post-date">Nov 15, 2023</span>
+                                <h3><a>Trả góp 0% iPhone tại Thế Giới Di Động, tại sao không? Lợi ích hơn bạn nghĩ đấy!</a></h3>
+                                <p class="post-info clearfix">
+                                    <li><a>by Nguyễn Hoàng Duy</a></li>
+                                </p>
+                                <p>MediaTek Dimensity 8300 là vi xử lý cận cao cấp không chỉ tiếp nối dòng Dimensity 8000 nổi tiếng mà còn là biểu tượng của sự hiện đại với kiến trúc CPU Armv9 và những cải tiến đột phá trong hiệu năng và tiết kiệm năng lượng. Vậy Dimensity 8300 là chip gì? Dimensity 8300 có hiệu năng ra sao? Chip Dimensity 8300 được trang bị trên máy nào? Câu trả lời sẽ có ngay trong bài viết dưới đây nhé!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
+                         data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <figure class="image-box"><a><img
+                                        src="client/images/news/Screenshot 2023-12-11 205144.png" alt=""></a></figure>
+                            <div class="lower-content">
+                                <span class="post-date">Oct 15, 2023</span>
+                                <h3><a>Ngày đôi sale gấp bội, laptop giá sốc chỉ còn từ 9.49 triệu, thời gian có hạn</a></h3>
+                                <p class="post-info clearfix">
+                                    <li><a>by Nguyễn Hoàng Duy</a></li>
+                                </p>
+                                <p>MediaTek Dimensity 8300 là vi xử lý cận cao cấp không chỉ tiếp nối dòng Dimensity 8000 nổi tiếng mà còn là biểu tượng của sự hiện đại với kiến trúc CPU Armv9 và những cải tiến đột phá trong hiệu năng và tiết kiệm năng lượng. Vậy Dimensity 8300 là chip gì? Dimensity 8300 có hiệu năng ra sao? Chip Dimensity 8300 được trang bị trên máy nào? Câu trả lời sẽ có ngay trong bài viết dưới đây nhé!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
+                         data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <figure class="image-box"><a><img
+                                        src="client/images/news/Screenshot 2023-12-11 205208.png" alt=""></a></figure>
+                            <div class="lower-content">
+                                <span class="post-date">April 15, 2023</span>
+                                <h3><a>Nghe Đồn Là: realme C67 5G sẽ có thiết kế trẻ trung, chip Dimensity 6100+, ra mắt ngày 14/12 (liên tục cập nhật)</a></h3>
+                                <p class="post-info clearfix">
+                                    <li><a>by Nguyễn Hoàng Duy</a></li>
+                                </p>
+                                <p>MediaTek Dimensity 8300 là vi xử lý cận cao cấp không chỉ tiếp nối dòng Dimensity 8000 nổi tiếng mà còn là biểu tượng của sự hiện đại với kiến trúc CPU Armv9 và những cải tiến đột phá trong hiệu năng và tiết kiệm năng lượng. Vậy Dimensity 8300 là chip gì? Dimensity 8300 có hiệu năng ra sao? Chip Dimensity 8300 được trang bị trên máy nào? Câu trả lời sẽ có ngay trong bài viết dưới đây nhé!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
+                         data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <figure class="image-box"><a><img
+                                        src="client/images/news/Screenshot 2023-12-11 205128.png" alt=""></a></figure>
+                            <div class="lower-content">
+                                <span class="post-date">Dec 17, 2023</span>
+                                <h3><a>Hướng dẫn cách sửa tin nhắn đã gửi trên Messenger, một tính năng hay mà bạn nên dùng</a></h3>
+                                <p class="post-info clearfix">
+                                    <li><a>by Nguyễn Hoàng Duy</a></li>
+                                </p>
+                                <p>MediaTek Dimensity 8300 là vi xử lý cận cao cấp không chỉ tiếp nối dòng Dimensity 8000 nổi tiếng mà còn là biểu tượng của sự hiện đại với kiến trúc CPU Armv9 và những cải tiến đột phá trong hiệu năng và tiết kiệm năng lượng. Vậy Dimensity 8300 là chip gì? Dimensity 8300 có hiệu năng ra sao? Chip Dimensity 8300 được trang bị trên máy nào? Câu trả lời sẽ có ngay trong bài viết dưới đây nhé!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"
+                         data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <figure class="image-box"><a><img
+                                        src="client/images/news/Success3.png" alt=""></a></figure>
+                            <div class="lower-content">
+                                <span class="post-date">Jan 15, 2023</span>
+                                <h3><a>Đánh giá OPPO Reno11: Thiết kế gọn nhẹ, camera SLR 50 MP chụp ảnh chân dung cực đỉnh, chip Dimensity 8200 mạnh mẽ</a></h3>
+                                <p class="post-info clearfix">
+                                    <li><a>by Nguyễn Hoàng Duy</a></li>
+                                </p>
+                                <p>MediaTek Dimensity 8300 là vi xử lý cận cao cấp không chỉ tiếp nối dòng Dimensity 8000 nổi tiếng mà còn là biểu tượng của sự hiện đại với kiến trúc CPU Armv9 và những cải tiến đột phá trong hiệu năng và tiết kiệm năng lượng. Vậy Dimensity 8300 là chip gì? Dimensity 8300 có hiệu năng ra sao? Chip Dimensity 8300 được trang bị trên máy nào? Câu trả lời sẽ có ngay trong bài viết dưới đây nhé!</p>
                             </div>
                         </div>
                     </div>
