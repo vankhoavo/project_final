@@ -28,19 +28,19 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 address-column">
                     <div class="single-adderss-block">
                         <div class="inner-box">
-                            <h3>New York Office</h3>
+                            <h3>Đà Nẵng Office</h3>
                             <ul class="info-list clearfix">
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>
-                                    PO Box 16122 Collins Street West Victoria 8007 Canada
+                                    88 Duy Tân, Phường Hoà Thuận Tây, Quận Hải Châu, Thành phố Đà Nẵng
                                 </li>
                                 <li>
                                     <i class="fas fa-phone"></i>
-                                    <a href="tel:48564334212234">(+48) 564-334-21-22-34</a>
+                                    <a href="tel:48564334212234">(+84) 0905955162</a>
                                 </li>
                                 <li>
                                     <i class="fas fa-envelope"></i>
-                                    <a href="mailto:info@example.com">info@example.com</a>
+                                    <a href="mailto:info@example.com">khoavvgcd191275@fpt.edu.vn</a>
                                 </li>
                             </ul>
                         </div>
@@ -49,19 +49,19 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 address-column">
                     <div class="single-adderss-block">
                         <div class="inner-box">
-                            <h3>London Office</h3>
+                            <h3>Hội An Office</h3>
                             <ul class="info-list clearfix">
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>
-                                    PO Box 16122 Collins Street West Victoria 8007 Landon
+                                    130 Lý Thường Kiệt, Sơn Phong, Hội An, Quảng Nam
                                 </li>
                                 <li>
                                     <i class="fas fa-phone"></i>
-                                    <a href="tel:48564334212234">(+48) 564-334-21-22-34</a>
+                                    <a href="tel:48564334212234">(+84) 0913031912</a>
                                 </li>
                                 <li>
                                     <i class="fas fa-envelope"></i>
-                                    <a href="mailto:info@example.com">info@example.com</a>
+                                    <a href="mailto:info@example.com">vovankhoa2001@hotmail.com</a>
                                 </li>
                             </ul>
                         </div>
@@ -70,59 +70,22 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 address-column">
                     <div class="single-adderss-block">
                         <div class="inner-box">
-                            <h3>Netherlands Office</h3>
+                            <h3>Hội An Office</h3>
                             <ul class="info-list clearfix">
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>
-                                    PO Box 16122 Collins Street West Victoria 8007 Netherlands
+                                    87 Lý Thường Kiệt, Street, Hội An, Quảng Nam
                                 </li>
                                 <li>
                                     <i class="fas fa-phone"></i>
-                                    <a href="tel:48564334212234">(+48) 564-334-21-22-34</a>
+                                    <a href="tel:48564334212234">(+84) 0916914275</a>
                                 </li>
                                 <li>
                                     <i class="fas fa-envelope"></i>
-                                    <a href="mailto:info@example.com">info@example.com</a>
+                                    <a href="mailto:info@example.com">vovankhoa191275@gmail.com</a>
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="contact-section">
-            <div class="auto-container">
-                <div class="col-lg-10 col-md-12 col-sm-12 offset-lg-1 big-column">
-                    <div class="sec-title">
-                        <h2>Get In Touch</h2>
-                        <p>Excepteur sint occaecat cupidatat non proident sunt</p>
-                        <span class="separator"
-                              style="background-image: url(client/images/icons/separator-1.png);"></span>
-                    </div>
-                    <div class="form-inner">
-                        <form method="post" action="sendemail.php" id="contact-form" class="default-form">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                    <input type="text" name="username" placeholder="Name" required>
-                                </div>
-                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                    <input type="email" name="email" placeholder="Email" required>
-                                </div>
-                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                    <input type="text" name="subject" placeholder="Subject" required>
-                                </div>
-                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                    <input type="text" name="phone" placeholder="Phone" required>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                    <textarea name="message" placeholder="Message"></textarea>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn centred">
-                                    <button type="submit" class="theme-btn-two" name="submit-form">Submit Message<i
-                                            class="flaticon-right-1"></i></button>
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>

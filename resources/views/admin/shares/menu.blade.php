@@ -79,13 +79,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/adminlte/blog/index" class="nav-link">
-                        <p>
-                            Blog Management
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="/adminlte/logout" class="nav-link">
                         <p>
                             Log Out

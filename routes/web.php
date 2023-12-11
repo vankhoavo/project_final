@@ -80,9 +80,6 @@ Route::group(['prefix' => '/adminlte', 'middleware' => 'admin'], function () {
         Route::get('/data', [AdminController::class, 'getdataUser']);
         Route::get('/destroy/{id}', [AdminController::class, 'destroyUser']);
     });
-    Route::group(['prefix' => '/blog'], function () {
-        Route::get('/index', [\App\Http\Controllers\BlogController::class, 'index']);
-    });
     Route::group(['prefix' => '/contact'], function () {
         Route::get('/index', [\App\Http\Controllers\ContactController::class, 'index']);
     });
