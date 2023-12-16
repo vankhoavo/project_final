@@ -15,9 +15,9 @@ class UpdateProfileRequest extends FormRequest
     {
         return [
             'email' => 'required|email|unique:customers,email,' . $this->id,
-            'first_and_last_name' => 'required|unique:customers,first_and_last_name,' . $this->id,
-            'phone_number' => 'required|unique:customers,phone_number,' . $this->id,
-            'address' => 'required|unique:customers,address,' . $this->id,
+            'first_and_last_name' => 'required',
+            'phone_number' => 'required',
+            'address' => 'required',
         ];
     }
 }

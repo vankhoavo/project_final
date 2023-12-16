@@ -39,7 +39,6 @@ class DashboardController extends Controller
         $begin = Carbon::create(date("Y-7-1", strtotime($end)));
         $data = Invoice::whereDate('updated_at', '>=', $begin)
             ->whereDate('updated_at', '<=', $end)
-            ->where('payment', 1)
             ->select(DB::raw('count(id) as total_order'))->first();
         return response()->json([
             'data' => $data->total_order,
@@ -50,7 +49,6 @@ class DashboardController extends Controller
     {
         $data = Invoice::whereDate('updated_at', '>=', $begin)
             ->whereDate('updated_at', '<=', $end)
-            ->where("payment", 1)
             ->select(DB::raw("DATE_FORMAT(updated_at, '%m-%Y') as month"),  DB::raw('sum(total_money) as total_money'))
             ->groupBy('month')
             ->get();

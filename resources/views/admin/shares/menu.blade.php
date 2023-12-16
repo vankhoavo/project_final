@@ -72,13 +72,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/adminlte/contact/index" class="nav-link">
-                        <p>
-                            Contact Management
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="/adminlte/logout" class="nav-link">
                         <p>
                             Log Out

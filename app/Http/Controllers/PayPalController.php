@@ -59,12 +59,11 @@ class PayPalController extends Controller
                 ]
             ]
         ]);
-        if (isset($response['id']) && $response['id'] != null) {
 
-            // redirect to approve href
+        //
+        if (isset($response['id']) && $response['id'] != null) {
             foreach ($response['links'] as $links) {
                 if ($links['rel'] == 'approve') {
-                    // return redirect()->away($links['href']);
                     return response()->json([
                         'status' => true,
                         'link' => $links['href'],
@@ -86,7 +85,6 @@ class PayPalController extends Controller
         $provider->getAccessToken();
 
         $response = $provider->capturePaymentOrder($request['token']);
-        // dd($response);
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             return redirect()
